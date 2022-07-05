@@ -1,0 +1,76 @@
+---
+export interface INavbarProps {
+  logoLink: string;
+  aboutLink: string;
+  projectsLink: string;
+
+  socialOne: string;
+  socialTwo: string;
+  socialThree: string;
+
+  socialOneLink: string;
+  socialTwoLink: string;
+  socialThreeLink: string;
+}
+const {
+  logoLink, aboutLink, projectsLink,
+  socialOne, socialTwo, socialThree,
+  socialOneLink, socialTwoLink, socialThreeLink
+} = Astro.props;
+---
+
+<!-- socialOne, socialTwo, and socialThree are svg icons -->
+<nav>
+  <div class="links-container">
+    <section class="nav internal-links">
+      <a class="nav logo" href={logoLink}>logo</a>
+      <a class="nav about" href={aboutLink}>about</a>
+      <a class="nav projects" href={projectsLink}>projects</a>
+    </section>
+
+    <section class="nav external-links">
+      <a class="nav social social-one" target="_blank" rel="noopener noreferrer" href={socialOneLink}><img
+          class="nav social-icon" src={socialOne}></a>
+      <a class="nav social social-two" target="_blank" rel="noopener noreferrer" href={socialTwoLink}>
+        <img class="nav social-icon" src={socialTwo}>
+      </a>
+      <a class="nav social social-three" target="_blank" rel="noopener noreferrer" href={socialThreeLink}>
+        <img class="nav social-icon" src={socialThree}>
+      </a>
+    </section>
+  </div>
+</nav>
+
+<style>
+  nav {
+    padding: 0.5em 2em;
+    justify-self: center;
+    position: sticky;
+    top: 0;
+  }
+
+  a.nav {
+    font-size: var(--font-size-base);
+  }
+
+  .social-icon {
+    filter: invert(85%) sepia(13%) saturate(514%) hue-rotate(169deg) brightness(95%) contrast(90%);
+  }
+
+  .links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  section.nav {
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  section.nav:last-of-type {
+    justify-content: center;
+    text-align: center;
+    gap: 1em;
+    justify-self: end;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+export interface IIntroductionProps {
+  firstName: string;
+  lastName: string;
+  roleMain: string;
+  roleSub: string;
+}
+const { firstName, lastName, roleMain, roleSub } = Astro.props;
+---
+
+<section class="section-name">
+  <div class="container-name">
+    <span class="name one">{firstName}</span>
+    <span class="name two">{lastName}</span>
+    <span class="role one">{roleMain}</span>
+    <span class="role two">{roleSub}</span>
+    <span class="fake-border"></span>
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    justify-items: center;
+  }
+
+  .container-name {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding-bottom: 1rem;
+    width: 90%;
+    transform-style: preserve-3d;
+    perspective: 300;
+    transform: rotateX(50deg);
+    animation: animateName 2.5s 1 ease-in-out 0.35s alternate backwards;
+  }
+
+  @keyframes animateName {
+    0% {
+      transform: rotateX(90deg);
+    }
+
+    100% {
+      transform: rotateX(50deg);
+    }
+  }
+
+  .container-name>span {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    transform: rotateX(310deg) rotateY(1deg);
+    color: var(--color-text);
+  }
+
+
+  .name.one {
+    padding-right: 5em;
+  }
+
+  .name.two {
+    padding-right: 3em;
+  }
+
+  .role.one {
+    padding-right: 1.7em;
+  }
+
+  .container-name>.role.two {
+    padding-right: 1em;
+    line-height: 1;
+  }
+</style>

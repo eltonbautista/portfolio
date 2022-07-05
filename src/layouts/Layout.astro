@@ -31,7 +31,7 @@ const { title } = Astro.props as Props;
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
     --font-size-xl: clamp(2.84rem, 2.68vw + 2.05rem, 4.05rem);
 
-    --color-text: hsl(12, 5%, 4%);
+    --color-text: #B4D0E7;
     --color-bg: hsl(10, 21%, 95%);
     --color-border: hsl(17, 24%, 90%);
 
@@ -40,10 +40,9 @@ const { title } = Astro.props as Props;
   }
 
   html {
-    /* font-family: JostLight, sans-serif; */
     font-size: var(--font-size-base);
     color: var(--color-text);
-    background-color: var(--color-bg);
+    background-color: var(--bg-color-main);
   }
 
   :global(h1) {

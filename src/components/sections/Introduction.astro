@@ -60,7 +60,7 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
 
     30% {
       text-decoration: wavy;
-      color: white;
+      color: var(--bg-color-lighter-sub);
     }
 
     65% {
@@ -89,7 +89,6 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
     }
 
     15% {
-      text-decoration: line-through;
       text-transform: lowercase;
     }
 
@@ -100,7 +99,9 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
 
     65% {
       text-decoration: wavy;
-      color: rgb(172, 147, 147);
+      color: var(bg-color-sub);
+      font-style: italic;
+      text-decoration: line-through;
     }
 
     80% {

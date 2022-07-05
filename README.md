@@ -1,3 +1,15 @@
+#Assets Used:
+
+###Fonts:
+Jost: https://indestructibletype.com/Jost.html
+
+###Media:
+Twitter Icon: https://iconmonstr.com/twitter-1-svg/
+LinkedIn Icon: https://iconmonstr.com/linkedin-3-svg/
+GitHub Icon: https://iconmonstr.com/github-1-svg/
+
+
+
 # Welcome to [Astro](https://astro.build)
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)

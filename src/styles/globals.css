@@ -1,4 +1,9 @@
 @font-face {
   font-family: JostLight;
+  src: url("./assets/Jost-300-Light.otf");
+}
+
+@font-face {
+  font-family: JostMedium;
   src: url("./assets/Jost-400-Book.otf");
 }

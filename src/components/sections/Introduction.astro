@@ -33,10 +33,10 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
     transform-style: preserve-3d;
     perspective: 300;
     transform: rotateX(50deg);
-    animation: animateName 2.5s 1 ease-in-out 0.35s alternate backwards;
+    animation: separateName 2.5s 1 ease-in-out 0.35s alternate both;
   }
 
-  @keyframes animateName {
+  @keyframes separateName {
     0% {
       transform: rotateX(90deg);
     }
@@ -45,6 +45,77 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
       transform: rotateX(50deg);
     }
   }
+
+  @keyframes glitchName {
+    0% {
+      font-style: italic;
+      font-family: JostMedium;
+      line-height: 1;
+    }
+
+    15% {
+      text-decoration: line-through;
+      text-transform: lowercase;
+    }
+
+    30% {
+      text-decoration: wavy;
+      color: white;
+    }
+
+    65% {
+      text-decoration: underline;
+      text-transform: capitalize;
+    }
+
+    80% {
+      text-decoration-style: solid;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+
+    100% {
+      font-family: JostMedium;
+      text-transform: uppercase;
+      line-height: 1;
+
+    }
+  }
+
+  @keyframes secondGlitchName {
+    0% {
+      text-transform: lowercase;
+      line-height: 1.1;
+    }
+
+    15% {
+      text-decoration: line-through;
+      text-transform: lowercase;
+    }
+
+    30% {
+      text-decoration: underline;
+      text-transform: capitalize;
+    }
+
+    65% {
+      text-decoration: wavy;
+      color: rgb(172, 147, 147);
+    }
+
+    80% {
+      text-decoration-style: solid;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+
+    100% {
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--bg-color-lighter-sub);
+    }
+  }
+
 
   .container-name>span {
     text-align: center;
@@ -58,18 +129,22 @@ const { firstName, lastName, roleMain, roleSub } = Astro.props;
 
   .name.one {
     padding-right: 5em;
+    animation: glitchName 0.9s 3 ease-in-out 3s alternate both;
   }
 
   .name.two {
     padding-right: 3em;
+    animation: glitchName 0.9s 3 ease-in-out 3s alternate both;
   }
 
   .role.one {
     padding-right: 1.7em;
+    animation: secondGlitchName 0.9s 3 ease-in-out 3s alternate both;
   }
 
   .container-name>.role.two {
     padding-right: 1em;
     line-height: 1;
+    animation: secondGlitchName 0.9s 3 ease-in-out 3s alternate both;
   }
 </style>

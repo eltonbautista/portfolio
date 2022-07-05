@@ -6,7 +6,15 @@ import Card from '../components/Card.astro';
 
 <Layout title="Welcome to Astro.">
   <main>
-
+    <section class="section-name">
+      <div class="container-name">
+        <span class="name one">elton</span>
+        <span class="name two">bautista</span>
+        <span class="role one">front end</span>
+        <span class="role two">developer</span>
+        <span class="fake-border"></span>
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -19,5 +27,67 @@ import Card from '../components/Card.astro';
     margin: auto;
     padding: 1em;
     max-width: 85vw;
+    height: 100vh;
+    background-color: var(--bg-color-main);
+    font-family: JostLight;
+  }
+
+  main * {
+    font-family: JostLight;
+  }
+
+  main>section {
+    display: grid;
+    justify-items: center;
+  }
+
+  .container-name {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding-bottom: 1rem;
+    width: 90%;
+    transform-style: preserve-3d;
+    perspective: 300;
+    transform: rotateX(50deg);
+    /* background-color: var(--bg-color-main); */
+    animation: animateName 1.5s 3 ease-in-out 0.5s alternate backwards;
+  }
+
+  @keyframes animateName {
+    0% {
+      transform: rotateX(90deg);
+    }
+
+    100% {
+      transform: rotateX(50deg);
+    }
+  }
+
+  .container-name>span {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    transform: rotateX(310deg) rotateY(1deg);
+    color: var(--bg-color-sub);
+  }
+
+
+  .name.one {
+    padding-right: 5em;
+  }
+
+  .name.two {
+    padding-right: 3em;
+  }
+
+  .role.one {
+    padding-right: 1.7em;
+  }
+
+  .container-name>.role.two {
+    padding-right: 1em;
+    line-height: 1;
   }
 </style>

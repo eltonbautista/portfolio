@@ -2,6 +2,39 @@ import styled from "styled-components";
 import React from "react";
 
 const StyledPersonalDisplay = styled.div`
+${props => props.active ? `animation: opacityChange 2s 1 ease-in-out alternate both;
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}` : null}
+
+${props => props.activity ? `animation: opacityChange 2s 1 ease-in-out alternate both;
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}` : null}
+
+/* animation: opacityChange 1s ease-in-out alternate both;
+
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+} */
 
   .video-container>video {
     object-fit: cover;
@@ -13,10 +46,10 @@ const StyledPersonalDisplay = styled.div`
 // }}
 
 const PersonalDisplays = (props) => {
-  const { description, noun, videoSrc } = props;
+  const { description, noun, videoSrc, active } = props;
 
   return (
-    <StyledPersonalDisplay className="container personal">
+    <StyledPersonalDisplay className="container personal" active={active} activity={active}>
       <div className="personal noun-container">
         <p >
           I am a {noun}

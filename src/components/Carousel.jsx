@@ -6,6 +6,24 @@ import clipTwo from "../../public/hiker.mp4";
 import clipThree from "../../public/Donda.mp4";
 import { allMyText } from "../utils";
 
+const StyledCarousel = styled.div`
+animation: opacityChange 1s 1 ease-in-out alternate both;
+
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}
+  .test-div {
+    /* opacity: 0.5; */
+    /* background: blue; */
+  }
+`;
+
 const Carousel = (props) => {
   // Basically my goal for this component is to display my three PersonalDisplays components
   // After all three PersonalDisplays have gone through each of their media, then the Carousel becomes a normal carousel.
@@ -19,7 +37,7 @@ const Carousel = (props) => {
   const [carouselInit, setCarouselInit] = useState(false);
   // Once carouselInit = true, begin timer.
   const [carouselTimer, setCarouselTimer] = useState(0);
-  const testArray = [<PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipTwo} />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipThree} />];
+  const testArray = [<PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipTwo} active="active" />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipThree} active="active" />];
 
   const carouselLogic = useCallback(() => {
     let myTimer;
@@ -68,7 +86,7 @@ const Carousel = (props) => {
         setCarouselInit(false);
         return;
       }
-    }, 2000);
+    }, 1);
 
   }, []);
 
@@ -82,11 +100,11 @@ const Carousel = (props) => {
 
 
   return (
-    <div className="carousel-container" >
+    <StyledCarousel className="carousel-container" >
       <div>
         <h3>A little bit about me..</h3>
       </div>
-      <div onClick={() => {
+      <div className="test-div" onClick={() => {
         if (carouselInit === false) {
           // disableInterval.current = 1;
           // carouselLogic();
@@ -96,7 +114,7 @@ const Carousel = (props) => {
       }}>
         {testArray[carouselTimer]}
       </div>
-    </div>
+    </StyledCarousel>
   );
 };
 

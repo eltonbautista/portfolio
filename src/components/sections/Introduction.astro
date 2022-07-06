@@ -6,6 +6,7 @@ import Carousel from "../Carousel.jsx";
 
 // Media
 import clipOne from "../../../public/powerlifter.mp4";
+import clipTwo from "../../../public/hiker.mp4";
 import { allMyText } from "../../utils";
 export interface IIntroductionProps {
   firstName: string;
@@ -26,7 +27,8 @@ let test = [1, 2, 3];
     <span class="fake-border"></span>
   </div>
   <QuoteAndMedia quote={allMyText.quoteOne} />
-  <PersonalDisplays client:only noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />
+
+
   <Carousel client:only displays={test} />
 </section>
 

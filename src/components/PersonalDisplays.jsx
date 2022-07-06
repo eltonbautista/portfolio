@@ -8,6 +8,9 @@ const StyledPersonalDisplay = styled.div`
     width: 100%;
   }
 `;
+// onMouseLeave={(e) => {
+//   e.currentTarget.pause();
+// }}
 
 const PersonalDisplays = (props) => {
   const { description, noun, videoSrc } = props;
@@ -15,16 +18,15 @@ const PersonalDisplays = (props) => {
   return (
     <StyledPersonalDisplay className="container personal">
       <div className="personal noun-container">
-        <p onClick={() => { console.log('test'); }}>
+        <p >
           I am a {noun}
         </p>
       </div>
       <div className="personal video-container">
-        <video id="my-video" className="personal-video" muted src={videoSrc} onMouseOver={(e) => {
+        <video id="my-video" className="personal-video" muted src={videoSrc} onClick={(e) => {
           e.currentTarget.play();
-        }} onMouseLeave={(e) => {
-          e.currentTarget.pause();
-        }}>
+        }}
+        >
           <source src={videoSrc} type="video/mp4" />
         </video>
       </div>

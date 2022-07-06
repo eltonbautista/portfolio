@@ -1,6 +1,7 @@
 ---
 import QuoteAndMedia from "../QuoteAndMedia.astro";
-
+import PersonalDisplay from "../PersonalDisplay.astro";
+import clipOne from "../../../public/powerlift.mp4";
 export interface IIntroductionProps {
   firstName: string;
   lastName: string;
@@ -8,10 +9,10 @@ export interface IIntroductionProps {
   roleSub: string;
 }
 const { firstName, lastName, roleMain, roleSub } = Astro.props;
-const quoteOne = `"If your reason to do is greater than how you will be done, only then will you truly be limitless"`;
+const quoteOne = `"If your reason to do is greater than how it will be done, only then will you truly be limitless"`;
 ---
 
-<section class="section-name">
+<section class="section-container section-name">
   <div class="container-name">
     <span class="name one">{firstName}</span>
     <span class="name two">{lastName}</span>
@@ -20,6 +21,7 @@ const quoteOne = `"If your reason to do is greater than how you will be done, on
     <span class="fake-border"></span>
   </div>
   <QuoteAndMedia quote={quoteOne} />
+  <PersonalDisplay noun="powerlifter" description="Just some descriptive text" videoSrc={clipOne} />
 </section>
 
 <style>

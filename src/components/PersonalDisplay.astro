@@ -1,0 +1,38 @@
+---
+export interface IPersonalProps {
+  noun: string;
+  description: string;
+  videoSrc: string;
+}
+const { noun, description, videoSrc } = Astro.props;
+---
+
+<div class="container personal">
+  <div class="personal noun-container">
+    <p>
+      I am a {noun}
+    </p>
+  </div>
+  <div class="personal description-container">
+    <p>
+      {description}
+    </p>
+  </div>
+  <div class="personal video-container">
+    <video controls>
+      <source src={videoSrc} type="video/mp4">
+    </video>
+  </div>
+</div>
+
+
+<style>
+  .video-container {
+    /* max-width: 100%; */
+    z-index: 1;
+  }
+
+  .video-container>video {
+    /* object-fit: contain; */
+  }
+</style>

@@ -5,6 +5,7 @@ export interface IPersonalProps {
   videoSrc: string;
 }
 const { noun, description, videoSrc } = Astro.props;
+
 ---
 
 <div class="container personal">
@@ -13,15 +14,15 @@ const { noun, description, videoSrc } = Astro.props;
       I am a {noun}
     </p>
   </div>
+  <div class="personal video-container">
+    <video class="personal-video" muted src={videoSrc}>
+      <source src={videoSrc} type="video/mp4">
+    </video>
+  </div>
   <div class="personal description-container">
     <p>
       {description}
     </p>
-  </div>
-  <div class="personal video-container">
-    <video controls>
-      <source src={videoSrc} type="video/mp4">
-    </video>
   </div>
 </div>
 
@@ -29,10 +30,9 @@ const { noun, description, videoSrc } = Astro.props;
 <style>
   .video-container {
     /* max-width: 100%; */
-    z-index: 1;
   }
 
   .video-container>video {
-    /* object-fit: contain; */
+    object-fit: cover;
   }
 </style>

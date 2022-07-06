@@ -1,6 +1,6 @@
 ---
 import QuoteAndMedia from "../QuoteAndMedia.astro";
-import PersonalDisplay from "../PersonalDisplay.astro";
+import PersonalDisplays from "../PersonalDisplays.jsx";
 import clipOne from "../../../public/powerlifter.mp4";
 export interface IIntroductionProps {
   firstName: string;
@@ -21,7 +21,7 @@ const quoteOne = `"If your reason to do is greater than how it will be done, onl
     <span class="fake-border"></span>
   </div>
   <QuoteAndMedia quote={quoteOne} />
-  <PersonalDisplay noun="powerlifter" description="Just some descriptive text" videoSrc={clipOne} />
+  <PersonalDisplays client:only noun="powerlifter" description="random description" videoSrc={clipOne} />
 </section>
 
 <style>

@@ -1,0 +1,44 @@
+---
+export interface IQuoteProps {
+  quote: string;
+  bgc: string;
+}
+const { quote, bgc } = Astro.props;
+---
+
+<div class="container quote-media-container">
+  <div class="quote-div">
+    <p class="quote">
+      {quote}
+    </p>
+  </div>
+  <div class="media-div">
+
+  </div>
+</div>
+
+<style define:vars={{ bgc }}>
+  .quote-media-container {
+    display: grid;
+    justify-self: center;
+    /* position: absolute; */
+    align-self: end;
+    /* bottom: -3em; */
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    max-width: 90%;
+  }
+
+  .quote-div {
+    /* position: absolute; */
+    /* width: 100vw; */
+    /* right: -55vw; */
+  }
+
+  .quote {
+    font-style: italic;
+    letter-spacing: 0.04em;
+    justify-self: center;
+    margin: 0;
+    font-size: var(--font-size-base);
+  }
+</style>

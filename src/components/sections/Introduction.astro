@@ -1,7 +1,12 @@
 ---
+// Components
 import QuoteAndMedia from "../QuoteAndMedia.astro";
 import PersonalDisplays from "../PersonalDisplays.jsx";
+import Carousel from "../Carousel.jsx";
+
+// Media
 import clipOne from "../../../public/powerlifter.mp4";
+import { allMyText } from "../../utils";
 export interface IIntroductionProps {
   firstName: string;
   lastName: string;
@@ -9,7 +14,7 @@ export interface IIntroductionProps {
   roleSub: string;
 }
 const { firstName, lastName, roleMain, roleSub } = Astro.props;
-const quoteOne = `"If your reason to do is greater than how it will be done, only then will you truly be limitless"`;
+let test = [1, 2, 3];
 ---
 
 <section class="section-container section-name">
@@ -20,8 +25,9 @@ const quoteOne = `"If your reason to do is greater than how it will be done, onl
     <span class="role two">{roleSub}</span>
     <span class="fake-border"></span>
   </div>
-  <QuoteAndMedia quote={quoteOne} />
-  <PersonalDisplays client:only noun="powerlifter" description="random description" videoSrc={clipOne} />
+  <QuoteAndMedia quote={allMyText.quoteOne} />
+  <PersonalDisplays client:only noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />
+  <Carousel client:only displays={test} />
 </section>
 
 <style>
@@ -93,7 +99,7 @@ const quoteOne = `"If your reason to do is greater than how it will be done, onl
   @keyframes secondGlitchName {
     0% {
       text-transform: lowercase;
-      line-height: 1.1;
+      line-height: 1.08;
     }
 
     15% {
@@ -129,7 +135,7 @@ const quoteOne = `"If your reason to do is greater than how it will be done, onl
   .container-name>span {
     text-align: center;
     font-size: var(--font-size-xl);
-    line-height: 1.2;
+    line-height: 1.08;
     transform: rotateX(310deg) rotateY(0deg) skewY(0.325deg);
     color: var(--color-text);
   }

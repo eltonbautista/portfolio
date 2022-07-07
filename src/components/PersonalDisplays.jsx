@@ -2,21 +2,23 @@ import styled from "styled-components";
 import React from "react";
 
 const StyledPersonalDisplay = styled.div`  
-    width: 90%;
-    margin-right: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
-    grid-template-rows: none;
-    padding: 1em;
-  
+  /* position: fixed; */
+  width: 85%;
+  margin-right: 0;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
+  grid-template-rows: none;
+  padding: 1em;
 
-
-  .styled-personal-display>.noun-container {
-    grid-area: none;
-  }
-
-  .styled-personal-display>.video-container {
-    grid-area: none;
+  .noun-container {
+    h3 {
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0;
+      font-family: JostMedium;
+    }
   }
 
   .video-container>video {
@@ -30,20 +32,59 @@ const StyledPersonalDisplay = styled.div`
   @media (min-width: 800px) and (max-height: 1300px) {
   
   position: relative;
-  max-width: 95%;
+  max-width: 90%;
   margin-right: 0;
+  margin-top: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(8, 1fr);
   padding: 1em;
 
+  
 
 .noun-container {
-  grid-area: 1/1/9/9;
+  color: var(--bg-color-main);
+  /* color: black; */
+  background-color: var(--bg-color-sub);
+  font-weight: 900;
+  padding: 1em;
+  grid-area: 3/1/7/8;
+  z-index: 1;
+  position: relative;
+  display: grid;
+  > div {
+    background-color: var(--bg-color-sub);
+    max-width: 100%;
+    min-height: 100%;
+  }
+
+  >h3, p {
+    z-index: 1;
+  }
+
+  > p {
+    padding: 0.5em;
+    font-weight: 100;
+    font-family: JostMedium;
+  }
+
+  > h3 {
+    position: absolute;
+    transform: translateY(-50%);
+
+    font-weight: 100;
+    top: -15%;
+    color: var(--color-text);
+    background-color: var(--bg-color-accent-main);
+    width: 35%;
+    text-align: center;
+    padding: 0.5em;
+  }
 }
 
 .video-container {
-  grid-area: 2/5/8/13;
+  grid-area: 1/6/9/13;
+  opacity: 0.8;
 }
 
 .video-container>video {
@@ -64,6 +105,7 @@ const PersonalDisplays = (props) => {
   return (
     <StyledPersonalDisplay className="styled-personal-display container personal" data-active={active} activity={activity}>
       <div className="personal noun-container">
+        {/* <div className="background"></div> */}
         <h3>
           I am a {noun}
         </h3>

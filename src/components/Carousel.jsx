@@ -11,6 +11,7 @@ const StyledCarousel = styled.div`
   min-width: 100%;
   display: grid;
 
+
   .test-div {
     display: grid;
     position: relative;
@@ -68,7 +69,7 @@ const StyledCarousel = styled.div`
     transition-delay: 200ms;
     z-index: 1;
 
-    .noun-container.personal > p {
+    .noun-container.personal > h3 {
       animation: glitchName 0.9s 3 ease-in-out .85s alternate both;
     }
   }
@@ -91,8 +92,8 @@ const Carousel = (props) => {
   const testArray =
     [
       <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />,
-      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipTwo} />,
-      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipThree} />];
+      <PersonalDisplays noun={allMyText.nounTwo} description={allMyText.descriptionTwo} videoSrc={clipTwo} />,
+      <PersonalDisplays noun={allMyText.nounThree} description={allMyText.descriptionThree} videoSrc={clipThree} />];
   const slidesArrayLength = testArray.length;
 
   // Slide position is determined by carouselCount

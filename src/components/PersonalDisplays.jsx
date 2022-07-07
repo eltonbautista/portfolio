@@ -5,7 +5,7 @@ const StyledPersonalDisplay = styled.div`
   /* position: fixed; */
   width: 85%;
   margin-right: 0;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
   grid-template-rows: none;
@@ -18,6 +18,9 @@ const StyledPersonalDisplay = styled.div`
     p {
       margin: 0;
       font-family: JostMedium;
+      background-color: var(--bg-color-sub);
+      color: var(--bg-color-main);
+      text-align: center;
     }
   }
 
@@ -40,11 +43,8 @@ const StyledPersonalDisplay = styled.div`
   grid-template-rows: repeat(8, 1fr);
   padding: 1em;
 
-  
-
 .noun-container {
   color: var(--bg-color-main);
-  /* color: black; */
   background-color: var(--bg-color-sub);
   font-weight: 900;
   padding: 1em;
@@ -84,7 +84,7 @@ const StyledPersonalDisplay = styled.div`
 
 .video-container {
   grid-area: 1/6/9/13;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .video-container>video {

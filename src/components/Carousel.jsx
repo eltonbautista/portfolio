@@ -10,7 +10,23 @@ const StyledCarousel = styled.div`
   position: relative;
   min-width: 100%;
   display: grid;
+  margin-top: 1em;
+  .header-div {
+    display: grid;
+    align-items: end;
+    transform: translateX(-1px);
+    z-index: 2;
+  }
 
+  h3 {
+    margin-bottom: 1.2em;
+    width: fit-content;
+    padding: 0.5em;
+    background-color: var(--bg-color-accent-main);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    z-index: 2;
+  }
 
   .test-div {
     display: grid;
@@ -23,11 +39,11 @@ const StyledCarousel = styled.div`
   .personal-list-container {
     position: relative;
     width: 100%;
-    /* max-width: 600px; */
     justify-self: center;
     display: grid;
     margin: 0;
     padding: 0;
+    
   }
 
   .carousel-button {
@@ -47,11 +63,15 @@ const StyledCarousel = styled.div`
   }
   .carousel-button.previous {
     left: -1.1em;
-    transform: scaleX(-1) translateY(-50%);
+    transform: scaleX(-1) translateY(-100%);
   }
   .personal-display-list {
+    border: 1px solid white;
+    border-bottom: none;
+    border-right: none;
     padding: 0;
     margin: 0;
+    margin-top: 1em;
     display: grid;
     justify-items: center;
     justify-self: center;
@@ -139,7 +159,7 @@ const Carousel = (props) => {
 
   return (
     <StyledCarousel className="carousel-container" >
-      <div>
+      <div className="carousel header-div">
         <h3>A little bit about me..</h3>
       </div>
       <div className="test-div" >

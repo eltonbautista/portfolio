@@ -7,113 +7,139 @@ import clipThree from "../../public/Donda.mp4";
 import { allMyText } from "../utils";
 
 const StyledCarousel = styled.div`
-animation: opacityChange 1s 1 ease-in-out alternate both;
+  position: relative;
+  min-width: 100%;
+  display: grid;
 
-
-@keyframes opacityChange {
-  0% {
-    opacity: 0;
-  } 
-  100% {
-    opacity: 1;
-  }
-}
   .test-div {
-    /* opacity: 0.5; */
-    /* background: blue; */
+    display: grid;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    justify-self: center;
   }
+
+  .personal-list-container {
+    position: relative;
+    width: 70%;
+    max-width: 600px;
+    justify-self: center;
+    display: grid;
+  }
+
+  .carousel-button {
+    z-index: 2;
+    position: absolute;
+    justify-self: center;
+    top: 50%;
+    background: none;
+    border: none;
+    color: var(--bg-color-sub);
+    font-size: var(--font-size-lg);
+  }
+
+  .carousel-button.next {
+    transform: translateY(-50%);
+    right: -1.1em;
+  }
+  .carousel-button.previous {
+    left: -1.1em;
+    transform: scaleX(-1) translateY(-50%);
+  }
+  .personal-display-list {
+    justify-self: center;
+    opacity: 0;
+    position: absolute;
+    top: -50px;
+
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  li.personal-display-list[data-active="true"] {
+    opacity: 1;
+    transition-delay: 200ms;
+    z-index: 1;
+
+    .noun-container.personal > p {
+      animation: glitchName 0.9s 3 ease-in-out .85s alternate both;
+    }
+  }
+
+  
 `;
 
+function isActive(elem, arr, count) {
+  // A function that determines which slide is currently active
+  // receives an element, in conjunction with arr.indexOf, it checks if it is the current carouselCount
+  if (arr.indexOf(elem) === count) {
+    return true;
+  }
+  return false;
+}
 const Carousel = (props) => {
-  // Basically my goal for this component is to display my three PersonalDisplays components
-  // After all three PersonalDisplays have gone through each of their media, then the Carousel becomes a normal carousel.
-  // Thereby being given the ability to scroll through the contents. 
-  // I can make it a normal carousel by passing a prop that disables my carouselLogic, and immediately enables normalCarouselLogic
+  const { displays, children } = props;
+  const [carouselCount, setCarouselCount] = useState(0);
 
-  const { displays } = props;
-  const disableInterval = useRef(0);
-  // Once user has hovered over Carousel, then change this to true. This way, carouselLogic can only be invoked once.
-  // I designed it this way so that the user can view it when they've viewed the component.
-  const [carouselInit, setCarouselInit] = useState(false);
-  // Once carouselInit = true, begin timer.
-  const [carouselTimer, setCarouselTimer] = useState(0);
-  const testArray = [<PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipTwo} active="active" />, <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipThree} active="active" />];
+  const testArray =
+    [
+      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />,
+      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipTwo} />,
+      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipThree} />];
+  const slidesArrayLength = testArray.length;
 
-  const carouselLogic = useCallback(() => {
-    let myTimer;
-    let count;
-    // Essentially I am using setInterval to move through the first, second, and third index of my displays array.
-    // Only works if displays is an array. 
-
-    if (Array.isArray(displays)) {
-      myTimer = setInterval(() => {
-        if (disableInterval.current === 1 && carouselTimer < 3) {
-          setCarouselTimer((prev) => {
-            return prev + 1;
-          });
-          disableInterval.current = 0;
-          setCarouselInit(false);
-          return;
-        }
-
-        // TODO: Invoke function that will make carousel normal/scrollable
-        clearInterval(myTimer);
-      }, 5000);
-    }
-
-    return;
-  }, []);
-
-  const awaitCarouselDisplay = useCallback((direction = "next") => {
-    let myTimer;
-    setTimeout(() => {
-      if (carouselTimer < 3) {
-        if (direction === "next") {
-          setCarouselTimer((prev) => {
-            return prev + 1;
-          });
-        } else if (direction === "previous") {
-          if (disableInterval.current === 0) {
-            setCarouselTimer(displays.length - 1);
-            setCarouselInit(false);
-            return;
-          }
-          setCarouselTimer((prev) => {
-            return prev - 1;
-          });
-        }
-
-        setCarouselInit(false);
-        return;
+  // Slide position is determined by carouselCount
+  const nextSlide = () => {
+    // Increment carousel count by 1, but if it exceeds the number of array items, then reset
+    setCarouselCount((prev) => {
+      if (carouselCount < slidesArrayLength - 1) {
+        return prev + 1;
       }
-    }, 1);
+      return 0;
+    });
+    return;
+  };
 
-  }, []);
+  const previousSlide = () => {
 
-  useEffect(() => {
-    if (carouselTimer > 2) {
-      console.log('disabled');
-      setCarouselTimer(0);
+    // if at the start of array, and previous slide is clicked, then go to the last slide.
+    if (carouselCount === 0) {
+      setCarouselCount(slidesArrayLength - 1);
+      return;
     }
-    console.log('test');
-  });
+    setCarouselCount((prev) => {
+      return prev - 1;
+    });
+    return;
+  };
 
+  // TODO: Make it so that when user scrolls to the "A little about me" section, the animations play, and not before that.
+
+  const createMappedItems = (arrayToMap) => {
+    // map carousel slides into link elements
+    // data-active is determined by isActive, this is a custom attribute which has different styling
+    return arrayToMap.map((element, index) => {
+      return (
+        <li className="personal-display-list" key={index} data-active={isActive(element, arrayToMap, carouselCount)} >{element}
+          <button className="carousel-button previous" onClick={previousSlide}>&#10148;</button>
+          <button className="carousel-button next" onClick={nextSlide}>&#10148;</button>
+        </li>);
+    });
+  };
+  // Slide elements to be added into a ul
+  const mySlides = createMappedItems(testArray);
 
   return (
     <StyledCarousel className="carousel-container" >
       <div>
         <h3>A little bit about me..</h3>
       </div>
-      <div className="test-div" onClick={() => {
-        if (carouselInit === false) {
-          // disableInterval.current = 1;
-          // carouselLogic();
-          awaitCarouselDisplay();
-        }
-        setCarouselInit(true);
-      }}>
-        {testArray[carouselTimer]}
+      <div className="test-div" >
+        <ul className="personal-list-container">
+          {mySlides}
+        </ul>
       </div>
+
     </StyledCarousel>
   );
 };

@@ -2,63 +2,32 @@ import styled from "styled-components";
 import React from "react";
 
 const StyledPersonalDisplay = styled.div`
-${props => props.active ? `animation: opacityChange 2s 1 ease-in-out alternate both;
-
-@keyframes opacityChange {
-  0% {
-    opacity: 0;
-  } 
-  100% {
-    opacity: 1;
-  }
-}` : null}
-
-${props => props.activity ? `animation: opacityChange 2s 1 ease-in-out alternate both;
-
-@keyframes opacityChange {
-  0% {
-    opacity: 0;
-  } 
-  100% {
-    opacity: 1;
-  }
-}` : null}
-
-/* animation: opacityChange 1s ease-in-out alternate both;
-
-
-@keyframes opacityChange {
-  0% {
-    opacity: 0;
-  } 
-  100% {
-    opacity: 1;
-  }
-} */
+  max-width: 100%;
 
   .video-container>video {
+    display: block;
     object-fit: cover;
+    object-position: center;
     width: 100%;
+    height: auto;
   }
 `;
-// onMouseLeave={(e) => {
-//   e.currentTarget.pause();
-// }}
+
 
 const PersonalDisplays = (props) => {
-  const { description, noun, videoSrc, active } = props;
+  const { description, noun, videoSrc, active, activity } = props;
 
   return (
-    <StyledPersonalDisplay className="container personal" active={active} activity={active}>
+    <StyledPersonalDisplay className="container personal" data-active={active} activity={activity}>
       <div className="personal noun-container">
         <p >
           I am a {noun}
         </p>
       </div>
       <div className="personal video-container">
-        <video id="my-video" className="personal-video" muted src={videoSrc} onClick={(e) => {
+        <video id="my-video" className="personal-video" muted src={videoSrc} onMouseOver={(e) => {
           e.currentTarget.play();
-        }}
+        }} onMouseLeave={(e) => { e.currentTarget.pause(); }}
         >
           <source src={videoSrc} type="video/mp4" />
         </video>

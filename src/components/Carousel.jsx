@@ -21,10 +21,12 @@ const StyledCarousel = styled.div`
 
   .personal-list-container {
     position: relative;
-    width: 70%;
-    max-width: 600px;
+    width: 100%;
+    /* max-width: 600px; */
     justify-self: center;
     display: grid;
+    margin: 0;
+    padding: 0;
   }
 
   .carousel-button {
@@ -47,10 +49,15 @@ const StyledCarousel = styled.div`
     transform: scaleX(-1) translateY(-50%);
   }
   .personal-display-list {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    justify-items: center;
     justify-self: center;
     opacity: 0;
     position: absolute;
     top: -50px;
+    width: 100%;
 
     transition: 200ms opacity ease-in-out;
     transition-delay: 0ms;

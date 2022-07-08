@@ -21,8 +21,7 @@ const StyledCarousel = styled.div`
   h3 {
     margin-bottom: 1.2em;
     width: fit-content;
-    padding: 0.5em;
-    background-color: var(--bg-color-accent-main);
+    padding: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     z-index: 2;

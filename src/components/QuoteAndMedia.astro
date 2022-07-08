@@ -25,9 +25,16 @@ const { quote, bgc } = Astro.props;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     max-width: 100%;
     border-bottom: 1px solid var(--bg-color-sub);
-    padding-bottom: 3em;
+    /* padding-bottom: 1em; */
     margin-bottom: 15em;
     justify-items: end;
+    transform: translateY(-2em);
+  }
+
+  @media (min-width: 1301px) and (max-width: 1650px) {
+    .quote-media-container {
+      transform: translateY(-6em);
+    }
   }
 
   .quote {

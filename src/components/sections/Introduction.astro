@@ -44,8 +44,6 @@ let test = [1, 2, 3];
       <span>e</span>
       <span>r</span>
     </span>
-
-    <span class="fake-border"></span>
   </div>
   <QuoteAndMedia quote={allMyText.quoteOne} />
   <Carousel client:only displays={test} />
@@ -61,11 +59,11 @@ let test = [1, 2, 3];
 
   .container-name {
     display: grid;
+    position: relative;
     justify-items: start;
     justify-self: start;
     text-align: center;
     transform-style: preserve-3d;
-    transform: rotateX(50deg);
     animation: separateName 2s 1 ease-in-out 0.5s alternate both;
     padding: 0 0 1.3em 0;
     width: 72vw;
@@ -159,7 +157,7 @@ let test = [1, 2, 3];
 
   .container-name>span {
     text-align: center;
-    font-size: calc(5em + var(--font-size-xl));
+    font-size: calc(4em + var(--font-size-xl));
     line-height: 1.08;
     transform: rotateX(310deg) rotateY(0deg) skewY(-0.5deg);
   }

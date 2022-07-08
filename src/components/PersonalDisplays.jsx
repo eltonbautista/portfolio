@@ -13,13 +13,16 @@ const StyledPersonalDisplay = styled.div`
 
   .noun-container {
     h3 {
-      margin-bottom: 0;
+      margin-bottom: 1em;
+      color: var(--color-sub);
+      box-shadow: 0 10px 5px -5px blue;
+      /* height: 4%; */
+      width: 90%;
     }
     p {
       margin: 0;
       font-family: JostMedium;
-      background-color: var(--bg-color-sub);
-      color: var(--bg-color-main);
+      color: var(--color-text);
       text-align: center;
     }
   }
@@ -30,25 +33,26 @@ const StyledPersonalDisplay = styled.div`
     object-position: center;
     width: 100%;
     height: auto;
+    margin-top: 0.5em;
   }
 
   @media (min-width: 800px) and (max-height: 1300px) {
   
   position: relative;
-  max-width: 90%;
+  width: 95%;
   margin-right: 0;
   margin-top: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  /* grid-template-rows: repeat(1, 1fr); */
   padding: 1em;
 
 .noun-container {
-  color: var(--bg-color-main);
-  background-color: var(--bg-color-sub);
-  font-weight: 900;
+  color: var(--color-text);
+  /* background-color: var(--bg-color-sub); */
+  /* font-weight: 900; */
   padding: 1em;
-  grid-area: 3/1/7/8;
+  grid-area: 2/1/4/6;
   z-index: 1;
   position: relative;
   display: grid;
@@ -66,6 +70,8 @@ const StyledPersonalDisplay = styled.div`
     padding: 0.5em;
     font-weight: 100;
     font-family: JostMedium;
+    /* font-family: HintRetro; */
+    color: var(--color-text);
   }
 
   > h3 {
@@ -74,16 +80,17 @@ const StyledPersonalDisplay = styled.div`
 
     font-weight: 100;
     top: -15%;
-    color: var(--color-text);
-    background-color: var(--bg-color-accent-main);
+    color: var(--color-sub);
     width: 35%;
+    height: 12%;
     text-align: center;
     padding: 0.5em;
+    box-shadow: 0 10px 5px -5px blue;
   }
 }
 
 .video-container {
-  grid-area: 1/6/9/13;
+  grid-area: 1/6/3/13;
   opacity: 0.7;
 }
 

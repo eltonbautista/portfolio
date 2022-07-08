@@ -2,10 +2,8 @@ import styled from "styled-components";
 import React from "react";
 
 const StyledPersonalDisplay = styled.div`  
-  /* position: fixed; */
   width: 85%;
   margin-right: 0;
-  /* margin-top: 1em; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
   grid-template-rows: none;
@@ -16,7 +14,6 @@ const StyledPersonalDisplay = styled.div`
       margin-bottom: 1em;
       color: var(--color-sub);
       box-shadow: 0 10px 5px -5px blue;
-      /* height: 4%; */
       width: 90%;
     }
     p {
@@ -44,13 +41,10 @@ const StyledPersonalDisplay = styled.div`
   margin-top: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /* grid-template-rows: repeat(1, 1fr); */
   padding: 1em;
 
 .noun-container {
   color: var(--color-text);
-  /* background-color: var(--bg-color-sub); */
-  /* font-weight: 900; */
   padding: 1em;
   grid-area: 2/1/4/6;
   z-index: 1;
@@ -70,7 +64,6 @@ const StyledPersonalDisplay = styled.div`
     padding: 0.5em;
     font-weight: 100;
     font-family: JostMedium;
-    /* font-family: HintRetro; */
     color: var(--color-text);
   }
 

@@ -8,7 +8,25 @@
   src: url("./assets/Jost-400-Book.otf");
 }
 
+@font-face {
+  font-family: CubicNormal;
+  src: url("../../public/Demoncubicblockfont-V4ew.ttf");
+}
 
+@font-face {
+  font-family: CubicBlack;
+  src: url("../../public/DemoncubicblockfontBlack-Jpvx.ttf");
+}
+
+@font-face {
+  font-family: FightingSpirit;
+  src: url("../../public/Fighting\ Spirit\ 2.otf");
+}
+
+@font-face {
+  font-family: HintRetro;
+  src: url("../../public/hint_retro.ttf");
+}
 
 html {
   min-height: 100%;

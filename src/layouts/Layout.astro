@@ -31,14 +31,18 @@ const { title } = Astro.props as Props;
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
     --font-size-xl: clamp(2.84rem, 2.68vw + 2.05rem, 4.05rem);
 
-    --color-text: #B4D0E7;
+    --font-header: FightingSpirit, JostLight;
+
+    --color-text: #20b451;
+    --color-text-accent: #5EE27B;
     --color-bg: hsl(10, 21%, 95%);
     --color-border: hsl(17, 24%, 90%);
 
-    --bg-color-main: #61082B;
-    --bg-color-sub: #B4D0E7;
+    /* --bg-color-main: #61082B; */
+    --bg-color-main: #0A0B0A;
+    --bg-color-sub: #eee5d0;
     --bg-color-lighter-sub: #fbfdff;
-    --bg-color-accent-main: #a4314e;
+    --bg-color-accent-main: #252020;
   }
 
   html {
@@ -56,7 +60,7 @@ const { title } = Astro.props as Props;
   }
 
   :global(code) {
-    font-family: JostLight, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    font-family: HintRetro, JostLight, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
       Bitstream Vera Sans Mono, Courier New, monospace;
   }
 
@@ -72,7 +76,8 @@ const { title } = Astro.props as Props;
 
   * {
     margin: 0;
-    font-family: JostLight;
+    font-family: HintRetro, JostLight, sans-serif;
+    letter-spacing: 1.25px;
   }
 
   html,

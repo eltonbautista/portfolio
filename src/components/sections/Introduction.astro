@@ -22,8 +22,29 @@ let test = [1, 2, 3];
   <div class="container-name">
     <span class="name one">{firstName}</span>
     <span class="name two">{lastName}</span>
-    <span class="role one">{roleMain}</span>
-    <span class="role two">{roleSub}</span>
+    <span class="role one">
+      <span>f</span>
+      <span>r</span>
+      <span>o</span>
+      <span>n</span>
+      <span>t</span>
+      <span>e</span>
+      <span>n</span>
+      <span>d</span>
+    </span>
+    <!-- <span class="role two">{roleSub}</span> -->
+    <span class="role two">
+      <span>d</span>
+      <span>e</span>
+      <span>v</span>
+      <span>e</span>
+      <span>l</span>
+      <span>o</span>
+      <span>p</span>
+      <span>e</span>
+      <span>r</span>
+    </span>
+
     <span class="fake-border"></span>
   </div>
   <QuoteAndMedia quote={allMyText.quoteOne} />
@@ -45,8 +66,8 @@ let test = [1, 2, 3];
     text-align: center;
     transform-style: preserve-3d;
     transform: rotateX(50deg);
-    animation: separateName 2.5s 1 ease-in-out 0.5s alternate both;
-    padding: 1em 0;
+    animation: separateName 2s 1 ease-in-out 0.5s alternate both;
+    padding: 0 0 1.3em 0;
     width: 72vw;
   }
 
@@ -63,8 +84,8 @@ let test = [1, 2, 3];
   @keyframes glitchName {
     0% {
       font-style: italic;
-      font-family: JostMedium;
-      line-height: 1;
+      font-family: HintRetro, JostMedium;
+      line-height: 1.3;
     }
 
     15% {
@@ -74,7 +95,8 @@ let test = [1, 2, 3];
 
     30% {
       text-decoration: wavy;
-      color: var(--bg-color-lighter-sub);
+      /* color: var(--bg-color-lighter-sub); */
+      color: blue;
     }
 
     65% {
@@ -89,9 +111,10 @@ let test = [1, 2, 3];
     }
 
     100% {
-      font-family: JostMedium;
+      font-family: FightingSpirit, JostLight, sans-serif;
       text-transform: uppercase;
-      line-height: 1;
+      /* font-weight: 100; */
+      line-height: 1.3;
 
     }
   }
@@ -100,6 +123,7 @@ let test = [1, 2, 3];
     0% {
       text-transform: lowercase;
       line-height: 1.08;
+      opacity: 0;
     }
 
     15% {
@@ -115,7 +139,7 @@ let test = [1, 2, 3];
       text-decoration: wavy;
       color: var(bg-color-sub);
       font-style: italic;
-      text-decoration: line-through;
+      /* text-decoration: line-through; */
     }
 
     80% {
@@ -126,18 +150,24 @@ let test = [1, 2, 3];
 
     100% {
       line-height: 1.08;
-      text-transform: uppercase;
-      color: var(--bg-color-lighter-sub);
+      /* text-transform: uppercase; */
+      /* color: var(--bg-color-lighter-sub); */
+      /* color: blue; */
+      opacity: 1;
     }
   }
-
 
   .container-name>span {
     text-align: center;
     font-size: calc(5em + var(--font-size-xl));
     line-height: 1.08;
-    transform: rotateX(310deg) rotateY(0deg);
-    color: var(--color-text);
+    transform: rotateX(310deg) rotateY(0deg) skewY(-0.5deg);
+  }
+
+  @media (max-width: 1300px) {
+    .container-name>span {
+      font-size: calc(2em + var(--font-size-xl));
+    }
   }
 
   @media (max-width: 600px) {
@@ -161,27 +191,121 @@ let test = [1, 2, 3];
 
 
   .name.one {
-    /* padding-right: 5em; */
+    color: var(--bg-color-sub);
   }
 
   .name.two {
     padding-left: 0.4em;
+    color: blue;
   }
 
   .name {
-    animation: glitchName 0.9s 3 ease-in-out 2.85s alternate both;
+    animation: glitchName 0.8s 3 ease-in-out 2.4s alternate both;
+    letter-spacing: 0.1em;
   }
 
   .role.one {
     padding-left: 0.6em;
   }
 
+  /* Role One Animations */
+
+  .role.one>span:nth-child(1) {
+    animation: hideLetter 0.2s 1 5s alternate both;
+  }
+
+  .role.one>span:nth-child(2) {
+    animation: hideLetter 0.2s 1 5.2s alternate both;
+  }
+
+  .role.one>span:nth-child(3) {
+    animation: hideLetter 0.2s 1 5.4s alternate both;
+  }
+
+  .role.one>span:nth-child(4) {
+    animation: hideLetter 0.2s 1 5.6s alternate both;
+  }
+
+  .role.one>span:nth-child(5) {
+    animation: hideLetter 0.2s 1 5.8s alternate both;
+  }
+
+  .role.one>span:nth-child(6) {
+    animation: hideLetter 0.2s 1 6s alternate both;
+  }
+
+  .role.one>span:nth-child(7) {
+    animation: hideLetter 0.2s 1 6.2s alternate both;
+  }
+
+  .role.one>span:nth-child(8) {
+    animation: hideLetter 0.2s 1 6.4s alternate both;
+  }
+
+  /* Role Two Animations */
+  .role.two>span:nth-child(1) {
+    animation: hideLetter 0.2s 1 8.2s both;
+  }
+
+  .role.two>span:nth-child(2) {
+    animation: hideLetter 0.2s 1 8s both;
+  }
+
+  .role.two>span:nth-child(3) {
+    animation: hideLetter 0.2s 1 7.8s both;
+  }
+
+  .role.two>span:nth-child(4) {
+    animation: hideLetter 0.2s 1 7.6s both;
+  }
+
+  .role.two>span:nth-child(5) {
+    animation: hideLetter 0.2s 1 7.4s both;
+  }
+
+  .role.two>span:nth-child(6) {
+    animation: hideLetter 0.2s 1 7.2s both;
+  }
+
+  .role.two>span:nth-child(7) {
+    animation: hideLetter 0.2s 1 7s both;
+  }
+
+  .role.two>span:nth-child(8) {
+    animation: hideLetter 0.2s 1 6.8s both;
+  }
+
+  .role.two>span:nth-child(9) {
+    animation: hideLetter 0.2s 1 6.6s both;
+  }
+
+  @keyframes hideLetter {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   .role.two {
     padding-left: 1em;
     line-height: 1;
+    color: blue;
   }
 
   .role {
-    animation: secondGlitchName 0.9s 3 ease-in-out 2.85s alternate both;
+    font-family: FightingSpirit;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    color: blue;
+
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  .role.one>span {
+    color: var(--bg-color-sub);
   }
 </style>

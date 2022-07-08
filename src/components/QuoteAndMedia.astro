@@ -26,14 +26,15 @@ const { quote, bgc } = Astro.props;
     max-width: 100%;
     border-bottom: 1px solid var(--bg-color-sub);
     padding-bottom: 3em;
+    margin-bottom: 15em;
     justify-items: end;
   }
 
   .quote {
     font-style: italic;
-    letter-spacing: 0.04em;
+    letter-spacing: calc(3px + 0.2vw);
     justify-self: center;
     margin: 0;
-    font-size: var(--font-size-base);
+    font-size: calc(var(--font-size-base) + 0.5em);
   }
 </style>

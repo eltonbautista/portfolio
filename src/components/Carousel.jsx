@@ -26,6 +26,8 @@ const StyledCarousel = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.03em;
     z-index: 2;
+    font-family: var(--font-header);
+    letter-spacing: 0.1em;
   }
 
   .test-div {

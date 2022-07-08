@@ -43,10 +43,11 @@ let test = [1, 2, 3];
     justify-items: start;
     justify-self: start;
     text-align: center;
-    padding: 1rem;
     transform-style: preserve-3d;
     transform: rotateX(50deg);
-    animation: separateName 2.5s 1 ease-in-out 0.35s alternate both;
+    animation: separateName 2.5s 1 ease-in-out 0.5s alternate both;
+    padding: 1em 0;
+    width: 72vw;
   }
 
   @keyframes separateName {
@@ -133,10 +134,29 @@ let test = [1, 2, 3];
 
   .container-name>span {
     text-align: center;
-    font-size: var(--font-size-xl);
+    font-size: calc(5em + var(--font-size-xl));
     line-height: 1.08;
-    transform: rotateX(310deg) rotateY(0deg) skewY(0.325deg);
+    transform: rotateX(310deg) rotateY(0deg);
     color: var(--color-text);
+  }
+
+  @media (max-width: 600px) {
+    .container-name>span {
+      font-size: calc(1em + var(--font-size-xl));
+    }
+  }
+
+  @media (max-width: 400px) {
+    .container-name>span {
+      font-size: calc(var(--font-size-xl));
+    }
+  }
+
+  @media (max-width: 300px) {
+    .container-name>span {
+      font-size: calc(1em + var(--font-size-lg));
+    }
+
   }
 
 

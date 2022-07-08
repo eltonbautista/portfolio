@@ -21,17 +21,12 @@ const { quote, bgc } = Astro.props;
   .quote-media-container {
     display: grid;
     justify-self: center;
-    /* position: absolute; */
     align-self: end;
-    /* bottom: -3em; */
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    max-width: 90%;
-  }
-
-  .quote-div {
-    /* position: absolute; */
-    /* width: 100vw; */
-    /* right: -55vw; */
+    max-width: 100%;
+    border-bottom: 1px solid var(--bg-color-sub);
+    padding-bottom: 3em;
+    justify-items: end;
   }
 
   .quote {

@@ -20,7 +20,7 @@ const {
 ---
 
 <!-- socialOne, socialTwo, and socialThree are svg icons -->
-<nav>
+<nav id="navbar">
   <div class="links-container">
     <div class="nav internal-links">
       <a class="nav logo" href={logoLink}>logo</a>
@@ -48,6 +48,24 @@ const {
     position: sticky;
     top: 0;
     font-family: JostMedium, sans-serif;
+  }
+
+
+  @media (max-width: 350px) {
+    #navbar {
+      justify-content: space-around;
+      padding: 0 0.6em;
+    }
+
+    .internal-links {
+      justify-items: center;
+    }
+
+    .external-links {
+      display: none;
+      visibility: hidden;
+      position: absolute;
+    }
   }
 
   a.nav {

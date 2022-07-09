@@ -8,9 +8,9 @@ const { quote, bgc } = Astro.props;
 
 <div class="container quote-media-container">
   <div class="quote-div">
-    <q class="quote">
+    <p class="quote">
       {quote}
-    </q>
+    </p>
   </div>
   <div class="media-div">
 
@@ -37,9 +37,8 @@ const { quote, bgc } = Astro.props;
   }
 
   .quote {
-    font-family: HintRetro, JostLight, sans-serif;
-    font-style: italic;
-    letter-spacing: calc(3px + 0.13vw);
+    font-family: JostLight, sans-serif;
+    letter-spacing: calc(3px + 0.01vw);
     justify-self: center;
     margin: 0;
     font-size: calc(var(--font-size-base) + 0.5em);

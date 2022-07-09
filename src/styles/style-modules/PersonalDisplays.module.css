@@ -9,7 +9,6 @@
 
 .noun-container>h3 {
   margin-bottom: 1em;
-  color: var(--color-sub);
   box-shadow: 0 10px 5px -5px blue;
   width: 90%;
   text-align: center;
@@ -67,8 +66,7 @@
 
     font-weight: 100;
     top: -15%;
-    color: var(--color-sub);
-    width: 50%;
+    width: 43%;
     text-align: center;
     box-shadow: 0 10px 5px -5px blue;
     margin-bottom: 1.2em;

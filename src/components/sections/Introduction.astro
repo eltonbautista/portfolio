@@ -82,7 +82,7 @@ let test = [1, 2, 3];
     0% {
       font-style: italic;
       font-family: HintRetro, JostMedium;
-      line-height: 1.3;
+      line-height: 1.08;
     }
 
     15% {
@@ -93,6 +93,7 @@ let test = [1, 2, 3];
     30% {
       text-decoration: wavy;
       color: blue;
+      font-family: FightingSpirit, HintRetro, JostLight, sans-serif;
     }
 
     65% {
@@ -107,9 +108,9 @@ let test = [1, 2, 3];
     }
 
     100% {
-      font-family: FightingSpirit, JostLight, sans-serif;
+      font-family: JostLight, sans-serif;
       text-transform: uppercase;
-      line-height: 1.3;
+      line-height: 1.08;
 
     }
   }
@@ -157,17 +158,23 @@ let test = [1, 2, 3];
 
   @media (max-width: 1300px) {
     .container-hero>span {
-      font-size: calc(2em + var(--font-size-xl));
+      font-size: calc(4em + var(--font-size-xl));
     }
   }
 
-  @media (max-width: 600px) {
+  @media (min-width: 800px) and (max-width: 1299px) {
     .container-hero>span {
-      font-size: calc(1em + var(--font-size-xl));
+      font-size: calc(5vw + var(--font-size-xl));
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 799px) {
+    .container-hero>span {
+      font-size: calc(2vw + var(--font-size-xl));
+    }
+  }
+
+  @media (max-width: 450px) {
     .container-hero>span {
       font-size: calc(var(--font-size-xl));
     }
@@ -186,7 +193,7 @@ let test = [1, 2, 3];
   }
 
   .name.two {
-    padding-left: 0.4em;
+    padding-left: 0.42em;
     color: blue;
   }
 
@@ -196,7 +203,27 @@ let test = [1, 2, 3];
   }
 
   .role.one {
-    padding-left: 0.6em;
+    padding-left: 0.8em;
+  }
+
+  .role.two {
+    padding-left: 1.15em;
+    line-height: 1.08;
+    color: blue;
+  }
+
+  .role {
+    font-family: JostLight, FightingSpirit, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: blue;
+
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  .role.one>span {
+    color: var(--bg-color-sub);
   }
 
   /* Role One Animations */
@@ -278,25 +305,5 @@ let test = [1, 2, 3];
     100% {
       opacity: 1;
     }
-  }
-
-  .role.two {
-    padding-left: 1em;
-    line-height: 1;
-    color: blue;
-  }
-
-  .role {
-    font-family: FightingSpirit;
-    font-style: italic;
-    letter-spacing: 0.1em;
-    color: blue;
-
-    display: grid;
-    grid-auto-flow: column;
-  }
-
-  .role.one>span {
-    color: var(--bg-color-sub);
   }
 </style>

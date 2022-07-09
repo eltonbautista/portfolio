@@ -1,7 +1,8 @@
 ---
 // Components
-import QuoteAndMedia from "../QuoteAndMedia.astro";
+import QuoteAndMedia from "../Introduction/QuoteAndMedia.astro";
 import Carousel from "../Carousel.jsx";
+import About from "../Introduction/About.astro";
 
 // Media
 import { allMyText } from "../../utils";
@@ -43,6 +44,7 @@ let test = [1, 2, 3];
     </span>
   </div>
   <QuoteAndMedia quote={allMyText.quoteOne} />
+  <About />
   <Carousel client:only displays={test} />
 </section>
 

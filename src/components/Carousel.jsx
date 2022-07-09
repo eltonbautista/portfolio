@@ -105,6 +105,7 @@ function isActive(elem, arr, count) {
   }
   return false;
 }
+
 const Carousel = (props) => {
   const { displays, children } = props;
   const [carouselCount, setCarouselCount] = useState(0);

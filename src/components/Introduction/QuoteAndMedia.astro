@@ -25,19 +25,19 @@ const { quote, bgc } = Astro.props;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     max-width: 100%;
     border-bottom: 1px solid var(--bg-color-sub);
-    /* padding-bottom: 1em; */
-    margin-bottom: 15em;
+    margin-bottom: 1em;
     justify-items: end;
     transform: translateY(-2em);
   }
 
-  @media (min-width: 1301px) and (max-width: 1650px) {
+  @media (min-width: 1301px) and (max-width: 1750px) {
     .quote-media-container {
       transform: translateY(-6em);
     }
   }
 
   .quote {
+    font-family: HintRetro, JostLight, sans-serif;
     font-style: italic;
     letter-spacing: calc(3px + 0.2vw);
     justify-self: center;

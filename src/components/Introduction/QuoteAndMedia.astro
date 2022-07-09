@@ -8,9 +8,9 @@ const { quote, bgc } = Astro.props;
 
 <div class="container quote-media-container">
   <div class="quote-div">
-    <p class="quote">
+    <q class="quote">
       {quote}
-    </p>
+    </q>
   </div>
   <div class="media-div">
 
@@ -24,7 +24,7 @@ const { quote, bgc } = Astro.props;
     align-self: end;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     max-width: 100%;
-    border-bottom: 1px solid var(--bg-color-sub);
+    border-bottom: 1px solid white;
     margin-bottom: 1em;
     justify-items: end;
     transform: translateY(-2em);
@@ -39,7 +39,7 @@ const { quote, bgc } = Astro.props;
   .quote {
     font-family: HintRetro, JostLight, sans-serif;
     font-style: italic;
-    letter-spacing: calc(3px + 0.2vw);
+    letter-spacing: calc(3px + 0.13vw);
     justify-self: center;
     margin: 0;
     font-size: calc(var(--font-size-base) + 0.5em);

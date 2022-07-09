@@ -7,7 +7,7 @@ export interface IAboutProps {
 
 <div class="about-container">
   <h2 class="about about-header">
-    About
+    About.
   </h2>
   <div class="about about-description-container">
     <p class="about about-paragraph quote">
@@ -16,18 +16,48 @@ export interface IAboutProps {
       </i>
     </p>
     <p class="about about-paragraph main">
-      These are the words that I have grown up by, but never really understood, at least not until recently.
+      These are the words that I have grown up by but never really understood, at least not until recently.
       I have always been fascinated by technology, and thus, objects like computers, or cell-phones were second nature
       to me.
-      Though I was familiar with these items it felt like there was a part that I was missing, and I yearned for that
-      knowledge.
-      So I began my journey and took my first step into the Tech industry.
-    </p>
-    <p class="about about-paragraph sub">
+      Though I was familiar with these items it felt like there was a missing component, and I yearned for
+      whatever that was.
       <i>
-        After tireless hours day in and day out, I think I've finally realized what I've been missing, and more
+        After tireless hours day in and day out, I think I've realized what I've been missing, and more
         importantly, how to achieve it.
       </i>
+    </p>
+    <h2 class="about name-header">
+      Hi! My name is <strong>Elton Bautista</strong> and I am a <strong>Front End Developer</strong>.
+    </h2>
+    <p class="about about-paragraph">
+      <strong>Discipline:</strong>
+      I am a programmer who <i>emphasizes</i> the importance of
+      <strong>
+        <i>strong</i>
+        problem-solving skills
+      </strong> and a
+      <strong>
+        <i>firm</i>
+        foundation of programming concepts.
+      </strong>
+      I <i>dedicate</i> myself to my craft by <i>reinforcing</i> my knowledge through <i><strong>daily
+        </strong>studious</i> and
+      <i>applicative</i>
+      efforts, and additionally, <strong>maintaining</strong> my <i>understanding</i> of <strong>technologies</strong>
+      and
+      <strong>tools</strong> by staying up
+      to date.
+    </p>
+    <p class="about about-paragraph">
+      <strong>For you, my future employer:</strong> I am fully <i>committed</i> to assimilating myself <i>seamlessly</i>
+      to be a part of
+      your team. This means that I am
+      confident in being able to provide quality ideas, overwhelming support, and overall positive experiences that
+      <i>will</i>
+      lead our team to further growth, and ultimately, greater success for the company.
+    </p>
+    <p>
+      <strong>ReactJS, </strong>
     </p>
   </div>
   <div class="about skills-container">
@@ -36,7 +66,24 @@ export interface IAboutProps {
 </div>
 
 <style>
+  .about-description-container {
+    max-width: 80%;
+  }
+
+  .about-header {
+    font-size: calc(var(--font-size-xl) - 1em);
+  }
+
   .about-paragraph {
-    font-size: var(--font-size-lg);
+    font-size: calc(var(--font-size-lg) - 0.2em);
+  }
+
+  .about-container {
+    margin-bottom: 2em;
+    border-bottom: 1px solid white;
+  }
+
+  .name-header {
+    font-weight: 100;
   }
 </style>

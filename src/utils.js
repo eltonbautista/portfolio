@@ -1,5 +1,5 @@
 const allMyText = {
-  quoteOne: `"If your reason to do is greater than how it will be done, only then will you truly be limitless"`,
+  quoteOne: "Your potential truly is limitless. The only bounds that exist are the ones that we set on ourselves.",
 
   nounOne: "developer",
   descriptionOne: "Shorter description for developer",
@@ -9,8 +9,6 @@ const allMyText = {
 
   nounThree: "hiker",
   descriptionThree: "I am a hiker baby!"
-
-
 };
 
 export { allMyText };

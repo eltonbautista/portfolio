@@ -17,13 +17,10 @@ const StyledCarousel = styled.div`
     transform: translateX(-1px);
     z-index: 2;
 
-    > h3 {
+    > h2 {
     margin-bottom: 1.2em;
-    text-transform: uppercase;
     letter-spacing: 0.03em;
     z-index: 2;
-    font-family: var(--font-header);
-    letter-spacing: 0.1em;
     padding-bottom: 0.7em;
   }
   }
@@ -67,8 +64,6 @@ const StyledCarousel = styled.div`
     transform: scaleX(-1) translateY(-100%);
   }
   .personal-display-list {
-    border-top: 1px solid white;
-
     padding: 0;
     margin: 0;
     margin-top: 1em;
@@ -107,15 +102,15 @@ function isActive(elem, arr, count) {
 }
 
 const Carousel = (props) => {
-  const { displays, children } = props;
+  const { displays, children, carouselTitle } = props;
   const [carouselCount, setCarouselCount] = useState(0);
 
-  const testArray =
+  const componentsArray =
     [
       <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />,
       <PersonalDisplays noun={allMyText.nounTwo} description={allMyText.descriptionTwo} videoSrc={clipTwo} />,
       <PersonalDisplays noun={allMyText.nounThree} description={allMyText.descriptionThree} videoSrc={clipThree} />];
-  const slidesArrayLength = testArray.length;
+  const slidesArrayLength = componentsArray.length;
 
   // Slide position is determined by carouselCount
   const nextSlide = () => {
@@ -156,13 +151,15 @@ const Carousel = (props) => {
     });
   };
   // Slide elements to be added into a ul
-  const mySlides = createMappedItems(testArray);
+  const mySlides = createMappedItems(componentsArray);
 
   return (
     <StyledCarousel className="carousel-container" >
-      <div className="carousel header-div">
-        <h3>A little bit about me..</h3>
-      </div>
+      {carouselTitle ?
+        <div className="carousel header-div">
+          <h2>{carouselTitle}</h2>
+        </div> : null
+      }
       <div className="test-div" >
         <ul className="personal-list-container">
           {mySlides}

@@ -2,6 +2,9 @@
 
 ###Fonts:
 Jost: https://indestructibletype.com/Jost.html
+HintRetro: https://www.dafont.com/hint-retro.font
+FightingSpirit: https://www.dafont.com/fighting-spirit-tbs.font
+
 
 ###Media:
 Twitter Icon: https://iconmonstr.com/twitter-1-svg/

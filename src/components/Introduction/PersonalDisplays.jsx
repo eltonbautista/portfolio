@@ -1,6 +1,4 @@
-import styled from "styled-components";
-import styles from "../styles/style-modules/PersonalDisplays.module.css";
-import React from "react";
+import styles from "../../styles/style-modules/PersonalDisplays.module.css";
 
 
 const PersonalDisplays = (props) => {
@@ -8,9 +6,9 @@ const PersonalDisplays = (props) => {
 
   return (
     <div className={`${styles['styled-personal-display']} ${"personal"}`} data-active={active} activity={activity}>
-      <div className={` ${styles['noun-container']} ${styles["personal"]}`}>
+      <div className={` ${styles['noun-container']} ${"personal"}`}>
 
-        <h3>
+        <h3 className={`${styles['noun-header']} ${'noun-header'}`}>
           I am a {noun}
         </h3>
         <p>

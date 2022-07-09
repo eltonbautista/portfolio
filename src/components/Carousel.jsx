@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import PersonalDisplays from "./PersonalDisplays";
+import PersonalDisplays from "./Introduction/PersonalDisplays";
 import clipOne from "../../public/powerlifter.mp4";
 import clipTwo from "../../public/hiker.mp4";
 import clipThree from "../../public/Donda.mp4";
@@ -16,18 +16,18 @@ const StyledCarousel = styled.div`
     align-items: end;
     transform: translateX(-1px);
     z-index: 2;
-  }
 
-  h3 {
+    > h3 {
     margin-bottom: 1.2em;
-    width: fit-content;
-    padding: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     z-index: 2;
     font-family: var(--font-header);
     letter-spacing: 0.1em;
+    padding-bottom: 0.7em;
   }
+  }
+
 
   .test-div {
     display: grid;
@@ -67,9 +67,8 @@ const StyledCarousel = styled.div`
     transform: scaleX(-1) translateY(-100%);
   }
   .personal-display-list {
-    border: 1px solid white;
-    border-bottom: none;
-    border-right: none;
+    border-top: 1px solid white;
+
     padding: 0;
     margin: 0;
     margin-top: 1em;
@@ -90,7 +89,7 @@ const StyledCarousel = styled.div`
     transition-delay: 200ms;
     z-index: 1;
 
-    .noun-container.personal > h3 {
+    .noun-header {
       animation: glitchName 0.9s 3 ease-in-out .85s alternate both;
     }
   }

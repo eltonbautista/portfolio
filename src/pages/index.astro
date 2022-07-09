@@ -11,14 +11,9 @@ import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
 import twitter from "../../public/twitter-icon.svg";
 
-
-
-
 ---
 
-<script is:inline>
-</script>
-<Layout title="EltonBautista: Front-End Developer.">
+<Layout title={"Title here"}>
   <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
     socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
     socialThreeLink="https://twitter.com/psychtotech" />
@@ -26,7 +21,28 @@ import twitter from "../../public/twitter-icon.svg";
     <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
   </main>
 </Layout>
+<script is:inline>
+  const root = document.documentElement;
+  const aboutSection = document.querySelector('.about-container');
+  window.addEventListener('scroll', function () {
+    const heightTop = aboutSection.offsetTop;
+    const heightOH = aboutSection.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const windowScroll = this.scrollY;
 
+    if (windowScroll > (heightTop + heightOH - windowHeight)) {
+      root.style.setProperty('--bg-color-main', "#1d1d1b");
+      root.style.setProperty('--color-text', "#eee5d0");
+      root.style.setProperty('--color-text-alt', "blue");
+    } else {
+      root.style.setProperty('--bg-color-main', "#eee5d0");
+      root.style.setProperty('--color-text', "#1d1d1b");
+      root.style.setProperty('--color-text-alt', "red");
+    }
+
+  });
+
+</script>
 <style>
   h1 {
     margin: 2rem 0;

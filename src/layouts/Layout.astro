@@ -30,16 +30,20 @@ const { title } = Astro.props as Props;
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
     --font-size-xl: clamp(2.84rem, 2.68vw + 2.05rem, 4.05rem);
 
-    --font-header: JostLight;
+    --font-header: JostLight, sans-serif;
+    ;
 
     --color-text: #eee5d0;
-    --color-text-accent: #5EE27B;
-
+    --color-text-alt: blue;
 
     --bg-color-main: #1b1d1b;
     --bg-color-sub: #eee5d0;
-    --bg-color-lighter-sub: #fbfdff;
-    --bg-color-accent-main: #252020;
+
+    /* LIGHT MODE */
+    --color-text-lm: #1b1d1b;
+    --color-text-lm-alt: red;
+
+    --bg-color-lm-main: #eee5d0;
   }
 
   html {

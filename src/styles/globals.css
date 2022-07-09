@@ -36,3 +36,7 @@ body {
   min-height: 100%;
   min-width: 100%;
 }
+
+.theme {
+  color: blue;
+}

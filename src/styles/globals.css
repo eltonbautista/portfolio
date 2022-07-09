@@ -35,6 +35,26 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
+  transition: 200ms background-color ease-in-out;
+  transition-delay: 0ms;
+  background-color: var(--bg-color-main)
+}
+
+#main-content {
+  transition: 200ms background-color ease-in-out;
+  transition-delay: 0ms;
+  background-color: var(--bg-color-main)
+}
+
+
+#main-content.dark-mode {
+  background-color: var(--bg-color-main);
+  transition-delay: 0ms;
+}
+
+body.dark-mode {
+  background-color: var(--bg-color-main);
+  transition-delay: 0ms;
 }
 
 .theme {

@@ -17,12 +17,15 @@ import twitter from "../../public/twitter-icon.svg";
   <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
     socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
     socialThreeLink="https://twitter.com/psychtotech" />
-  <main>
+  <main id="main-content">
     <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
   </main>
 </Layout>
 <script is:inline>
   const root = document.documentElement;
+  const body = document.querySelector('body');
+  const mainContent = document.querySelector('#main-content');
+
   const aboutSection = document.querySelector('.about-container');
   window.addEventListener('scroll', function () {
     const heightTop = aboutSection.offsetTop;
@@ -30,15 +33,39 @@ import twitter from "../../public/twitter-icon.svg";
     const windowHeight = window.innerHeight;
     const windowScroll = this.scrollY;
 
-    if (windowScroll > (heightTop + heightOH - windowHeight)) {
+    const mediaFifteen = window.matchMedia("(max-width: 1450px)");
+    const mediaEight = window.matchMedia("(max-width: 800px)");
+
+    if (mediaFifteen.matches && windowScroll > (heightTop + heightOH - (windowHeight * 1.3))) {
       root.style.setProperty('--bg-color-main', "#1d1d1b");
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");
-    } else {
-      root.style.setProperty('--bg-color-main', "#eee5d0");
-      root.style.setProperty('--color-text', "#1d1d1b");
-      root.style.setProperty('--color-text-alt', "red");
+      mainContent.classList.add('dark-mode');
+      body.classList.add('dark-mode');
+      return;
+    } else if (mediaEight.matches && windowScroll > (heightTop + heightOH - (windowHeight * 2))) {
+      root.style.setProperty('--bg-color-main', "#1d1d1b");
+      root.style.setProperty('--color-text', "#eee5d0");
+      root.style.setProperty('--color-text-alt', "blue");
+      mainContent.classList.add('dark-mode');
+      body.classList.add('dark-mode');
+      return;
+    } else if (windowScroll > (heightTop + heightOH - windowHeight * 1.05)) {
+      root.style.setProperty('--bg-color-main', "#1d1d1b");
+      root.style.setProperty('--color-text', "#eee5d0");
+      root.style.setProperty('--color-text-alt', "blue");
+      mainContent.classList.add('dark-mode');
+      body.classList.add('dark-mode');
+      return;
     }
+
+
+    root.style.setProperty('--bg-color-main', "#eee5d0");
+    root.style.setProperty('--color-text', "#1d1d1b");
+    root.style.setProperty('--color-text-alt', "red");
+    body.classList.remove('dark-mode');
+    mainContent.classList.remove('dark-mode');
+
 
   });
 

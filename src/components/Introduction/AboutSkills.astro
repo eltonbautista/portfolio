@@ -1,0 +1,31 @@
+---
+export interface IAboutSkills {
+  logo: string;
+  skill: string;
+  logoColor?: string;
+  classColor?: string;
+}
+
+const { logo, skill, logoColor, classColor } = Astro.props;
+---
+
+<div class="about skill-container">
+  <div class="about logo-container">
+    <img class="about logo" src={logo} alt={skill + ' ' + 'logo' } width="80em" height="80em">
+  </div>
+  <p>
+    {skill}
+  </p>
+
+</div>
+
+<style define:vars={ { logoColor } }>
+  .skill-container {
+    display: grid;
+    justify-items: center;
+  }
+
+  .skill-container>p {
+    margin: 0;
+  }
+</style>

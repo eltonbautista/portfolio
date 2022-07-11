@@ -9,7 +9,7 @@
 
 .noun-container>h3 {
   margin-bottom: 1em;
-  box-shadow: 0 10px 5px -5px blue;
+  box-shadow: 0 10px 3px -8px blue;
   width: 90%;
   text-align: center;
 }
@@ -72,7 +72,7 @@
     top: -2%;
     width: 50%;
     text-align: center;
-    box-shadow: 0 10px 5px -5px blue;
+    box-shadow: 0 10px 3px -8px blue;
     margin-bottom: 1.2em;
     text-transform: uppercase;
     z-index: 2;

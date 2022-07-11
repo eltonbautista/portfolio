@@ -1,5 +1,18 @@
 ---
 import AboutDescription from "./AboutDescription.astro";
+import AboutSkills from "./AboutSkills.astro";
+
+// Assets
+import reactLogo from "../../../public/skills_assets/react_logo.svg";
+import jestLogo from "../../../public/skills_assets/jest_logo.svg";
+import typescriptLogo from "../../../public/skills_assets/typescript_logo.svg";
+import firebaseLogo from "../../../public/skills_assets/firebase_logo.svg";
+import javascriptLogo from "../../../public/skills_assets/javascript_logo.svg";
+import htmlLogo from "../../../public/skills_assets/html5_logo.svg";
+import cssLogo from "../../../public/skills_assets/css3_logo.svg";
+import linuxLogo from "../../../public/skills_assets/linux_logo.svg";
+import gitLogo from "../../../public/skills_assets/git_logo.svg";
+
 export interface IAboutProps {
 
 }
@@ -11,8 +24,23 @@ export interface IAboutProps {
     About.
   </h2>
   <AboutDescription />
-  <div class="about skills-container">
+  <div class="about about-competencies">
+    <div class="about competencies-header">
+      <h2>Competencies</h2>
+      <hr>
+    </div>
 
+    <div class="about skills-container">
+      <AboutSkills skill="ReactJS" logo={reactLogo} />
+      <AboutSkills skill="TypeScript" logo={typescriptLogo} />
+      <AboutSkills skill="Jest" logo={jestLogo} />
+      <AboutSkills skill="Firebase" logo={firebaseLogo} />
+      <AboutSkills skill="JavaScript" logo={javascriptLogo} />
+      <AboutSkills skill="HTML5" logo={htmlLogo} />
+      <AboutSkills skill="CSS3" logo={cssLogo} />
+      <AboutSkills skill="Git" logo={gitLogo} />
+      <AboutSkills skill="Linux" logo={linuxLogo} />
+    </div>
   </div>
 </div>
 
@@ -20,5 +48,49 @@ export interface IAboutProps {
   .about-header {
     font-size: calc(var(--font-size-xl) - 1em);
     margin-top: 0;
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(100px, 1fr));
+    justify-items: center;
+  }
+
+  @media (max-width: 1250px) {
+    .skills-container {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      grid-template-rows: repeat(3, minmax(100px, 1fr));
+      gap: 1em;
+    }
+  }
+
+  .about-competencies {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .competencies-header {
+    position: relative;
+  }
+
+  .competencies-header>h2 {
+    background-color: white;
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-color-main);
+    padding: 0 0.5em;
+    letter-spacing: 0.05em;
+    /* margin: 0; */
+  }
+
+  .competencies-header>hr {
+    position: absolute;
+    width: 100%;
+    top: 27.5%;
+    z-index: -1;
+    border: 1px solid var(--color-text-alt);
   }
 </style>

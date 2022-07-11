@@ -61,7 +61,7 @@ body.dark-mode {
   color: blue;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1251px) {
   .carousel-container {
     opacity: 0;
     transition: 200ms opacity ease-in-out;
@@ -75,29 +75,30 @@ body.dark-mode {
 
   .carousel-container>.header-div {
     position: relative;
-    transform: translateX(-30%);
+    transform: translateX(-100%);
     opacity: 0;
-    transition: 300ms transform ease-in-out, 300ms opacity ease-in-out;
-    transition-delay: 0ms;
+    transition: 500ms transform ease-in-out, 300ms opacity ease-in-out;
+    transition-delay: 200ms;
   }
 
   .carousel-container.show>.header-div {
     opacity: 1;
     transform: translateX(0%);
-    transition-delay: 400ms;
+    transition-delay: 0ms;
   }
 
   .carousel-container>.ul-container {
     position: relative;
-    transform: translateX(50%);
+    transform: translateX(-100%);
     opacity: 0;
-    transition: 300ms transform ease-in-out, opacity 300ms 100ms ease-in-out;
+    transition: 500ms transform ease-in-out, opacity 500ms ease-in-out;
+    transition-delay: 0ms;
   }
 
   .carousel-container.show>.ul-container {
     opacity: 1;
     transform: translateX(0%);
-    transition-delay: 400ms;
+    transition-delay: 500ms;
   }
 
 }

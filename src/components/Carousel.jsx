@@ -74,7 +74,7 @@ const StyledCarousel = styled.div`
     grid-area: list;
   }
 
-  @media (min-width: 1500px) {
+  @media (min-width: 1251px) {
     .personal-display-list {
       padding-bottom: 20vh;
     }

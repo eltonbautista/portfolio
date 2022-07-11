@@ -14,16 +14,16 @@ const StyledCarousel = styled.div`
   .header-div {
     display: grid;
     align-items: end;
-    transform: translateX(-1px);
     z-index: 2;
 
     > h2 {
     letter-spacing: 0.03em;
     z-index: 2;
+    width: fit-content;
   }
   }
 
-  .test-div {
+  .ul-container {
     display: grid;
     position: relative;
     width: 100%;
@@ -176,7 +176,7 @@ const Carousel = (props) => {
           <h2>{carouselTitle}</h2>
         </div> : null
       }
-      <div className="test-div" >
+      <div className="ul-container" >
         <ul className="personal-list-container">
           {mySlides}
         </ul>

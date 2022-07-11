@@ -18,10 +18,8 @@ const StyledCarousel = styled.div`
     z-index: 2;
 
     > h2 {
-    /* margin-bottom: 1.2em; */
     letter-spacing: 0.03em;
     z-index: 2;
-    /* padding-bottom: 10vh; */
   }
   }
 

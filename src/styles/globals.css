@@ -60,3 +60,16 @@ body.dark-mode {
 .theme {
   color: blue;
 }
+
+@media (min-width: 1500px) {
+  .carousel-container {
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  .carousel-container.show {
+    opacity: 1;
+    transition-delay: 0;
+  }
+}

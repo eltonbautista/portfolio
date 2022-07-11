@@ -25,8 +25,9 @@ import twitter from "../../public/twitter-icon.svg";
   const root = document.documentElement;
   const body = document.querySelector('body');
   const mainContent = document.querySelector('#main-content');
-
   const aboutSection = document.querySelector('.about-container');
+
+
   window.addEventListener('scroll', function () {
     const heightTop = aboutSection.offsetTop;
     // const heightOH = aboutSection.offsetHeight;
@@ -41,13 +42,11 @@ import twitter from "../../public/twitter-icon.svg";
       body.classList.add('dark-mode');
       return;
     }
-
     root.style.setProperty('--bg-color-main', "#eee5d0");
     root.style.setProperty('--color-text', "#1d1d1b");
     root.style.setProperty('--color-text-alt', "red");
     body.classList.remove('dark-mode');
     mainContent.classList.remove('dark-mode');
-
 
   });
 

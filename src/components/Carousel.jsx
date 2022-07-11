@@ -23,7 +23,6 @@ const StyledCarousel = styled.div`
   }
   }
 
-
   .test-div {
     display: grid;
     position: relative;
@@ -39,7 +38,7 @@ const StyledCarousel = styled.div`
     display: grid;
     margin: 0;
     padding: 0;
-    
+    grid-template-areas: "list";
   }
 
   .carousel-button {
@@ -68,19 +67,23 @@ const StyledCarousel = styled.div`
     display: block;
     list-style: none;
     opacity: 0;
-    position: absolute;
     top: -50px;
     width: 100%;
-
     transition: 200ms opacity ease-in-out;
     transition-delay: 0ms;
+    grid-area: list;
+  }
+
+  @media (min-width: 1500px) {
+    .personal-display-list {
+      padding-bottom: 20vh;
+    }
   }
 
   li.personal-display-list[data-active="true"] {
     opacity: 1;
     transition-delay: 200ms;
     z-index: 1;
-
     .noun-header {
       animation: glitchName 0.9s 3 ease-in-out .85s alternate both;
     }
@@ -108,6 +111,22 @@ const Carousel = (props) => {
       <PersonalDisplays noun={allMyText.nounTwo} description={allMyText.descriptionTwo} videoSrc={clipTwo} />,
       <PersonalDisplays noun={allMyText.nounThree} description={allMyText.descriptionThree} videoSrc={clipThree} />];
   const slidesArrayLength = componentsArray.length;
+
+  useEffect(() => {
+    const aboutSection = document.querySelector('.about-container');
+    const carousel = document.querySelector('.carousel-container');
+    window.addEventListener('scroll', function () {
+      const heightTop = aboutSection.offsetTop;
+      const heightOH = aboutSection.offsetHeight;
+      const heightBottom = heightTop + heightOH;
+      const windowScroll = this.scrollY;
+
+      if (windowScroll > heightBottom) {
+        carousel.classList.add('show');
+      }
+    });
+
+  }, []);
 
   // Slide position is determined by carouselCount
   const nextSlide = () => {

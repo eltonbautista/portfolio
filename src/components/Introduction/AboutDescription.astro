@@ -21,9 +21,7 @@ export interface IAboutDescription {
       importantly, how to achieve it.
     </i>
   </p>
-  <h2 class="about name-header">
-    Hi! My name is <strong>Elton Bautista</strong> and I am a <strong>Front End Developer</strong>.
-  </h2>
+
   <p class="about about-paragraph">
     <strong>Discipline:</strong>
     I am a programmer who <i>emphasizes</i> and <i>prioritizes</i> the importance of
@@ -61,7 +59,13 @@ export interface IAboutDescription {
 <style>
   .about-description-container {
     max-width: 80%;
-    margin-bottom: 5em;
+    margin-bottom: 6.5em;
+  }
+
+  @media (max-width: 1200px) {
+    .about-description-container {
+      margin-bottom: 3em;
+    }
   }
 
   .about-paragraph {
@@ -75,5 +79,6 @@ export interface IAboutDescription {
 
   .name-header {
     font-weight: 100;
+    /* text-align: center; */
   }
 </style>

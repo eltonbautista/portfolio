@@ -5,7 +5,7 @@ const PersonalDisplays = (props) => {
   const { description, noun, videoSrc, active, activity } = props;
 
   return (
-    <div className={`${styles['styled-personal-display']} ${"personal"}`} data-active={active} activity={activity}>
+    <div className={`${styles['styled-personal-display']} ${"personal-display"}`} data-active={active} activity={activity}>
       <div className={` ${styles['noun-container']} ${"personal"}`}>
 
         <h3 className={`${styles['noun-header']} ${'noun-header'}`}>

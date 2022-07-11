@@ -13,7 +13,7 @@ import twitter from "../../public/twitter-icon.svg";
 
 ---
 
-<Layout title={"Title here"}>
+<Layout title={"EltonBautista: Front End Developer"}>
   <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
     socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
     socialThreeLink="https://twitter.com/psychtotech" />
@@ -43,7 +43,7 @@ import twitter from "../../public/twitter-icon.svg";
       mainContent.classList.add('dark-mode');
       body.classList.add('dark-mode');
       return;
-    } else if (mediaEight.matches && windowScroll > (heightTop + heightOH - (windowHeight * 2))) {
+    } else if (mediaEight.matches && windowScroll > (heightTop + heightOH - (windowHeight * 1.95))) {
       root.style.setProperty('--bg-color-main', "#1d1d1b");
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");

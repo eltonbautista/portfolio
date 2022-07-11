@@ -18,10 +18,10 @@ const StyledCarousel = styled.div`
     z-index: 2;
 
     > h2 {
-    margin-bottom: 1.2em;
+    /* margin-bottom: 1.2em; */
     letter-spacing: 0.03em;
     z-index: 2;
-    padding-bottom: 0.7em;
+    /* padding-bottom: 10vh; */
   }
   }
 
@@ -51,7 +51,7 @@ const StyledCarousel = styled.div`
     top: 50%;
     background: none;
     border: none;
-    color: var(--bg-color-sub);
+    color: var(--text-color);
     font-size: var(--font-size-lg);
   }
 
@@ -67,9 +67,8 @@ const StyledCarousel = styled.div`
     padding: 0;
     margin: 0;
     margin-top: 1em;
-    display: grid;
-    justify-items: center;
-    justify-self: center;
+    display: block;
+    list-style: none;
     opacity: 0;
     position: absolute;
     top: -50px;

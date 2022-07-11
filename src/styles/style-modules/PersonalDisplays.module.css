@@ -39,6 +39,7 @@
     margin-top: 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     padding: 1em;
   }
 
@@ -58,14 +59,13 @@
     font-weight: 100;
     font-family: JostMedium;
     color: var(--color-text);
+    padding-top: 3.5em;
   }
 
   .noun-container>h3 {
     position: absolute;
-    transform: translateY(-50%);
-
     font-weight: 100;
-    top: -15%;
+    top: -2%;
     width: 43%;
     text-align: center;
     box-shadow: 0 10px 5px -5px blue;
@@ -78,11 +78,13 @@
 
   .noun-container {
     color: var(--color-text);
+    font-size: var(--font-size-base);
     padding: 1em;
-    grid-area: 2/1/4/6;
+    grid-area: 1/1/4/6;
     z-index: 1;
     position: relative;
     display: grid;
+
   }
 
   .video-container {

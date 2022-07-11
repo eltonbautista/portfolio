@@ -29,28 +29,11 @@ import twitter from "../../public/twitter-icon.svg";
   const aboutSection = document.querySelector('.about-container');
   window.addEventListener('scroll', function () {
     const heightTop = aboutSection.offsetTop;
-    const heightOH = aboutSection.offsetHeight;
-    const windowHeight = window.innerHeight;
+    // const heightOH = aboutSection.offsetHeight;
+    // const windowHeight = window.innerHeight;
     const windowScroll = this.scrollY;
 
-    const mediaFifteen = window.matchMedia("(max-width: 1450px)");
-    const mediaEight = window.matchMedia("(max-width: 800px)");
-
-    if (mediaFifteen.matches && windowScroll > (heightTop + heightOH - (windowHeight * 1.3))) {
-      root.style.setProperty('--bg-color-main', "#1d1d1b");
-      root.style.setProperty('--color-text', "#eee5d0");
-      root.style.setProperty('--color-text-alt', "blue");
-      mainContent.classList.add('dark-mode');
-      body.classList.add('dark-mode');
-      return;
-    } else if (mediaEight.matches && windowScroll > (heightTop + heightOH - (windowHeight * 1.95))) {
-      root.style.setProperty('--bg-color-main', "#1d1d1b");
-      root.style.setProperty('--color-text', "#eee5d0");
-      root.style.setProperty('--color-text-alt', "blue");
-      mainContent.classList.add('dark-mode');
-      body.classList.add('dark-mode');
-      return;
-    } else if (windowScroll > (heightTop + heightOH - windowHeight * 1.05)) {
+    if (windowScroll > heightTop) {
       root.style.setProperty('--bg-color-main', "#1d1d1b");
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");
@@ -58,7 +41,6 @@ import twitter from "../../public/twitter-icon.svg";
       body.classList.add('dark-mode');
       return;
     }
-
 
     root.style.setProperty('--bg-color-main', "#eee5d0");
     root.style.setProperty('--color-text', "#1d1d1b");

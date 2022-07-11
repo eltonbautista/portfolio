@@ -62,11 +62,15 @@
     padding-top: 3.5em;
   }
 
+  .noun-header {
+    position: absolute;
+  }
+
   .noun-container>h3 {
     position: absolute;
     font-weight: 100;
     top: -2%;
-    width: 43%;
+    width: 50%;
     text-align: center;
     box-shadow: 0 10px 5px -5px blue;
     margin-bottom: 1.2em;

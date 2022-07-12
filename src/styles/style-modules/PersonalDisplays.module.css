@@ -1,5 +1,4 @@
 .styled-personal-display {
-  width: 85%;
   margin-right: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
@@ -10,7 +9,6 @@
 .noun-container>h3 {
   margin-bottom: 1em;
   box-shadow: 0 10px 3px -8px blue;
-  width: 90%;
   text-align: center;
 }
 

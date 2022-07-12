@@ -20,11 +20,97 @@ const [clockedOut] = projectInformation;
       <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
         projectTitle={clockedOut.title} projectClass="alternate" />
       <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
-        projectTitle={clockedOut.title} />
+        projectTitle={clockedOut.title} lastClass="last-project" />
     </div>
   </div>
 </section>
+<script is:inline>
+  const projectContainer = document.querySelector('.projects-container');
+  const [firstProjectText, secondProjectText, thirdProjectText] = document.querySelectorAll('.project-preview-text-container');
+  const screen = window.matchMedia("(min-width: 1250px)");
+  let oldScroll = window.scrollY;
+  let direction;
+  let foo = 40;
+  let bar = 40;
+  let baz = 40;
 
+  window.addEventListener('scroll', function () {
+    const windowScroll = this.scrollY;
+    const projectTop = projectContainer.offsetTop;
+    const projectBottom = projectContainer.offsetTop + projectContainer.offsetHeight;
+
+    // projectContainer top to bottom divided into a third.
+    const projectThird = (projectBottom - projectTop) / 3;
+
+    // Consists of the area occupied by each of the three projects:
+    const firstProjectArea = projectTop + projectThird;
+    const secondProjectArea = projectTop + (projectThird * 2);
+    const thirdProjectArea = projectTop + (projectThird * 3);
+
+
+    // Logic for determining the scroll's direction.
+    if (windowScroll > oldScroll) {
+      direction = "down";
+    } else {
+      direction = "up";
+    }
+    oldScroll = windowScroll <= 0 ? 0 : windowScroll;
+
+    if (windowScroll > projectTop && windowScroll < projectBottom && screen.matches) {
+
+      if (windowScroll > firstProjectArea && windowScroll * 1.3 > thirdProjectArea) {
+        thirdProjectText.style.transform = `translate3d(0px, ${baz}%, 0px)`;
+        if (direction === "down" && baz <= 40) {
+          if (baz === -40) {
+            return;
+          }
+          baz -= 1;
+        }
+        if (direction === "up" && baz >= -40) {
+          if (baz === 40) {
+            return;
+          }
+          baz += 1;
+        }
+      }
+
+      if (windowScroll < firstProjectArea) {
+        firstProjectText.style.transform = `translate3d(0px, ${foo}%, 0px)`;
+        if (direction === "down" && foo <= 40) {
+          if (foo === -40) {
+            return;
+          }
+          foo -= 1;
+        }
+        if (direction === "up" && foo >= -40) {
+          if (foo === 40) {
+            return;
+          }
+          foo += 1;
+        }
+        return;
+      } else if (windowScroll < secondProjectArea) {
+
+        secondProjectText.style.transform = `translate3d(0px, ${bar}%, 0px)`;
+        if (direction === "down" && bar <= 40) {
+          if (bar === -40) {
+            return;
+          }
+          bar -= 1;
+        }
+        if (direction === "up" && bar >= -40) {
+          if (bar === 40) {
+            return;
+          }
+          bar += 1;
+        }
+        return;
+      }
+    }
+
+
+  });
+</script>
 <style>
   .projects-header {
     font-size: calc(var(--font-size-xl) - 1em);

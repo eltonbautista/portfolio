@@ -176,7 +176,6 @@ const Carousel = (props) => {
   };
   // Slide elements to be added into a ul
   const mySlides = createMappedItems(displays);
-  console.log(mySlides);
   return (
     <StyledCarousel className="carousel-container" >
       {carouselTitle ?

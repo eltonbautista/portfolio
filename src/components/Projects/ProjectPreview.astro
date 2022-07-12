@@ -4,13 +4,12 @@ export interface IProjectPreviewProps {
   projectDescription: string;
   projectTitle: string;
   projectClass: string;
-  textArea: string;
-  videoArea: string;
+  lastClass: string;
 }
-const { videoSrc, projectTitle, projectDescription, projectClass, textArea, videoArea } = Astro.props;
+const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = Astro.props;
 ---
 
-<div class={`projects project-preview`}>
+<div class={`projects project-preview ${lastClass}`}>
   <div class={`projects project-preview-text-container ${projectClass}`}>
     <h3 class="projects project-preview-header">
       {projectTitle}
@@ -24,7 +23,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, textArea, vide
   </div>
 </div>
 
-<style define:vars={{textArea, videoArea}}>
+<style>
   .project-preview {
     margin-right: 0;
     display: grid;
@@ -106,6 +105,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, textArea, vide
       padding: 0.3em;
     }
 
+    /* Normal Positioning */
     .project-preview-text-container {
       color: var(--color-text);
       font-size: var(--font-size-base);
@@ -115,6 +115,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, textArea, vide
       position: relative;
       display: grid;
       background-color: var(--bg-color-sub);
+      transform: translate3d(0px, 40%, 0px);
     }
 
     .project-preview-video-container {
@@ -122,19 +123,13 @@ const { videoSrc, projectTitle, projectDescription, projectClass, textArea, vide
       opacity: 0.7;
     }
 
+    /* Alternate Positioning */
     .project-preview-text-container.alternate {
-      color: var(--color-text);
-      font-size: var(--font-size-base);
-      padding: 1em;
-      grid-area: 1/6/6/13;
-      z-index: 1;
-      position: relative;
-      display: grid;
-      background-color: var(--bg-color-sub);
+      grid-area: 3/13/6/6;
     }
 
     .project-preview-video-container.alternate {
-      grid-area: 2/1/5/8;
+      grid-area: 2/1/6/8;
       opacity: 0.7;
     }
 
@@ -144,6 +139,10 @@ const { videoSrc, projectTitle, projectDescription, projectClass, textArea, vide
       object-position: center;
       width: 100%;
       height: auto;
+    }
+
+    .last-project {
+      /* padding-bottom: 1em; */
     }
   }
 </style>

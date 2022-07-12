@@ -32,7 +32,7 @@ const personalDisplaysInformation = [{
 }];
 ---
 
-<section class="section-container section-name">
+<section class="section-container section-introduction">
   <div class="container-hero">
     <span class="name one">{firstName}</span>
     <span class="name two">{lastName}</span>
@@ -62,7 +62,7 @@ const personalDisplaysInformation = [{
   <QuoteAndMedia quote={allMyText.quoteOne} />
   <About />
   <Carousel client:only displays={personalDisplaysInformation} carouselTitle="Who am I?"
-    personalDisplayClasses={'styled-personal-display'} />
+    personalDisplayClasses={'styled-personal-display'} buttons={true} />
 </section>
 
 <style>

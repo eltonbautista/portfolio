@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar.astro';
 import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
 import twitter from "../../public/twitter-icon.svg";
-
+import Projects from "../components/sections/Projects.astro";
 ---
 
 <Layout title={"EltonBautista: Front End Developer"}>
@@ -19,6 +19,7 @@ import twitter from "../../public/twitter-icon.svg";
     socialThreeLink="https://twitter.com/psychtotech" />
   <main id="main-content">
     <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
+    <Projects />
   </main>
 </Layout>
 <script is:inline>

@@ -11,6 +11,12 @@ const StyledCarousel = styled.div`
   min-width: 100%;
   display: grid;
   margin-top: 1em;
+  
+  hr {
+    width: 100%;
+    border: 1px solid blue;
+  }
+
   .header-div {
     display: grid;
     align-items: end;
@@ -104,7 +110,7 @@ function isActive(elem, arr, count) {
 
 // styles['styled-personal-display']
 const Carousel = (props) => {
-  const { displays, carouselTitle, personalDisplayClasses } = props;
+  const { displays, carouselTitle, personalDisplayClasses, buttons } = props;
   const [carouselCount, setCarouselCount] = useState(0);
 
   const slidesArrayLength = displays.length;
@@ -126,28 +132,28 @@ const Carousel = (props) => {
   }, []);
 
   // Slide position is determined by carouselCount
-  const nextSlide = () => {
+  const changeSlide = (direction) => {
     // Increment carousel count by 1, but if it exceeds the number of array items, then reset
-    setCarouselCount((prev) => {
-      if (carouselCount < slidesArrayLength - 1) {
-        return prev + 1;
+    if (direction === "next") {
+      setCarouselCount((prev) => {
+        if (carouselCount < slidesArrayLength - 1) {
+          return prev + 1;
+        }
+        return 0;
+      });
+      return;
+    } else if (direction === "previous") {
+      // if at the start of array, and previous slide btn is clicked, then go to the last slide.
+      if (carouselCount === 0) {
+        setCarouselCount(slidesArrayLength - 1);
+        return;
       }
-      return 0;
-    });
-    return;
-  };
-
-  const previousSlide = () => {
-
-    // if at the start of array, and previous slide is clicked, then go to the last slide.
-    if (carouselCount === 0) {
-      setCarouselCount(slidesArrayLength - 1);
+      setCarouselCount((prev) => {
+        return prev - 1;
+      });
       return;
     }
-    setCarouselCount((prev) => {
-      return prev - 1;
-    });
-    return;
+
   };
 
   // TODO: Make it so that when user scrolls to the "A little about me" section, the animations play, and not before that.
@@ -159,8 +165,12 @@ const Carousel = (props) => {
       return (
         <li className="personal-display-list" key={index} data-active={isActive(information, arrayToMap, carouselCount)} >
           <PersonalDisplays noun={information.noun} description={information.description} videoSrc={information.videoSrc} classes={personalDisplayClasses} />
-          <button className="carousel-button previous" onClick={previousSlide}>&#10148;</button>
-          <button className="carousel-button next" onClick={nextSlide}>&#10148;</button>
+          {buttons ? <><button className="carousel-button previous" onClick={() => {
+            changeSlide("previous");
+          }}>&#10148;</button>
+            <button className="carousel-button next" onClick={() => {
+              changeSlide("next");
+            }}>&#10148;</button></> : null}
         </li>);
     });
   };
@@ -179,7 +189,7 @@ const Carousel = (props) => {
           {mySlides}
         </ul>
       </div>
-
+      <hr></hr>
     </StyledCarousel>
   );
 };

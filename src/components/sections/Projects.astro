@@ -1,4 +1,27 @@
 ---
+import { projectInformation } from "../../utils";
+import ProjectPreview from "../Projects/ProjectPreview.astro";
+export interface IProjectsProps {
 
+}
 ---
 
+<section class="section-container section-projects">
+  <div class="projects projects-container">
+    <h2 class="projects projects-header">
+      Projects.
+    </h2>
+    <div class="projects my-projects-container">
+      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
+        projectText={projectInformation[0]} />
+      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
+        projectText={projectInformation[0]} />
+      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
+        projectText={projectInformation[0]} />
+    </div>
+  </div>
+</section>
+
+<style>
+
+</style>

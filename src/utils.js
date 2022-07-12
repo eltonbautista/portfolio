@@ -13,6 +13,7 @@ const allMyText = {
 };
 
 const projectInformation = [{
+  title: "clockedOut",
   description: "clockedOut is a LinkedIn clone application that focuses on the social aspects of gaming. It is a one-stop destination for creating lifetime companions, and remembering our childhood nostalgia.",
   problem: "Simulate a popular industry-sized application that utilizes a NoSQL database. Additionally, I wanted to further my understanding on the intricacies of UI/UX testing, how to deal with higher quantities of REST API calls, and finally, familiarize myself with the state management model. ",
   solution: "Instead of JavaScript, I decided to use TypeScript instead due to its strongly typed nature. This allowed me to reduce the bugs I encountered, create ease of access for anybody reading my code, and most importantly increase the scalability of my application which is important for addressing my main problem. I utilized Jest for testing due to its compatability with React testing library and asynchronous functionalities. Firebase was my choice for a NoSQL database because of its reliability, rich documentation, and ability to persist data locally and offline which would provide my users a responsive experience. I opted on using React's built-in Context API due to its reliability, built-in support, and minimalistic setup.",

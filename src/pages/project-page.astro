@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+import octocat from "../../public/gh-icon.svg";
+import linkedin from "../../public/linkedin-icon.svg";
+import twitter from "../../public/twitter-icon.svg";
+
+import Projects from "../components/sections/Projects.astro";
+export interface IProjectPageProps {
+
+}
+---
+
+<Layout title={"EltonBautista: Front End Developer"}>
+  <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
+    socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
+    socialThreeLink="https://twitter.com/psychtotech" />
+  <main id="main-content">
+
+  </main>
+</Layout>
+
+<style>
+
+</style>

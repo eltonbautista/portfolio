@@ -1,9 +1,12 @@
 ---
 import { projectInformation } from "../../utils";
 import ProjectPreview from "../Projects/ProjectPreview.astro";
-export interface IProjectsProps {
+import exampleVideo from "../../../public/powerlifter.mp4";
 
+export interface IProjectsProps {
+  filler: string;
 }
+const [clockedOut] = projectInformation;
 ---
 
 <section class="section-container section-projects">
@@ -12,16 +15,18 @@ export interface IProjectsProps {
       Projects.
     </h2>
     <div class="projects my-projects-container">
-      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
-        projectText={projectInformation[0]} />
-      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
-        projectText={projectInformation[0]} />
-      <ProjectPreview projectClass="clocked-out" videoSrc="" projectTitle="clockedOut"
-        projectText={projectInformation[0]} />
+      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
+        projectTitle={clockedOut.title} />
+      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
+        projectTitle={clockedOut.title} projectClass="alternate" />
+      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
+        projectTitle={clockedOut.title} />
     </div>
   </div>
 </section>
 
 <style>
-
+  .projects-header {
+    font-size: calc(var(--font-size-xl) - 1em);
+  }
 </style>

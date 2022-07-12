@@ -1,0 +1,67 @@
+---
+export interface IProjectProps {
+  projectClass: string;
+  videoSrc: string;
+  projectTitle: string;
+  projectText: {
+    description: string;
+    problem: string;
+    solution: string;
+    shortcomings: string;
+    builtWith: string;
+  };
+}
+const { projectClass, videoSrc, projectTitle, projectText } = Astro.props;
+---
+
+<div class={`projects project project-${projectClass}`}>
+  <div class="projects project-text-container">
+    <h3 class="projects project-header">
+      {projectTitle}
+    </h3>
+    <p>{projectText.description}</p>
+    <p>
+      <strong>Problem:</strong>
+      {projectText.problem}
+    </p>
+    <p>
+      <strong>Solution:</strong>
+      {projectText.solution}
+    </p>
+    <p>
+      <strong>Shortcomings:</strong>
+      {projectText.shortcomings}
+    </p>
+    <p>
+      <i>
+        Built with: {projectText.builtWith}
+      </i>
+    </p>
+  </div>
+  <div class="projects project-video-container">
+    <video id="my-video" class="personal-video" muted src={videoSrc}>
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+  </div>
+</div>
+
+<style>
+  .project {
+    display: grid;
+    position: relative;
+    width: 95%;
+    margin-right: 0;
+    margin-top: 0;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1em;
+  }
+
+  .project-text-container {
+    grid-area: 1/1/2/4;
+  }
+
+  .project-video-container {
+    grid-area: 1/4/2/6;
+  }
+</style>

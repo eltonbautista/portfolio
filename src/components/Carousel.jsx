@@ -101,16 +101,13 @@ function isActive(elem, arr, count) {
   return false;
 }
 
+
+// styles['styled-personal-display']
 const Carousel = (props) => {
-  const { displays, children, carouselTitle } = props;
+  const { displays, carouselTitle, personalDisplayClasses } = props;
   const [carouselCount, setCarouselCount] = useState(0);
 
-  const componentsArray =
-    [
-      <PersonalDisplays noun={allMyText.nounOne} description={allMyText.descriptionOne} videoSrc={clipOne} />,
-      <PersonalDisplays noun={allMyText.nounTwo} description={allMyText.descriptionTwo} videoSrc={clipTwo} />,
-      <PersonalDisplays noun={allMyText.nounThree} description={allMyText.descriptionThree} videoSrc={clipThree} />];
-  const slidesArrayLength = componentsArray.length;
+  const slidesArrayLength = displays.length;
 
   useEffect(() => {
     const aboutSection = document.querySelector('.about-container');
@@ -158,17 +155,18 @@ const Carousel = (props) => {
   const createMappedItems = (arrayToMap) => {
     // map carousel slides into link elements
     // data-active is determined by isActive, this is a custom attribute which has different styling
-    return arrayToMap.map((element, index) => {
+    return arrayToMap.map((information, index) => {
       return (
-        <li className="personal-display-list" key={index} data-active={isActive(element, arrayToMap, carouselCount)} >{element}
+        <li className="personal-display-list" key={index} data-active={isActive(information, arrayToMap, carouselCount)} >
+          <PersonalDisplays noun={information.noun} description={information.description} videoSrc={information.videoSrc} classes={personalDisplayClasses} />
           <button className="carousel-button previous" onClick={previousSlide}>&#10148;</button>
           <button className="carousel-button next" onClick={nextSlide}>&#10148;</button>
         </li>);
     });
   };
   // Slide elements to be added into a ul
-  const mySlides = createMappedItems(componentsArray);
-
+  const mySlides = createMappedItems(displays);
+  console.log(mySlides);
   return (
     <StyledCarousel className="carousel-container" >
       {carouselTitle ?

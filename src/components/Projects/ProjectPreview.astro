@@ -115,7 +115,12 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
       position: relative;
       display: grid;
       background-color: var(--bg-color-sub);
-      transform: translate3d(0px, 40%, 0px);
+    }
+
+    @media (min-width: 1000px) {
+      .project-preview-text-container {
+        transform: translate3d(0px, 40%, 0px);
+      }
     }
 
     .project-preview-video-container {

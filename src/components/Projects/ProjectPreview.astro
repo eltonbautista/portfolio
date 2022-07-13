@@ -17,7 +17,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
     <p>{projectDescription}</p>
   </div>
   <div class={`projects project-preview-video-container ${projectClass}`}>
-    <video id="my-video" class="personal-video" muted src={videoSrc}>
+    <video class="project-video" muted src={videoSrc}>
       <source src={videoSrc} type="video/mp4" />
     </video>
   </div>
@@ -110,7 +110,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
       color: var(--color-text);
       font-size: var(--font-size-base);
       padding: 1em;
-      grid-area: 2/1/5/8;
+      grid-area: 2/1/4/8;
       z-index: 1;
       position: relative;
       display: grid;
@@ -124,18 +124,20 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
     }
 
     .project-preview-video-container {
-      grid-area: 1/6/6/13;
-      opacity: 0.7;
+      grid-area: 1/6/5/13;
     }
 
     /* Alternate Positioning */
     .project-preview-text-container.alternate {
-      grid-area: 3/13/6/6;
+      grid-area: 3/13/5/6;
+    }
+
+    .project-preview-text-container.alternate>h3 {
+      text-align: start;
     }
 
     .project-preview-video-container.alternate {
-      grid-area: 2/1/6/8;
-      opacity: 0.7;
+      grid-area: 1/1/5/8;
     }
 
     .project-preview-video-container>video {
@@ -146,8 +148,9 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
       height: auto;
     }
 
-    .last-project {
-      /* padding-bottom: 1em; */
+    .last-project.project-preview-text-container {
+      /* grid-area: 3/1/5/8; */
+
     }
   }
 </style>

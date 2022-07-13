@@ -1,7 +1,9 @@
 ---
 import { projectInformation } from "../../utils";
 import ProjectPreview from "../Projects/ProjectPreview.astro";
-import exampleVideo from "../../../public/powerlifter.mp4";
+import clockedOutVideo from "../../../public/clocked-out.mp4";
+import meemoBoutiqueVideo from "../../../public/meemo.mp4";
+import waldoVideo from "../../../public/waldo.mp4";
 
 export interface IProjectsProps {
   filler: string;
@@ -15,18 +17,22 @@ const [clockedOut] = projectInformation;
       Projects.
     </h2>
     <div class="projects my-projects-container">
-      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
+      <ProjectPreview videoSrc={clockedOutVideo} projectDescription={clockedOut.description}
         projectTitle={clockedOut.title} />
-      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
-        projectTitle={clockedOut.title} projectClass="alternate" />
-      <ProjectPreview videoSrc={exampleVideo} projectDescription={clockedOut.description}
+      <ProjectPreview videoSrc={waldoVideo} projectDescription={clockedOut.description} projectTitle={clockedOut.title}
+        projectClass="alternate" />
+      <ProjectPreview videoSrc={meemoBoutiqueVideo} projectDescription={clockedOut.description}
         projectTitle={clockedOut.title} lastClass="last-project" />
     </div>
   </div>
 </section>
 <script is:inline>
   const projectContainer = document.querySelector('.projects-container');
-  const [firstProjectText, secondProjectText, thirdProjectText] = document.querySelectorAll('.project-preview-text-container');
+  const videos = [...document.querySelectorAll('.project-video')];
+  const textContainers = [...document.querySelectorAll('.project-preview-text-container')];
+  const videoContainers = [...document.querySelectorAll('.project-preview-video-container')];
+  const [firstProjectText, secondProjectText, thirdProjectText] = textContainers;
+
   const screen = window.matchMedia("(min-width: 1250px)");
   let oldScroll = window.scrollY;
   let direction;
@@ -36,6 +42,20 @@ const [clockedOut] = projectInformation;
   const originalTransform = 40;
   const lowestTransform = -20;
 
+
+
+  videos.forEach((video, i) => {
+    video.addEventListener('mouseover', function (e) {
+      textContainers[i].classList.add('decrease-opacity');
+      videoContainers[i].classList.add('increase-opacity');
+      this.play();
+    });
+    video.addEventListener('mouseleave', function (e) {
+      textContainers[i].classList.remove('decrease-opacity');
+      videoContainers[i].classList.remove('increase-opacity');
+      this.pause();
+    });
+  });
 
 
   window.addEventListener('scroll', function () {
@@ -65,7 +85,7 @@ const [clockedOut] = projectInformation;
       if (windowScroll > firstProjectArea && windowScroll * 1.3 > thirdProjectArea) {
         thirdProjectText.style.transform = `translate3d(0px, ${thirdTransform}%, 0px)`;
         if (direction === "down" && thirdTransform <= originalTransform) {
-          if (thirdTransform === lowestTransform + 25) {
+          if (thirdTransform === lowestTransform + 50) {
             return;
           }
           thirdTransform -= 1;
@@ -81,7 +101,7 @@ const [clockedOut] = projectInformation;
       if (windowScroll < firstProjectArea) {
         firstProjectText.style.transform = `translate3d(0px, ${firstTransform}%, 0px)`;
         if (direction === "down" && firstTransform <= originalTransform) {
-          if (firstTransform === lowestTransform + 30) {
+          if (firstTransform === lowestTransform + 20) {
             return;
           }
           firstTransform -= 1;

@@ -101,4 +101,31 @@ body.dark-mode {
     transition-delay: 500ms;
   }
 
+
+}
+
+@media (min-width: 1000px) {
+  .project-preview-text-container.decrease-opacity {
+    opacity: 0.5;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  .project-preview-text-container {
+    opacity: 1;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  .project-preview-video-container.increase-opacity {
+    opacity: 1;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  .project-preview-video-container {
+    opacity: 0.7;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
 }

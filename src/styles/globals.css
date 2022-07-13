@@ -119,7 +119,7 @@ body.dark-mode {
 
   .project-preview-video-container.increase-opacity {
     opacity: 1;
-    transform: scale(1.2) perspective(1500px) rotateY(-20deg) rotateX(5deg);
+    transform: scale(1.2);
     transition: 200ms opacity ease-in-out, 400ms transform ease-in-out;
     transition-delay: 0ms;
 
@@ -131,5 +131,15 @@ body.dark-mode {
     transition: 200ms opacity ease-in-out, 400ms transform ease-in-out;
     transition-delay: 0ms;
 
+  }
+}
+
+@media (min-width: 1050px) {
+  .my-projects-container>div:nth-child(2)>.project-preview-video-container.increase-opacity {
+    transform: scale(1.2) perspective(1500px) rotateY(20deg) rotateX(5deg);
+  }
+
+  .project-preview-video-container.increase-opacity {
+    transform: scale(1.2) perspective(1500px) rotateY(-20deg) rotateX(5deg);
   }
 }

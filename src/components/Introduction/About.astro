@@ -51,6 +51,27 @@ export interface IAboutProps {
     }
   }
 
+  .about-container {
+    opacity: 0;
+  }
+
+  .about-container.flip {
+    animation: flipDiv 1s ease-in-out 0s 1 forwards;
+  }
+
+  @keyframes flipDiv {
+    0% {
+      transform: perspective(1500px) rotateY(90deg);
+      opacity: 0;
+    }
+
+    100% {
+      transform: perspective(3000px) rotateY(0deg);
+      opacity: 1;
+    }
+  }
+
+
   .about-header {
     font-size: calc(var(--font-size-xl) - 1em);
   }
@@ -60,6 +81,7 @@ export interface IAboutProps {
     grid-template-columns: repeat(9, minmax(100px, 1fr));
     justify-items: center;
   }
+
 
   @media (max-width: 1250px) {
     .skills-container {

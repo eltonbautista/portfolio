@@ -31,21 +31,22 @@ import Projects from "../components/sections/Projects.astro";
 
   window.addEventListener('scroll', function () {
     const heightTop = aboutSection.offsetTop;
-    // const heightOH = aboutSection.offsetHeight;
-    // const windowHeight = window.innerHeight;
     const windowScroll = this.scrollY;
 
     if (windowScroll > heightTop) {
       root.style.setProperty('--bg-color-main', "#1d1d1b");
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");
+      root.style.setProperty('--color-text-opposite', "red");
       mainContent.classList.add('dark-mode');
+      aboutSection.classList.add('flip');
       body.classList.add('dark-mode');
       return;
     }
     root.style.setProperty('--bg-color-main', "#eee5d0");
     root.style.setProperty('--color-text', "#1d1d1b");
     root.style.setProperty('--color-text-alt', "red");
+    root.style.setProperty('--color-text-opposite', "blue");
     body.classList.remove('dark-mode');
     mainContent.classList.remove('dark-mode');
 

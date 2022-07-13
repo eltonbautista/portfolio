@@ -38,7 +38,7 @@ const [clockedOut] = projectInformation;
   let direction;
   let firstTransform = 40;
   let secondTransform = 40;
-  let thirdTransform = 40;
+  let thirdTransform = 50;
   const originalTransform = 40;
   const lowestTransform = -20;
 
@@ -82,22 +82,24 @@ const [clockedOut] = projectInformation;
 
     if (windowScroll > projectTop && windowScroll < projectBottom && screen.matches) {
 
-      if (windowScroll > firstProjectArea && windowScroll * 1.3 > thirdProjectArea) {
+      // Third
+      if (windowScroll > firstProjectArea && windowScroll * 1.25 > thirdProjectArea) {
         thirdProjectText.style.transform = `translate3d(0px, ${thirdTransform}%, 0px)`;
-        if (direction === "down" && thirdTransform <= originalTransform) {
+        if (direction === "down" && thirdTransform <= originalTransform + 10) {
           if (thirdTransform === lowestTransform + 50) {
             return;
           }
           thirdTransform -= 1;
         }
-        if (direction === "up" && thirdTransform >= -originalTransform) {
-          if (thirdTransform === originalTransform) {
+        if (direction === "up" && thirdTransform >= -originalTransform + 10) {
+          if (thirdTransform === originalTransform + 10) {
             return;
           }
           thirdTransform += 1;
         }
       }
 
+      // First
       if (windowScroll < firstProjectArea) {
         firstProjectText.style.transform = `translate3d(0px, ${firstTransform}%, 0px)`;
         if (direction === "down" && firstTransform <= originalTransform) {
@@ -114,6 +116,8 @@ const [clockedOut] = projectInformation;
         }
         // return;
       }
+
+      // Second
       if (windowScroll < secondProjectArea * 1.1) {
 
         secondProjectText.style.transform = `translate3d(0px, ${secondTransform}%, 0px)`;

@@ -2,11 +2,9 @@
 export interface IAboutSkills {
   logo: string;
   skill: string;
-  logoColor?: string;
-  classColor?: string;
 }
 
-const { logo, skill, logoColor, classColor } = Astro.props;
+const { logo, skill } = Astro.props;
 ---
 
 <div class="about skill-container">
@@ -19,7 +17,7 @@ const { logo, skill, logoColor, classColor } = Astro.props;
 
 </div>
 
-<style define:vars={ { logoColor } }>
+<style>
   .skill-container {
     display: grid;
     justify-items: center;

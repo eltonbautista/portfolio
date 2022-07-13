@@ -17,7 +17,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
     <p>{projectDescription}</p>
   </div>
   <div class={`projects project-preview-video-container ${projectClass}`}>
-    <video class="project-video" muted src={videoSrc}>
+    <video class="project-video" muted src={videoSrc} autoplay muted>
       <source src={videoSrc} type="video/mp4" />
     </video>
   </div>
@@ -150,6 +150,7 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
 
     .last-project.project-preview-text-container {
       /* grid-area: 3/1/5/8; */
+      transform: translate3d(0px, 50%, 0px);
 
     }
   }

@@ -9,8 +9,8 @@ export interface IProjectPreviewProps {
 const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = Astro.props;
 ---
 
-<div class={`projects project-preview ${lastClass}`}>
-  <div class={`projects project-preview-text-container ${projectClass}`}>
+<div class={`projects project-preview `}>
+  <div class={`projects project-preview-text-container ${lastClass} ${projectClass}`}>
     <h3 class="projects project-preview-header">
       {projectTitle}
     </h3>

@@ -39,8 +39,12 @@ import Projects from "../components/sections/Projects.astro";
       root.style.setProperty('--color-text-alt', "blue");
       root.style.setProperty('--color-text-opposite', "red");
       mainContent.classList.add('dark-mode');
-      aboutSection.classList.add('flip');
       body.classList.add('dark-mode');
+
+      if (aboutSection.classList.contains('flip') === false) {
+        aboutSection.classList.add('flip');
+      }
+
       return;
     }
     root.style.setProperty('--bg-color-main', "#eee5d0");

@@ -119,8 +119,8 @@ body.dark-mode {
 
   .project-preview-video-container.increase-opacity {
     opacity: 1;
-    transform: scale(1.2);
-    transition: 200ms opacity ease-in-out, 200ms transform ease-in-out;
+    transform: scale(1.2) perspective(1500px) rotateY(-20deg) rotateX(5deg);
+    transition: 200ms opacity ease-in-out, 400ms transform ease-in-out;
     transition-delay: 0ms;
 
   }
@@ -128,7 +128,7 @@ body.dark-mode {
   .project-preview-video-container {
     transform: scale(1);
     opacity: 0.7;
-    transition: 200ms opacity ease-in-out, 200ms transform ease-in-out;
+    transition: 200ms opacity ease-in-out, 400ms transform ease-in-out;
     transition-delay: 0ms;
 
   }

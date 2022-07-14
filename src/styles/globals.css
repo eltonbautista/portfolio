@@ -36,6 +36,44 @@ html {
   color: blue;
 }
 
+@keyframes glitchName {
+  0% {
+    font-style: italic;
+    font-family: HintRetro, JostMedium;
+    line-height: 1.08;
+  }
+
+  15% {
+    text-decoration: line-through;
+    text-transform: lowercase;
+  }
+
+  30% {
+    text-decoration: wavy;
+    color: var(--color-text-opposite);
+    font-family: FightingSpirit, HintRetro, JostLight, sans-serif;
+  }
+
+  65% {
+    text-decoration: underline;
+    text-transform: capitalize;
+  }
+
+  80% {
+    text-decoration-style: solid;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  100% {
+    font-family: JostLight, sans-serif;
+    text-transform: uppercase;
+    line-height: 1.08;
+
+  }
+}
+
+
 @media (min-width: 1251px) {
   .carousel-container {
     opacity: 0;

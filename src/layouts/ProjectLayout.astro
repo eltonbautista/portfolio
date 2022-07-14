@@ -120,27 +120,30 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   const video = document.querySelector('.project.video');
   const videoContainer = document.querySelector('.video-container');
   const contentContainer = [...document.querySelector('.project.content-container').children];
-  const [problem, problemVideo, solution, solutionVideo, builtWith, shortcomings] = contentContainer;
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
 
   if (mediaQueryEight.matches) {
     video.controls = true;
   }
 
+  // video plays on mouseover
   video.addEventListener('mouseover', function (e) {
     this.play();
     this.classList.add('pop-out');
     videoContainer.classList.add('pop-out');
   });
 
+  // Logic for adding show-section class and scrolling to appropriate divs
   contentContainer.forEach((section, i) => {
     const nextSection = contentContainer[i + 1];
-    section.addEventListener('click', function () {
-      nextSection.classList.add('show-section');
-      if (contentContainer.indexOf(nextSection) === 2 || contentContainer.indexOf(nextSection) === 5) {
-        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+    if (contentContainer.indexOf(section) !== contentContainer.length - 1) {
+      section.addEventListener('click', function () {
+        nextSection.classList.add('show-section');
+        if (contentContainer.indexOf(nextSection) === 2 || contentContainer.indexOf(nextSection) === 5) {
+          nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
   });
 
 </script>
@@ -192,7 +195,6 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
   .project.video {
     transition: 300ms ease-in-out transform;
-
   }
 
   .project.video:hover {
@@ -434,14 +436,13 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     .project-section.show-section {
       opacity: 1;
       visibility: visible;
-      transition: 200ms opacity ease-in-out;
+      transition: 300ms opacity ease-in-out, 300ms visibility ease-in-out;
       transition-delay: 0ms;
     }
 
     .project-section {
       opacity: 0;
       visibility: hidden;
-      /* transition: 200ms visibility ease-in-out; */
       transition-delay: 0ms;
     }
 

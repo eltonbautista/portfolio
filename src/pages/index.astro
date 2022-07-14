@@ -37,6 +37,7 @@ import Projects from "../components/sections/Projects.astro";
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");
       root.style.setProperty('--color-text-opposite', "red");
+      mainContent.classList.remove('light-mode');
       mainContent.classList.add('dark-mode');
       body.classList.remove('light-mode');
       body.classList.add('dark-mode');
@@ -52,10 +53,10 @@ import Projects from "../components/sections/Projects.astro";
     root.style.setProperty('--color-text', "#1d1d1b");
     root.style.setProperty('--color-text-alt', "red");
     root.style.setProperty('--color-text-opposite', "blue");
+    mainContent.classList.remove('dark-mode');
+    mainContent.classList.add('light-mode');
     body.classList.remove('dark-mode');
     body.classList.add('light-mode');
-
-    mainContent.classList.remove('dark-mode');
 
   });
 

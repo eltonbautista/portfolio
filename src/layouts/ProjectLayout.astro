@@ -1,0 +1,87 @@
+---
+import globals from "../styles/globals.css";
+import Navbar from "../components/Navbar.astro";
+
+import octocat from "../../public/gh-icon.svg";
+import linkedin from "../../public/linkedin-icon.svg";
+import twitter from "../../public/twitter-icon.svg";
+import Layout from "./Layout.astro";
+
+export interface IProjectLayout {
+  projectClass: string;
+}
+
+const { content, projectClass } = Astro.props;
+---
+
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <Layout title={content.title}>
+    <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
+      socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
+      socialThreeLink="https://twitter.com/psychtotech" />
+    <main>
+      <div class={`projects project ${projectClass}`}>
+        <div class="projects project-text-container">
+          <h1 class="projects project-header">
+            {content.title}
+          </h1>
+          <p>{content.description}</p>
+          <p>
+            <strong>Problem:</strong>
+            {content.problem}
+          </p>
+          <p>
+            <strong>Solution:</strong>
+            {content.solution}
+          </p>
+          <p>
+            <strong>Shortcomings:</strong>
+            {content.shortcomings}
+          </p>
+          <p>
+            <i>
+              Built with: {content.builtWith}
+            </i>
+          </p>
+        </div>
+        <div class="projects project-video-container">
+          <video id="my-video" class="personal-video" muted src={content.video}>
+            <source src={content.video} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </main>
+  </Layout>
+
+
+</body>
+
+</html>
+
+<style>
+  body,
+  html {
+    background-color: var(--bg-color-sub);
+    color: var(--bg-color-main);
+    font-size: var(--font-size-base);
+  }
+
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 85vw;
+    min-height: 100%;
+    background-color: var(--bg-color-sub);
+    font-family: JostLight, sans-serif;
+  }
+
+  h1 {
+    margin: 2rem 0;
+  }
+</style>

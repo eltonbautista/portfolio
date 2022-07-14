@@ -14,7 +14,7 @@ export interface IProjectProps {
 const { projectClass, videoSrc, projectTitle, projectText } = Astro.props;
 ---
 
-<div class={`projects project project-${projectClass}`}>
+<div class={`projects project ${projectClass}`}>
   <div class="projects project-text-container">
     <h3 class="projects project-header">
       {projectTitle}

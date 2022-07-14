@@ -1,7 +1,6 @@
 ---
 // Components:
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Introduction from '../components/sections/Introduction.astro';
 import Navbar from '../components/Navbar.astro';
 
@@ -39,7 +38,9 @@ import Projects from "../components/sections/Projects.astro";
       root.style.setProperty('--color-text-alt', "blue");
       root.style.setProperty('--color-text-opposite', "red");
       mainContent.classList.add('dark-mode');
+      body.classList.remove('light-mode');
       body.classList.add('dark-mode');
+
 
       if (aboutSection.classList.contains('flip') === false) {
         aboutSection.classList.add('flip');
@@ -52,6 +53,8 @@ import Projects from "../components/sections/Projects.astro";
     root.style.setProperty('--color-text-alt', "red");
     root.style.setProperty('--color-text-opposite', "blue");
     body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+
     mainContent.classList.remove('dark-mode');
 
   });

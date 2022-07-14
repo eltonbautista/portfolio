@@ -32,7 +32,7 @@ html {
   min-height: 100%;
 }
 
-body {
+body.light-mode {
   min-height: 100%;
   min-width: 100%;
   transition: 200ms background-color ease-in-out;
@@ -54,6 +54,7 @@ body {
 
 body.dark-mode {
   background-color: var(--bg-color-main);
+  transition: 200ms background-color ease-in-out;
   transition-delay: 0ms;
 }
 

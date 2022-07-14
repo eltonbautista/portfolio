@@ -6,7 +6,8 @@ import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
 import twitter from "../../public/twitter-icon.svg";
 
-import Projects from "../components/sections/Projects.astro";
+import { projectInformation } from "../utils";
+import Project from "../components/Projects/Project.astro";
 export interface IProjectPageProps {
 
 }
@@ -16,11 +17,29 @@ export interface IProjectPageProps {
   <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
     socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
     socialThreeLink="https://twitter.com/psychtotech" />
-  <main id="main-content">
-
+  <main id="main-content-project-page">
+    <Project projectText={projectInformation[0]} />
   </main>
 </Layout>
 
 <style>
+  h1 {
+    margin: 2rem 0;
+  }
 
+  body,
+  html {
+    background-color: var(--bg-color-sub);
+    color: var(--bg-color-main);
+    font-size: var(--font-size-base);
+  }
+
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 85vw;
+    min-height: 100%;
+    background-color: var(--bg-color-sub);
+    font-family: JostLight, sans-serif;
+  }
 </style>

@@ -49,7 +49,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
         <div class="project content-container">
 
-          <div class="project problem-container">
+          <div class="project project-section problem-container">
             <h3>
               Problem:
             </h3>
@@ -65,11 +65,11 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
               </em>
             </p>
           </div>
-          <div class="project img-container">
+          <div class="project project-section img-container">
             <img src={imgSrc} alt={imgAlt}>
           </div>
 
-          <div class="project solution-container">
+          <div class="project project-section solution-container">
             <h3>
               Solution:
             </h3>
@@ -81,22 +81,13 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
             </p>
           </div>
 
-          <div class="project video-container">
+          <div class="project project-section video-container">
             <video id="my-video" class="project video" muted src={content.video}>
               <source src={content.video} type="video/mp4" />
             </video>
           </div>
 
-          <div class="project shortcomings-container">
-            <h3>
-              Shortcomings:
-            </h3>
-            <p>
-              {content.shortcomings}
-            </p>
-          </div>
-
-          <div class="project built-with-container">
+          <div class="project project-section built-with-container">
             <h3>
 
               Built with:
@@ -104,6 +95,15 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
             </h3>
             <p class="project built-with">
               <i>{content.builtWith}</i>
+            </p>
+          </div>
+
+          <div class="project project-section shortcomings-container">
+            <h3>
+              Shortcomings:
+            </h3>
+            <p>
+              {content.shortcomings}
             </p>
           </div>
 
@@ -119,11 +119,29 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 <script is:inline>
   const video = document.querySelector('.project.video');
   const videoContainer = document.querySelector('.video-container');
+  const contentContainer = [...document.querySelector('.project.content-container').children];
+  const [problem, problemVideo, solution, solutionVideo, builtWith, shortcomings] = contentContainer;
 
-  video.addEventListener('click', function (e) {
+  video.addEventListener('mouseover', function (e) {
     this.play();
     this.classList.add('pop-out');
     videoContainer.classList.add('pop-out');
+  });
+
+  // Okay so have one class opacity: 0 and opacity 1 then just navigate through elements proccing them.
+
+  // problem.addEventListener('click', function (e) {
+
+  // }, { once: true });
+
+  contentContainer.forEach((section, i) => {
+    const nextSection = contentContainer[i + 1];
+    section.addEventListener('click', function () {
+      nextSection.classList.add('show-section');
+      if (contentContainer.indexOf(nextSection) === 2 || contentContainer.indexOf(nextSection) === 5) {
+        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, { once: true });
   });
 
 </script>
@@ -167,7 +185,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
   .content-container {
     display: grid;
-    gap: 1em;
+    /* gap: 1em; */
   }
 
   .video-container {
@@ -184,7 +202,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   }
 
 
-  @media (min-width: 800px) {
+  @media (min-width: 1100px) {
     .project-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -211,7 +229,6 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
       color: var(--color-text-opposite);
       text-align: center;
       transform: scaleX(var(--scale, 1));
-      /* font-family: HintRetro; */
       font-style: italic;
       animation: glitch-p 2s 2 alternate, glitchwar 2s 2 alternate both;
     }
@@ -407,13 +424,32 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(8, 1fr);
       max-width: 100%;
-      gap: 1em;
+      gap: 0.5em;
       grid-area: 2/2/5/12;
     }
 
     .content-container>div {
-      border: 1px solid var(--bg-color-main);
+      outline: 1px solid var(--bg-color-main);
       padding: 1em;
+    }
+
+    .project-section.show-section {
+      opacity: 1;
+      visibility: visible;
+      transition: 200ms opacity ease-in-out;
+      transition-delay: 0ms;
+    }
+
+    .project-section {
+      opacity: 0;
+      visibility: hidden;
+      /* transition: 200ms visibility ease-in-out; */
+      transition-delay: 0ms;
+    }
+
+    .content-container>.project-section.problem-container {
+      visibility: visible;
+      opacity: 1;
     }
 
     .problem-container {
@@ -421,7 +457,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     }
 
     .img-container {
-      grid-area: 2/3/4/11;
+      grid-area: 2/3/3/11;
     }
 
     .video-container {
@@ -436,11 +472,12 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     }
 
     .shortcomings-container {
-      grid-area: 6/1/7/9;
+
+      grid-area: 7/1/8/13;
     }
 
     .built-with-container {
-      grid-area: 7/1/8/13;
+      grid-area: 6/1/7/9;
     }
   }
 

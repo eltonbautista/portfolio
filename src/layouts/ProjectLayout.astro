@@ -9,9 +9,11 @@ import Layout from "./Layout.astro";
 
 export interface IProjectLayout {
   projectClass: string;
+  imgSrc: string;
+  imgAlt: string;
 }
 
-const { content, projectClass } = Astro.props;
+const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 ---
 
 <html>
@@ -20,41 +22,79 @@ const { content, projectClass } = Astro.props;
   <title></title>
 </head>
 
+
+
+
+
+
 <body>
   <Layout title={content.title}>
     <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
       socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
       socialThreeLink="https://twitter.com/psychtotech" />
     <main>
-      <div class={`projects project ${projectClass}`}>
-        <div class="projects project-text-container">
-          <h1 class="projects project-header">
-            {content.title}
-          </h1>
-          <p>{content.description}</p>
-          <p>
-            <strong>Problem:</strong>
-            {content.problem}
-          </p>
-          <p>
-            <strong>Solution:</strong>
-            {content.solution}
-          </p>
-          <p>
-            <strong>Shortcomings:</strong>
-            {content.shortcomings}
-          </p>
-          <p>
-            <i>
-              Built with: {content.builtWith}
-            </i>
+      <div class={`project project-container ${projectClass}`}>
+
+        <header class="project hero">
+          <h1 class="project title">{content.title}</h1>
+        </header>
+
+        <article class="project description">
+          {content.description}
+        </article>
+
+        <div class="project problem-container">
+          <h3>
+            Problem:
+          </h3>
+          <p class="project problem">
+            <em>
+              {content.problem}
+            </em>
           </p>
         </div>
-        <div class="projects project-video-container">
-          <video id="my-video" class="personal-video" muted src={content.video}>
+        <div class="project img-container">
+          <img src={imgSrc} alt={imgAlt}>
+        </div>
+
+        <div class="project solution-container">
+          <h3>
+            Solution:
+          </h3>
+
+          <p class="project solution">
+            <em>
+              {content.solution}
+            </em>
+          </p>
+        </div>
+
+        <div class="project video-container">
+          <video id="my-video" class="project video" muted src={content.video}>
             <source src={content.video} type="video/mp4" />
           </video>
         </div>
+
+        <div class="project shortcomings-container">
+          <h3>
+            Shortcomings:
+          </h3>
+          <p>
+            {content.shortcomings}
+          </p>
+        </div>
+
+        <div class="project built-with-container">
+          <h3>
+            <i>
+              Built with:
+            </i>
+          </h3>
+          <p class="project built-with">
+            {content.builtWith}
+          </p>
+        </div>
+
       </div>
     </main>
   </Layout>
@@ -65,6 +105,29 @@ const { content, projectClass } = Astro.props;
 </html>
 
 <style>
+  .project-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+  }
+
+  @media (max-width: 800px) {
+    .project-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-rows: none;
+      gap: 1em;
+    }
+
+    .video-container {
+      margin-bottom: 1.5em;
+    }
+  }
+
+
+
+
+
+
   body,
   html {
     background-color: var(--bg-color-sub);
@@ -83,5 +146,66 @@ const { content, projectClass } = Astro.props;
 
   h1 {
     margin: 2rem 0;
+  }
+
+  /*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    font-family: JostLight, sans-serif;
+    letter-spacing: 1.25px;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
   }
 </style>

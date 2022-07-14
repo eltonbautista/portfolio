@@ -26,6 +26,16 @@ import Projects from "../components/sections/Projects.astro";
   const body = document.querySelector('body');
   const mainContent = document.querySelector('#main-content');
   const aboutSection = document.querySelector('.about-container');
+  const allVideos = [...document.querySelectorAll('video')];
+  const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+
+  console.log(allVideos);
+
+  if (mediaQueryEight.matches) {
+    allVideos.forEach((video) => {
+      video.controls = true;
+    });
+  }
 
 
   window.addEventListener('scroll', function () {

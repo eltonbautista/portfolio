@@ -121,18 +121,17 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   const videoContainer = document.querySelector('.video-container');
   const contentContainer = [...document.querySelector('.project.content-container').children];
   const [problem, problemVideo, solution, solutionVideo, builtWith, shortcomings] = contentContainer;
+  const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+
+  if (mediaQueryEight.matches) {
+    video.controls = true;
+  }
 
   video.addEventListener('mouseover', function (e) {
     this.play();
     this.classList.add('pop-out');
     videoContainer.classList.add('pop-out');
   });
-
-  // Okay so have one class opacity: 0 and opacity 1 then just navigate through elements proccing them.
-
-  // problem.addEventListener('click', function (e) {
-
-  // }, { once: true });
 
   contentContainer.forEach((section, i) => {
     const nextSection = contentContainer[i + 1];
@@ -141,7 +140,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
       if (contentContainer.indexOf(nextSection) === 2 || contentContainer.indexOf(nextSection) === 5) {
         nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    }, { once: true });
+    });
   });
 
 </script>
@@ -167,7 +166,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   }
 
   .hero>h1 {
-    font-size: calc(var(--font-size-xl) + 1em);
+    font-size: calc(var(--font-size-xl));
   }
 
 
@@ -185,7 +184,6 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
   .content-container {
     display: grid;
-    /* gap: 1em; */
   }
 
   .video-container {

@@ -37,62 +37,65 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
         <header class="project hero">
           <h1 class="project title">{content.title}</h1>
+          <article class="project description">
+            {content.description}
+          </article>
         </header>
 
-        <article class="project description">
-          {content.description}
-        </article>
+        <div class="project content-container">
 
-        <div class="project problem-container">
-          <h3>
-            Problem:
-          </h3>
-          <p class="project problem">
-            <em>
-              {content.problem}
-            </em>
-          </p>
-        </div>
-        <div class="project img-container">
-          <img src={imgSrc} alt={imgAlt}>
-        </div>
+          <div class="project problem-container">
+            <h3>
+              Problem:
+            </h3>
+            <p class="project problem">
+              <em>
+                {content.problem}
+              </em>
+            </p>
+          </div>
+          <div class="project img-container">
+            <img src={imgSrc} alt={imgAlt}>
+          </div>
 
-        <div class="project solution-container">
-          <h3>
-            Solution:
-          </h3>
+          <div class="project solution-container">
+            <h3>
+              Solution:
+            </h3>
 
-          <p class="project solution">
-            <em>
-              {content.solution}
-            </em>
-          </p>
-        </div>
+            <p class="project solution">
+              <em>
+                {content.solution}
+              </em>
+            </p>
+          </div>
 
-        <div class="project video-container">
-          <video id="my-video" class="project video" muted src={content.video}>
-            <source src={content.video} type="video/mp4" />
-          </video>
-        </div>
+          <div class="project video-container">
+            <video id="my-video" class="project video" muted src={content.video}>
+              <source src={content.video} type="video/mp4" />
+            </video>
+          </div>
 
-        <div class="project shortcomings-container">
-          <h3>
-            Shortcomings:
-          </h3>
-          <p>
-            {content.shortcomings}
-          </p>
-        </div>
+          <div class="project shortcomings-container">
+            <h3>
+              Shortcomings:
+            </h3>
+            <p>
+              {content.shortcomings}
+            </p>
+          </div>
 
-        <div class="project built-with-container">
-          <h3>
-            <i>
-              Built with:
-            </i>
-          </h3>
-          <p class="project built-with">
-            {content.builtWith}
-          </p>
+          <div class="project built-with-container">
+            <h3>
+              <i>
+                Built with:
+              </i>
+            </h3>
+            <p class="project built-with">
+              {content.builtWith}
+            </p>
+          </div>
+
         </div>
 
       </div>
@@ -107,24 +110,72 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 <style>
   .project-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    gap: 3em;
   }
 
-  @media (max-width: 800px) {
+  .content-container {
+    display: grid;
+    gap: 1em;
+  }
+
+  .video-container {
+    margin-bottom: 1.5em;
+  }
+
+
+
+  @media (min-width: 800px) {
     .project-container {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      grid-template-rows: none;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    .hero {
+      grid-area: 1/1/2/13;
+    }
+
+    .hero>article {
+      font-size: var(--font-size-lg);
+    }
+
+    .content-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      max-width: 100%;
       gap: 1em;
+      grid-area: 2/2/5/12;
+    }
+
+    .content-container>div {
+      border: 1px solid white;
+    }
+
+    .problem-container {
+      grid-area: 1/1/4/9;
+    }
+
+    .img-container {
+      grid-area: 1/9/4/13;
     }
 
     .video-container {
-      margin-bottom: 1.5em;
+      grid-area: 4/1/8/9;
+    }
+
+    .solution-container {
+      grid-area: 4/9/11/13;
+    }
+
+    .shortcomings-container {
+      grid-area: 8/1/11/9;
+    }
+
+    .built-with-container {
+      grid-area: 11/1/13/13;
     }
   }
-
-
-
 
 
 

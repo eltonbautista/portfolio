@@ -37,9 +37,16 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
         <header class="project hero">
           <h1 class="project title">{content.title}</h1>
+
           <article class="project description">
             {content.description}
           </article>
+          <article class="project client">
+            <h3>Client:</h3>
+            {content.client}
+          </article>
+
+
         </header>
 
         <div class="project content-container">
@@ -50,7 +57,13 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
             </h3>
             <p class="project problem">
               <em>
-                {content.problem}
+                {content.problem}:
+                {content.problemOne ?
+                <ol>
+                  <li>{content.problemOne}</li>
+                  <li>{content.problemTwo}</li>
+                  <li>{content.problemThree}</li>
+                </ol> : null}
               </em>
             </p>
           </div>
@@ -87,12 +100,12 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
           <div class="project built-with-container">
             <h3>
-              <i>
-                Built with:
-              </i>
+
+              Built with:
+
             </h3>
             <p class="project built-with">
-              {content.builtWith}
+              <i>{content.builtWith}</i>
             </p>
           </div>
 
@@ -105,12 +118,45 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
 </body>
 
+<script is:inline>
+  const video = document.querySelector('.project.video');
+  const videoContainer = document.querySelector('.video-container');
+
+  video.addEventListener('click', function (e) {
+    this.play();
+    this.classList.add('pop-out');
+    videoContainer.classList.add('pop-out');
+  });
+
+</script>
+
 </html>
 
 <style>
   .project-container {
     display: grid;
     gap: 3em;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-rows: 0.1fr 0.2fr auto;
+  }
+
+  .hero>h1 {
+    font-size: calc(var(--font-size-xl) + 1em);
+  }
+
+  .hero>.project.client {
+    position: relative;
+    height: fit-content;
+    font-size: var(--font-size-base);
+    align-self: end;
+    border-bottom: 1px solid var(--color-text-opposite);
+  }
+
+  .project.client>h3 {
+    display: inline-block;
   }
 
   .content-container {
@@ -122,58 +168,76 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     margin-bottom: 1.5em;
   }
 
+  .project.video {
+    transition: 300ms ease-in-out transform;
+
+  }
+
+  .project.video:hover {
+    transform: scaleY(1.1);
+  }
 
 
   @media (min-width: 800px) {
     .project-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(4, 1fr);
     }
 
     .hero {
+      min-height: 90vh;
       grid-area: 1/1/2/13;
     }
 
+    .hero>h1 {
+      font-size: calc(var(--font-size-xl) + 3em);
+
+    }
+
     .hero>article {
-      font-size: var(--font-size-lg);
+      font-size: calc(var(--font-size-lg) + 0.25em);
     }
 
     .content-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      /* margin-top: 10em; */
       max-width: 100%;
       gap: 1em;
       grid-area: 2/2/5/12;
     }
 
     .content-container>div {
-      border: 1px solid white;
+      border: 1px solid var(--bg-color-main);
+      padding: 1em;
     }
 
     .problem-container {
-      grid-area: 1/1/4/9;
+      grid-area: 1/1/2/13;
     }
 
     .img-container {
-      grid-area: 1/9/4/13;
+      grid-area: 2/3/4/11;
     }
 
     .video-container {
-      grid-area: 4/1/8/9;
+      grid-area: 4/1/6/9;
+      display: grid;
+      align-items: center;
+      margin-bottom: 0;
     }
 
     .solution-container {
-      grid-area: 4/9/11/13;
+      grid-area: 4/9/7/13;
     }
 
     .shortcomings-container {
-      grid-area: 8/1/11/9;
+      grid-area: 6/1/7/9;
     }
 
     .built-with-container {
-      grid-area: 11/1/13/13;
+      grid-area: 7/1/8/13;
     }
   }
 

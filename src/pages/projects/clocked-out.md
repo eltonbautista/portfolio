@@ -3,6 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: clockedOut
 client: The Odin Project
 video: ../../../public/clocked-out.mp4
+problemVideo: ../../../public/clocked-out-problem.mp4
 description: clockedOut is a LinkedIn clone application that focuses on the social aspects of gaming. It is a one-stop destination for creating lifetime companions, and remembering our childhood nostalgia.
 problem: Simulate a popular industry-sized application that utilizes a NoSQL database. On top of this problem, I recognized an opportunity to
 problemOne: Further my understanding on the intricacies of UI/UX testing.

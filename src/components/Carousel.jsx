@@ -1,10 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import PersonalDisplays from "./Introduction/PersonalDisplays";
-import clipOne from "../../public/powerlifter.mp4";
-import clipTwo from "../../public/hiker.mp4";
-import clipThree from "../../public/Donda.mp4";
-import { allMyText } from "../utils";
 
 const StyledCarousel = styled.div`
   position: relative;
@@ -161,7 +157,7 @@ const Carousel = (props) => {
     return arrayToMap.map((information, index) => {
       return (
         <li className="personal-display-list" key={index} data-active={isActive(information, arrayToMap, carouselCount)} >
-          <PersonalDisplays noun={information.noun} description={information.description} videoSrc={information.videoSrc} classes={personalDisplayClasses} />
+          <PersonalDisplays noun={information.noun} description={information.description} src={information.src} media={information.media} classes={personalDisplayClasses} />
           {buttons ? <><button className="carousel-button previous" onClick={() => {
             changeSlide("previous");
           }}>&#10148;</button>

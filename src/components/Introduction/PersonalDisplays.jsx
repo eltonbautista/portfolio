@@ -2,7 +2,7 @@ import styles from "../../styles/style-modules/PersonalDisplays.module.css";
 
 
 const PersonalDisplays = (props) => {
-  const { description, noun, videoSrc, active, activity, classes } = props;
+  const { description, noun, src, active, activity, classes, media } = props;
   return (
     <div className={`${styles[classes]} ${"personal-display"}`} data-active={active} activity={activity}>
       <div className={` ${styles['noun-container']} ${"personal"}`}>
@@ -15,12 +15,14 @@ const PersonalDisplays = (props) => {
         </p>
       </div>
       <div className={`${styles['video-container']} ${"personal"} `}>
-        <video id="my-video" className="personal-video" muted src={videoSrc} onMouseOver={(e) => {
-          e.currentTarget.play();
-        }} onMouseLeave={(e) => { e.currentTarget.pause(); }}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        {media === "video" ?
+          <video id="my-video" className="personal-video" muted src={src} onMouseOver={(e) => {
+            e.currentTarget.play();
+          }} onMouseLeave={(e) => { e.currentTarget.pause(); }}
+          >
+            <source src={src} type="video/mp4" />
+          </video> : <img src={src} alt={media} ></img>}
+
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+---
+export interface IProjectDisplay {
+  src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<div class="project display" style={`background-image: url(${src})`}>
+  <div></div>
+</div>
+
+<style>
+  .project.display {
+    display: grid;
+  }
+</style>

@@ -1,11 +1,11 @@
 ---
 import globals from "../styles/globals.css";
 import Navbar from "../components/Navbar.astro";
+import Layout from "./Layout.astro";
 
 import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
 import twitter from "../../public/twitter-icon.svg";
-import Layout from "./Layout.astro";
 
 export interface IProjectLayout {
   projectClass: string;
@@ -13,7 +13,8 @@ export interface IProjectLayout {
   imgAlt: string;
 }
 
-const { content, projectClass, imgSrc, imgAlt } = Astro.props;
+
+const { content, projectClass } = Astro.props;
 ---
 
 <html>
@@ -65,8 +66,11 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
               </em>
             </p>
           </div>
+
           <div class="project project-section img-container">
-            <img src={imgSrc} alt={imgAlt}>
+            <video src={content.problemVideo} autoplay muted>
+              <source src={content.problemVideo}>
+            </video>
           </div>
 
           <div class="project project-section solution-container">
@@ -121,7 +125,6 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   const videoContainer = document.querySelector('.video-container');
   const contentContainer = [...document.querySelector('.project.content-container').children];
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
-  console.log(document.querySelector('nav'));
   if (mediaQueryEight.matches) {
     video.controls = true;
   }
@@ -176,6 +179,11 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     font-size: calc(var(--font-size-xl));
   }
 
+  video {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
 
   .hero>.project.client {
     position: relative;
@@ -464,7 +472,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     }
 
     .img-container {
-      grid-area: 2/3/3/11;
+      grid-area: 2/3/4/11;
     }
 
     .video-container {

@@ -15,7 +15,8 @@ import Projects from "../components/sections/Projects.astro";
 <Layout title={"EltonBautista: Front End Developer"}>
   <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
     socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-    socialThreeLink="https://twitter.com/psychtotech" />
+    socialThreeLink="https://twitter.com/psychtotech" logoLink="#main-content" aboutLink="#about-section"
+    projectsLink="#projects-section" />
   <main id="main-content">
     <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
     <Projects />
@@ -28,8 +29,14 @@ import Projects from "../components/sections/Projects.astro";
   const aboutSection = document.querySelector('.about-container');
   const allVideos = [...document.querySelectorAll('video')];
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+  const navLinks = [...document.querySelector('.internal-links').children];
+  const sections = [document.querySelector('#main-content'), document.querySelector('#about-section'), document.querySelector('#projects-section')];
 
-  console.log(allVideos);
+  navLinks.forEach((link, i) => {
+    link.addEventListener('click', function (e) {
+      sections[i].scrollIntoView({ behavior: "smooth" });
+    });
+  });
 
   if (mediaQueryEight.matches) {
     allVideos.forEach((video) => {

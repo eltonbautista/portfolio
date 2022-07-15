@@ -11,7 +11,7 @@ export interface IProjectsProps {
 const [clockedOut] = projectInformation;
 ---
 
-<section class="section-container section-projects">
+<section id="projects-section" class="section-container section-projects">
   <div class="projects projects-container">
     <h2 class="projects projects-header">
       Projects.
@@ -141,6 +141,10 @@ const [clockedOut] = projectInformation;
   });
 </script>
 <style>
+  #projects-section {
+    scroll-behavior: smooth;
+  }
+
   .projects-header {
     font-size: calc(var(--font-size-xl) - 1em);
   }

@@ -93,6 +93,14 @@
   .video-container {
     grid-area: 1/6/3/13;
     opacity: 0.7;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+  }
+
+  .video-container:hover {
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+    opacity: 1;
   }
 
   .video-container>video {

@@ -19,13 +19,14 @@ const {
 } = Astro.props;
 ---
 
-<!-- socialOne, socialTwo, and socialThree are svg icons -->
 <nav id="navbar">
+
   <div class="links-container">
+
     <div class="nav internal-links">
-      <a class="nav logo" href={logoLink}>logo</a>
-      <a class="nav about" href={aboutLink}>about</a>
-      <a class="nav projects" href={projectsLink}>projects</a>
+      <a class="nav internal logo" href={logoLink}>logo</a>
+      <a class="nav internal about" href={aboutLink}>about</a>
+      <a class="nav internal projects" href={projectsLink}>projects</a>
     </div>
 
     <div class="nav external-links">
@@ -38,8 +39,11 @@ const {
         <img class="nav social-icon" src={socialThree}>
       </a>
     </div>
+
   </div>
+
 </nav>
+
 
 <style>
   nav {
@@ -49,6 +53,18 @@ const {
     top: 0;
     font-family: JostMedium, sans-serif;
     z-index: 2;
+  }
+
+  .internal {
+    text-decoration: none;
+    color: var(--color-text);
+    width: fit-content;
+    scroll-behavior: smooth;
+  }
+
+  .internal:active {
+    text-decoration: none;
+    color: none;
   }
 
 

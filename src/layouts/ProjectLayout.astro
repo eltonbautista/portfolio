@@ -24,8 +24,8 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
 <body>
   <Layout title={content.title}>
-    <Navbar socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
-      socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
+    <Navbar internalClass={"internal-project"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
+      socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
       socialThreeLink="https://twitter.com/psychtotech" />
     <main>
       <div class={`project project-container ${projectClass}`}>
@@ -51,7 +51,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
           <div class="project project-section problem-container">
             <h3>
-              Problem:
+              Task:
             </h3>
             <p class="project problem">
               <em>
@@ -71,7 +71,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
           <div class="project project-section solution-container">
             <h3>
-              Solution:
+              Process:
             </h3>
 
             <p class="project solution">
@@ -121,7 +121,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   const videoContainer = document.querySelector('.video-container');
   const contentContainer = [...document.querySelector('.project.content-container').children];
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
-
+  console.log(document.querySelector('nav'));
   if (mediaQueryEight.matches) {
     video.controls = true;
   }
@@ -156,6 +156,10 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
     --f-unit: 1vmin;
     --f: calc(var(--f-size) * var(--f-unit));
     --bg: #181717;
+  }
+
+  .internal.logo {
+    color: blue;
   }
 
   .project-container {
@@ -231,6 +235,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
       transform: scaleX(var(--scale, 1));
       font-style: italic;
       animation: glitch-p 2s 2 alternate, glitchwar 2s 2 alternate both;
+      animation-delay: 1.3s;
     }
 
     .glitch-title::before,
@@ -257,10 +262,13 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
 
     .glitch-title::before {
       animation: glitch-b 1.7s 2 alternate forwards;
+      animation-delay: 100ms;
     }
 
     .glitch-title::after {
       animation: glitch-a 3.1s 2 alternate forwards;
+      animation-delay: 100ms;
+
     }
 
     @keyframes glitch-p {
@@ -396,7 +404,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
       45% {
         text-decoration: line-through;
         text-transform: lowercase;
-        color: var(--bg-color-main);
+        color: var(--color-text-sub);
       }
 
 
@@ -485,7 +493,7 @@ const { content, projectClass, imgSrc, imgAlt } = Astro.props;
   body,
   html {
     background-color: var(--bg-color-sub);
-    color: var(--bg-color-main);
+    color: var(--color-text-sub);
     font-size: var(--font-size-base);
   }
 

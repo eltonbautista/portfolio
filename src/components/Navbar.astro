@@ -11,11 +11,14 @@ export interface INavbarProps {
   socialOneLink: string;
   socialTwoLink: string;
   socialThreeLink: string;
+
+  internalClass: string;
 }
 const {
   logoLink, aboutLink, projectsLink,
   socialOne, socialTwo, socialThree,
-  socialOneLink, socialTwoLink, socialThreeLink
+  socialOneLink, socialTwoLink, socialThreeLink,
+  internalClass
 } = Astro.props;
 ---
 
@@ -24,9 +27,9 @@ const {
   <div class="links-container">
 
     <div class="nav internal-links">
-      <a class="nav internal logo" href={logoLink}>logo</a>
-      <a class="nav internal about" href={aboutLink}>about</a>
-      <a class="nav internal projects" href={projectsLink}>projects</a>
+      <a class={`nav internal ${internalClass} logo`}href={logoLink}>logo</a>
+      <a class={`nav internal ${internalClass} about`} href={aboutLink}>about</a>
+      <a class={`nav internal ${internalClass} projects`} href={projectsLink}>projects</a>
     </div>
 
     <div class="nav external-links">
@@ -57,7 +60,7 @@ const {
 
   .internal {
     text-decoration: none;
-    color: var(--color-text);
+    /* color: var(--color-text); */
     width: fit-content;
     scroll-behavior: smooth;
   }

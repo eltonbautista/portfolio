@@ -36,6 +36,14 @@ html {
   color: blue;
 }
 
+.internal-index {
+  color: var(--color-text);
+}
+
+.internal-project {
+  color: var(--color-text-sub)
+}
+
 @keyframes glitchName {
   0% {
     font-style: italic;

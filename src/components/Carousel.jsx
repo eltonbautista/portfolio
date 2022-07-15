@@ -108,7 +108,6 @@ function isActive(elem, arr, count) {
 }
 
 
-// styles['styled-personal-display']
 const Carousel = (props) => {
   const { displays, carouselTitle, personalDisplayClasses, buttons } = props;
   const [carouselCount, setCarouselCount] = useState(0);
@@ -155,8 +154,6 @@ const Carousel = (props) => {
     }
 
   };
-
-  // TODO: Make it so that when user scrolls to the "A little about me" section, the animations play, and not before that.
 
   const createMappedItems = (arrayToMap) => {
     // map carousel slides into link elements

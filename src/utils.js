@@ -34,4 +34,12 @@ const projectInformation = [{
   projectLink: '/projects/meemo-boutique'
 },];
 
-export { allMyText, projectInformation };
+const determineScrollDirection = (windowScroll, oldScroll) => {
+  if (windowScroll > oldScroll) {
+    return "down";
+  } else {
+    return "up";
+  }
+};
+
+export { allMyText, projectInformation, determineScrollDirection };

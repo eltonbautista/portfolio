@@ -2,6 +2,7 @@
 import globals from "../styles/globals.css";
 import Navbar from "../components/Navbar.astro";
 import Layout from "./Layout.astro";
+import ProjectViewSplit from "../components/Projects/ProjectViewSplit.astro";
 
 import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
@@ -29,8 +30,8 @@ const { content, projectClass } = Astro.props;
     <!-- TODO: Change ProjectPage navigation to each of the three highlighted projects, but also need to add one node that takes me back to "/" -->
     <Navbar internalClass={"internal-project"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
       socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-      socialThreeLink="https://twitter.com/psychtotech" logoLink="/" aboutLink="/#about-section"
-      projectsLink="/#projects-section" />
+      socialThreeLink="https://twitter.com/psychtotech" logoLink="/" aboutLink={content.aboutLink}
+      projectsLink={content.projectsLink} projectsName="liveDemo" aboutName="githubRepository" />
     <main>
       <div class={`project project-container ${projectClass}`}>
 
@@ -96,7 +97,6 @@ const { content, projectClass } = Astro.props;
 
             <p class="project solution">
               <em>
-                <!-- {content.solution} -->
                 <slot />
               </em>
             </p>
@@ -125,6 +125,10 @@ const { content, projectClass } = Astro.props;
               </span>
             </h3>
           </div>
+
+          <ProjectViewSplit projectOne={content.projectOne} projectTwo={content.projectTwo}
+            projectOneLink={content.projectOneLink} projectTwoLink={content.projectTwoLink}
+            projectName={content.title} />
 
         </div>
 
@@ -591,6 +595,8 @@ const { content, projectClass } = Astro.props;
     .built-with-container {
       grid-area: 7/1/8/13;
     }
+
+
   }
 
 

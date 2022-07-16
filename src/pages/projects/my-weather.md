@@ -14,8 +14,16 @@ problemThree: Employ best practices with respect to objects and JSON data to hel
 
 shortcomings: Unexpectedly, I found this project to be one of the easier ones I had built thus far and when comparing it to the previous project I had just completed a few days prior (a Todo List application), it gave me a sense of relief, and also made me feel happy and more confident about myself. 
 
-shortcomingsTwo: Talking to my peers and mentor, they had told me that Asynchronous processes were one of the concepts that a lot of people usually struggle with in programming. I can understand why this is so, but I think the amount of time I spent reading documentation and conceptualizing JavaScript's runtime and event loop helped me with comprehending Asynchronous processes just a bit more.
+shortcomingsTwo: Talking to my peers and mentor, they had told me that Asynchronous processes were one of the concepts that a lot of people usually struggle with in programming. I can understand why this is so, but I think the amount of time I spent reading documentation and conceptualizing JavaScript's runtime and event loop helped me comprehend Asynchronous processes just a bit more, it also helps that ES6 added Promises and async/await.
 builtWith: ReactJS, React Router, Jest, CSS3, HTML5
+
+projectOne: clockedOut
+projectTwo: Meemo Boutique
+projectOneLink: /projects/clocked-out
+projectTwoLink: /projects/meemo-boutique
+
+aboutLink: https://github.com/eltonbautista/odin-weather-app
+projectsLink: https://eltonbautista.github.io/odin-weather-app/
 ---
 
 

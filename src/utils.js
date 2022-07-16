@@ -15,10 +15,23 @@ const allMyText = {
 const projectInformation = [{
   title: "clockedOut",
   description: "clockedOut is a LinkedIn clone application that focuses on the social aspects of gaming. It is a one-stop destination for creating lifetime companions, and remembering our childhood nostalgia.",
-  problem: "Simulate a popular industry-sized application that utilizes a NoSQL database. Additionally, I wanted to further my understanding on the intricacies of UI/UX testing, how to deal with higher quantities of REST API calls, and finally, familiarize myself with the state management model. ",
-  solution: "Instead of JavaScript, I decided to use TypeScript instead due to its strongly typed nature. This allowed me to reduce the bugs I encountered, create ease of access for anybody reading my code, and most importantly increase the scalability of my application which is important for addressing my main problem. I utilized Jest for testing due to its compatability with React testing library and asynchronous functionalities. Firebase was my choice for a NoSQL database because of its reliability, rich documentation, and ability to persist data locally and offline which would provide my users a responsive experience. I opted on using React's built-in Context API due to its reliability, built-in support, and minimalistic setup.",
-  shortcomings: "After my initial planning phase and working on the application for a few days I realized that I had severely miscalculated the scale of the application. Initially, my goal for clockedOut was to have all of the functionalities and similar design of LinkedIn. Instead I focused on clockedOut being a CRUD application which will later implement messaging and the ability to follow and view others' posts.",
-  builtWith: "TypeScript, ReactJS, Firebase, React Router, Jest, Styled-Components, CSS3, HTML5",
-}, {}, {}];
+  alternate: '',
+  lastClass: '',
+  projectLink: '/projects/clocked-out'
+}, {
+  title: "myWeather",
+  description: "myWeather is an application designed to provide users the ability to check both the current weather of a city, as well as its weather for the week!",
+  alternate: 'alternate',
+  lastClass: '',
+  projectLink: '/projects/my-weather'
+},
+
+{
+  title: "Meemo Boutique",
+  description: "Meemo Boutique is a single-page ecommerce webpage application that boasts a vintage, but modern neon aesthetic that is focused on uniting both fashion lovers with old souls, and newcomers who aren't afraid to stand out and dare to be different.",
+  alternate: '',
+  lastClass: 'last-project',
+  projectLink: '/projects/meemo-boutique'
+},];
 
 export { allMyText, projectInformation };

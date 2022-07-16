@@ -3,12 +3,13 @@ import { projectInformation } from "../../utils";
 import ProjectPreview from "../Projects/ProjectPreview.astro";
 import clockedOutVideo from "../../../public/clocked-out.mp4";
 import meemoBoutiqueVideo from "../../../public/meemo.mp4";
-import waldoVideo from "../../../public/waldo.mp4";
+import myWeatherVideo from "../../../public/my-weather.mp4";
 
 export interface IProjectsProps {
   filler: string;
 }
 const [clockedOut] = projectInformation;
+const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
 ---
 
 <section id="projects-section" class="section-container section-projects">
@@ -17,12 +18,13 @@ const [clockedOut] = projectInformation;
       Projects.
     </h2>
     <div class="projects my-projects-container">
-      <ProjectPreview videoSrc={clockedOutVideo} projectDescription={clockedOut.description}
-        projectTitle={clockedOut.title} />
-      <ProjectPreview videoSrc={waldoVideo} projectDescription={clockedOut.description} projectTitle={clockedOut.title}
-        projectClass="alternate" />
-      <ProjectPreview videoSrc={meemoBoutiqueVideo} projectDescription={clockedOut.description}
-        projectTitle={clockedOut.title} lastClass="last-project" />
+      {projectInformation.map((info, index) => {
+      return (
+      <ProjectPreview videoSrc={projectVideos[index]} projectLink={info.projectLink}
+        projectDescription={info.description} projectTitle={info.title} projectClass={info.alternate}
+        lastClass={info.lastClass} />)
+      })}
+
     </div>
   </div>
 </section>

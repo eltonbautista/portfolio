@@ -3,6 +3,9 @@ export interface INavbarProps {
   logoLink: string;
   aboutLink: string;
   projectsLink: string;
+  logoName: string;
+  aboutName: string;
+  projectsName: string;
 
   socialOne: string;
   socialTwo: string;
@@ -16,6 +19,7 @@ export interface INavbarProps {
 }
 const {
   logoLink, aboutLink, projectsLink,
+  logoName, aboutName, projectsName,
   socialOne, socialTwo, socialThree,
   socialOneLink, socialTwoLink, socialThreeLink,
   internalClass
@@ -27,9 +31,21 @@ const {
   <div class="links-container">
 
     <div class="nav internal-links">
-      <a class={`nav internal ${internalClass} logo`}href={logoLink}>logo</a>
-      <a class={`nav internal ${internalClass} about`} href={aboutLink}>about</a>
-      <a class={`nav internal ${internalClass} projects`} href={projectsLink}>projects</a>
+      <a class={`nav internal ${internalClass} logo`}href={logoLink}>{logoName
+        ? logoName : "logo"} </a>
+
+      {aboutName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
+        href={aboutLink}>{aboutName} </a> :
+
+      <a class={`nav internal ${internalClass} about`} href={aboutLink}>{aboutName
+        ? aboutName : "about"} </a>}
+
+      {projectsName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
+        href={projectsLink}>{projectsName} </a> :
+
+      <a class={`nav internal ${internalClass} about`} href={projectsLink}>{projectsName ? projectsName : "projects"}
+      </a>}
+
     </div>
 
     <div class="nav external-links">

@@ -3,10 +3,11 @@ export interface IProjectPreviewProps {
   videoSrc: string;
   projectDescription: string;
   projectTitle: string;
+  projectLink: string;
   projectClass: string;
   lastClass: string;
 }
-const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = Astro.props;
+const { videoSrc, projectTitle, projectDescription, projectLink, projectClass, lastClass } = Astro.props;
 ---
 
 <div class={`projects project-preview `}>
@@ -15,6 +16,12 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
       {projectTitle}
     </h3>
     <p>{projectDescription}</p>
+    <button class={`projects view-button ${projectClass}`}>
+      <a href={projectLink}>
+        View
+      </a>
+    </button>
+    <!-- <button></button> -->
   </div>
   <div class={`projects project-preview-video-container ${projectClass}`}>
     <video class="project-video" muted src={videoSrc} autoplay muted>
@@ -52,6 +59,35 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
     width: 100%;
     height: auto;
     margin-top: 0.5em;
+  }
+
+  .view-button {
+    background: none;
+    border: none;
+    width: fit-content;
+    justify-self: end;
+    padding: 0;
+    line-height: 1;
+    transform: scale(1);
+  }
+
+  .view-button>a {
+    font-family: JostMedium;
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    text-decoration: none;
+    line-height: 1;
+
+  }
+
+  .view-button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform 100ms ease-in-out;
+  }
+
+  .view-button.alternate {
+    justify-self: start;
   }
 
   @media (min-width: 902px) and (max-height: 1300px) {
@@ -134,6 +170,8 @@ const { videoSrc, projectTitle, projectDescription, projectClass, lastClass } = 
 
     .project-preview-text-container.alternate>h3 {
       text-align: start;
+      width: 100%;
+      margin-left: 7%;
     }
 
     .project-preview-video-container.alternate {

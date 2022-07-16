@@ -12,6 +12,14 @@ problemThree: Progress my conception of the state management model, and React's 
 solution: Rather than JavaScript, I opted to use TypeScript instead due to its strongly typed nature. This allowed me to reduce the bugs I encountered, create ease of access for anybody reading my code, and most importantly increase the scalability of my application which is important for addressing my main problem. I utilized Jest for testing due to its compatability with React testing library and readily available asynchronous functionalities. Firebase was my choice for a NoSQL database because of its updatability, rich documentation, and ability to persist data locally and offline which would provide my users a responsive experience. I opted on using React's built-in Context API due to its reliability, built-in support, and minimalistic setup.
 shortcomings: After my initial planning phase and working on the application for a few days I realized that I had severely miscalculated the scale of the application. Initially, my goal for clockedOut was to have all of the functionalities and similar design of LinkedIn. Instead I focused on clockedOut being a CRUD application which will later implement messaging and the ability to follow and view others' posts.
 builtWith: TypeScript, ReactJS, Firebase, React Router, Jest, Styled-Components, CSS3, HTML5
+
+projectOne: myWeather
+projectTwo: Meemo Boutique
+projectOneLink: /projects/my-weather
+projectTwoLink: /projects/meemo-boutique
+
+aboutLink: https://github.com/eltonbautista/clockedOut
+projectsLink: https://clocked-out.vercel.app/
 ---
 
 

@@ -2,8 +2,8 @@
 layout: ../../layouts/ProjectLayout.astro
 title: myWeather
 client: The Odin Project
-video: ../../../public/meemo.mp4
-problemVideo: ../../../public/meemo-problem.mp4
+video: ../../../public/my-weather.mp4
+planningVideo: ../../../public/my-weather-planning.mp4
 description: myWeather is an application designed to provide users the ability to check both the current weather of a city, as well as its weather for the week! It utilizes three different APIs in combination with one another to provide quick, accurate, and thorough information for the user to take advantage of! Curious about how hot it may be in New Delhi, India? Or did you forget to check the weather for your upcoming trip to Anchorage, Alaska? No problem! Whether it be one or the other myWeather's got you covered! 
 problem: Create a weather forecast website application that allows its users to search for a specific location, and then dynamically display the location's current and weekly weather information onto the webpage. 
 problemOne: Practice the implementation of both promises, and async/await to increase my confidence and comfortability with asynchronous processes. Specifically, I aimed to really understand JavaScript's event loop, runtime, and its single-threaded nature. 

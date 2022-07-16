@@ -95,6 +95,7 @@
     opacity: 0.7;
     transition: 200ms opacity ease-in-out;
     transition-delay: 0ms;
+    display: grid;
   }
 
   .video-container:hover {
@@ -109,5 +110,6 @@
     object-position: center;
     width: 100%;
     height: auto;
+    align-self: center;
   }
 }

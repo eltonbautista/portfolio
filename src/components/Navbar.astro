@@ -31,20 +31,16 @@ const {
   <div class="links-container">
 
     <div class="nav internal-links">
-      <a class={`nav internal ${internalClass} logo`}href={logoLink}>{logoName
+
+      <a class={`nav internal ${internalClass} logo`} href={logoLink}>{logoName
         ? logoName : "logo"} </a>
 
       {aboutName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
-        href={aboutLink}>{aboutName} </a> :
-
-      <a class={`nav internal ${internalClass} about`} href={aboutLink}>{aboutName
-        ? aboutName : "about"} </a>}
+        href={aboutLink}>{aboutName} </a> : <a class={`nav internal ${internalClass} about`} href={aboutLink}>about</a>}
 
       {projectsName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
-        href={projectsLink}>{projectsName} </a> :
-
-      <a class={`nav internal ${internalClass} about`} href={projectsLink}>{projectsName ? projectsName : "projects"}
-      </a>}
+        href={projectsLink}>{projectsName}</a> : <a class={`nav internal ${internalClass} about`}
+        href={projectsLink}>projects</a>}
 
     </div>
 

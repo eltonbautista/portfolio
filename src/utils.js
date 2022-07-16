@@ -2,7 +2,7 @@ const allMyText = {
   quoteOne: "Your potential truly is limitless. The only bounds that exist are the ones that we set on ourselves.",
 
   nounOne: "developer",
-  descriptionOne: "Shorter description for developer",
+  descriptionOne: "I get lost in writing code. As I sit on my chair and type away at the keyboard all I can think about is what I am building, how to build it, and what to build next. I love learning new technologies, or new patterns, or new ideas. I love reading other people's code, trying to figure out how to improve on it, and if I can't see how I recognize that as an opportunity to learn. I love teaching others equally as much as I love learning from them. I love planning, visualizing, designing, building, and finally, making it come to life. I love struggling through my code. I love this. I love it all.",
 
   nounTwo: "powerlifter",
   descriptionTwo: "141kg/310lb bench press at 70.5kg/155lb body-weight, this right here is my personal best (PB)! I enjoy pushing myself to the limits, and I am a strong believer that with effort and discipline we can achieve anything. Ask me about my squat and deadlift PBs!",

@@ -8,7 +8,6 @@ import myWeatherVideo from "../../../public/my-weather.mp4";
 export interface IProjectsProps {
   filler: string;
 }
-const [clockedOut] = projectInformation;
 const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
 ---
 
@@ -85,10 +84,10 @@ const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
     if (windowScroll > projectTop && windowScroll < projectBottom && screen.matches) {
 
       // Third
-      if (windowScroll > firstProjectArea && windowScroll * 1.25 > thirdProjectArea) {
+      if (windowScroll > firstProjectArea && windowScroll * 1.45 > thirdProjectArea) {
         thirdProjectText.style.transform = `translate3d(0px, ${thirdTransform}%, 0px)`;
         if (direction === "down" && thirdTransform <= originalTransform + 10) {
-          if (thirdTransform === lowestTransform + 50) {
+          if (thirdTransform === lowestTransform + 30) {
             return;
           }
           thirdTransform -= 1;
@@ -105,7 +104,7 @@ const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
       if (windowScroll < firstProjectArea) {
         firstProjectText.style.transform = `translate3d(0px, ${firstTransform}%, 0px)`;
         if (direction === "down" && firstTransform <= originalTransform) {
-          if (firstTransform === lowestTransform + 20) {
+          if (firstTransform === lowestTransform + 15) {
             return;
           }
           firstTransform -= 1;
@@ -116,7 +115,6 @@ const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
           }
           firstTransform += 1;
         }
-        // return;
       }
 
       // Second
@@ -135,7 +133,6 @@ const projectVideos = [clockedOutVideo, myWeatherVideo, meemoBoutiqueVideo,];
           }
           secondTransform += 1;
         }
-        // return;
       }
     }
 

@@ -43,6 +43,11 @@ const { content, projectClass } = Astro.props;
           <article class="project client">
             <h3>For:</h3>
             {content.client}
+            <h6 class="project note">Note: When you are finished with each of the following sections, please click on
+              them to
+              proceed. Or click on the button: <button class="project automate-button">To Automate</button> your
+              experience.</h6>
+
           </article>
 
 
@@ -65,7 +70,7 @@ const { content, projectClass } = Astro.props;
             <p class="project goals">
               {content.goals}
               {content.problemOne ?
-            <ol>
+            <ol class="project ordered-list">
               <li>{content.problemOne}</li>
               <li>{content.problemTwo}</li>
               <li>{content.problemThree}</li>
@@ -75,7 +80,7 @@ const { content, projectClass } = Astro.props;
 
 
           <div class="project project-section video-container">
-            <video id="my-video" class="project video" muted src={content.video}>
+            <video id="my-video" class="project video" autoplay muted src={content.video}>
               <source src={content.video} type="video/mp4" />
             </video>
           </div>
@@ -100,16 +105,7 @@ const { content, projectClass } = Astro.props;
             </video>
           </div>
 
-          <div class="project project-section built-with-container">
-            <h3>
 
-              Built with:
-
-            </h3>
-            <p class="project built-with">
-              <i>{content.builtWith}</i>
-            </p>
-          </div>
 
           <div class="project project-section shortcomings-container">
             <h3>
@@ -119,6 +115,15 @@ const { content, projectClass } = Astro.props;
               {content.shortcomings}
             </p>
             {content.shortcomingsTwo ? <p>{content.shortcomingsTwo}</p> : null}
+
+            <!-- <div class="project project-section built-with-container"> -->
+            <h3 class="built-header">
+              Built with: <span class="project built-with">
+                <i>{content.builtWith}</i>
+              </span>
+            </h3>
+
+            <!-- </div> -->
           </div>
 
         </div>
@@ -135,8 +140,12 @@ const { content, projectClass } = Astro.props;
   const videoContainer = document.querySelector('.video-container');
   const contentContainer = [...document.querySelector('.project.content-container').children];
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+  const automateButton = document.querySelector('.project.automate-button');
+
   if (mediaQueryEight.matches) {
-    video.controls = true;
+    videos.forEach((video) => {
+      video.controls = true;
+    });
   }
 
   videos.forEach((video) => {
@@ -153,18 +162,43 @@ const { content, projectClass } = Astro.props;
 
   // video plays on mouseover
 
+  const displayAndScroll = (section) => {
+    section.classList.add('show-section');
+    section.scrollIntoView({ behavior: "smooth" });
+  };
 
 
+  function automateExperience() {
+    let count = 0;
+    let timer = setInterval;
+
+    if (contentContainer[1].classList.contains('show-section') === false) {
+
+      displayAndScroll(contentContainer[0]);
+
+      timer(() => {
+        if (count < contentContainer.length - 1) {
+          const nextSection = contentContainer[count + 1];
+          displayAndScroll(nextSection);
+          count += 1;
+          return;
+        }
+        clearInterval(timer);
+      }, 40000);
+
+    }
+  }
+
+  automateButton.addEventListener('click', function () {
+    automateExperience();
+  }, { once: true });
 
   // Logic for adding show-section class and scrolling to appropriate divs
   contentContainer.forEach((section, i) => {
     const nextSection = contentContainer[i + 1];
     if (contentContainer.indexOf(section) !== contentContainer.length - 1) {
       section.addEventListener('click', function () {
-        nextSection.classList.add('show-section');
-        if (contentContainer.indexOf(nextSection) === 2 || contentContainer.indexOf(nextSection) === 5) {
-          nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        displayAndScroll(nextSection);
       });
     }
   });
@@ -230,11 +264,6 @@ const { content, projectClass } = Astro.props;
     transition: 300ms ease-in-out transform;
   }
 
-  .project.video:hover {
-    /* transform: scaleY(1.1); */
-  }
-
-
   @media (min-width: 1100px) {
     .project-container {
       display: grid;
@@ -256,7 +285,7 @@ const { content, projectClass } = Astro.props;
     }
 
     .hero>article {
-      font-size: calc(var(--font-size-lg) + 0.25em);
+      font-size: calc(var(--font-size-lg));
     }
 
     .glitch-title {
@@ -460,6 +489,7 @@ const { content, projectClass } = Astro.props;
       }
     }
 
+
     .content-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -492,8 +522,24 @@ const { content, projectClass } = Astro.props;
       opacity: 1;
     }
 
+    .automate-button {
+      background: none;
+      border: none;
+      color: var(--color-text-opposite);
+      text-align: center;
+      padding: 0;
+      font-size: var(--font-size-base);
+      cursor: pointer;
+    }
+
+    .automate-button:hover {
+      color: var(--color-text-sub);
+      transition: color 500ms ease-in-out;
+    }
+
     .problem-container {
       grid-area: 1/1/2/13;
+      position: relative;
     }
 
     .img-container {
@@ -510,11 +556,18 @@ const { content, projectClass } = Astro.props;
     }
 
     .solution-container {
-      grid-area: 4/8/7/13;
+      grid-area: 4/8/8/13;
+    }
+
+    .built-header {
+      margin-top: 1em;
     }
 
     .shortcomings-container {
-      grid-area: 7/1/8/13;
+      grid-area: 6/1/8/8;
+      display: grid;
+      align-items: center;
+      grid-template-rows: 0.1fr 0.2fr 0.2fr auto;
     }
 
     .shortcomings-container>p:last-of-type {
@@ -522,7 +575,7 @@ const { content, projectClass } = Astro.props;
     }
 
     .built-with-container {
-      grid-area: 6/1/7/8;
+      grid-area: 7/1/8/13;
     }
   }
 

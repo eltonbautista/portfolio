@@ -25,9 +25,12 @@ const { content, projectClass } = Astro.props;
 
 <body>
   <Layout title={content.title}>
+
+    <!-- TODO: Change ProjectPage navigation to each of the three highlighted projects, but also need to add one node that takes me back to "/" -->
     <Navbar internalClass={"internal-project"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
       socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-      socialThreeLink="https://twitter.com/psychtotech" />
+      socialThreeLink="https://twitter.com/psychtotech" logoLink="/" aboutLink="/#about-section"
+      projectsLink="/#projects-section" />
     <main>
       <div class={`project project-container ${projectClass}`}>
 

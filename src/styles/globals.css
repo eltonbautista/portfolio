@@ -166,3 +166,120 @@ html {
 .social-three {
   filter: invert(48%) sepia(90%) saturate(2245%) hue-rotate(179deg) brightness(99%) contrast(90%);
 }
+
+
+.styled-personal-display {
+  margin-right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
+  grid-template-rows: none;
+  padding: 1em;
+}
+
+.noun-container>h3 {
+  margin-bottom: 1em;
+  box-shadow: 0 10px 3px -8px blue;
+  text-align: center;
+}
+
+.noun-container>p {
+  margin: 0;
+  font-family: JostMedium;
+  color: var(--color-text);
+}
+
+
+.video-container>video {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: auto;
+  margin-top: 0.5em;
+}
+
+@media (min-width: 800px) {
+
+  .styled-personal-display {
+    position: relative;
+    width: 95%;
+    margin-right: 0;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1em;
+  }
+
+  .noun-container>div {
+    background-color: var(--bg-color-sub);
+    max-width: 100%;
+    min-height: 100%;
+  }
+
+  .noun-container>h3,
+  p {
+    z-index: 1;
+  }
+
+  .noun-container>p {
+    padding: 0.5em;
+    font-weight: 100;
+    font-family: JostMedium;
+    color: var(--color-text);
+    padding-top: 3.5em;
+  }
+
+  .noun-header {
+    position: absolute;
+  }
+
+  .noun-container>h3 {
+    position: absolute;
+    font-weight: 100;
+    top: -2%;
+    width: 55%;
+    text-align: center;
+    box-shadow: 0 10px 3px -8px blue;
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+    z-index: 2;
+    font-family: var(--font-header);
+    letter-spacing: 0.1em;
+    line-height: 1.08;
+  }
+
+  .noun-container {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    padding: 1em;
+    grid-area: 1/1/4/6;
+    z-index: 1;
+    position: relative;
+    display: grid;
+
+  }
+
+  .video-container {
+    grid-area: 1/6/3/13;
+    opacity: 0.7;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+    display: grid;
+  }
+
+  .video-container:hover {
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 0ms;
+    opacity: 1;
+  }
+
+  .video-container>video {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+  }
+}

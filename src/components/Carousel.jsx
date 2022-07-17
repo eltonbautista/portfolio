@@ -90,8 +90,6 @@ const StyledCarousel = styled.div`
       animation: glitchName 0.9s 3 ease-in-out .85s alternate both;
     }
   }
-
-  
 `;
 
 function isActive(elem, arr, count) {

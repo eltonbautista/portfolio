@@ -20,7 +20,7 @@ const projectInformation = [{
   projectLink: '/projects/clocked-out'
 }, {
   title: "myWeather",
-  description: "myWeather is an application designed to provide users the ability to check both the current weather of a city, as well as its weather for the week!",
+  description: "myWeather is an application designed to provide users the ability to check both the current weather of a city, as well as its weather for the week! Yes, it's basically a weather forecast app but created by yours truly! ",
   alternate: 'alternate',
   lastClass: '',
   projectLink: '/projects/my-weather'

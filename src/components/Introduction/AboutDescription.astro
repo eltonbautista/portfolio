@@ -23,7 +23,7 @@ export interface IAboutDescription {
   </p>
 
   <p class="about about-paragraph">
-    <strong>My goal:</strong> I am fully committed to <i>seamlessly</i> assimilating integrating
+    <strong>My goal:</strong> I am fully committed to <i>seamlessly</i> integrating myself
     to be a part of
     your team. This means that I am
     <i>confident</i> in being able to provide <i>quality</i> ideas, <i>overwhelming</i> support, and
@@ -55,6 +55,17 @@ export interface IAboutDescription {
     <strong>tools</strong> by staying up
     to date with any relevant changes, and adapting my skill set.
   </p>
+  <p class="about about-paragraph"><strong>Hello world!</strong> My name is <strong>Elton</strong> and I love all things
+    <strong>Technology</strong> related. As of this moment, I am focused on <strong>Front End Web Development</strong>,
+    but my passions
+    for programming simply start there. I have made plans to learn <strong>Full Stack Development </strong>and want to
+    eventually expand
+    into the domains of <strong>Software Development</strong>, <strong>Cloud Engineering</strong>, <strong>UX/UI
+      Development</strong>, and even <strong>Product Management.</strong> I am
+    currently based in <i>Alberta, Canada</i> (woo mountains!!) but plan to move if an opportunity presents itself!
+    Below are
+    a few things about me!
+  </p>
 </div>
 
 <style>
@@ -80,5 +91,36 @@ export interface IAboutDescription {
 
   .name-header {
     font-weight: 100;
+  }
+
+  .about-paragraph {
+    transform: translate(0%, -100%);
+    opacity: 0;
+  }
+
+  .about-paragraph.show-paragraph {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+    transition: 200ms transform ease-in-out, 300ms opacity ease-in-out;
+  }
+
+  .about-paragraph:nth-child(1).show-paragraph {
+    transition-delay: 350ms;
+  }
+
+  .about-paragraph:nth-child(2).show-paragraph {
+    transition-delay: 2.2s;
+  }
+
+  .about-paragraph:nth-child(3).show-paragraph {
+    transition-delay: 5.2s;
+  }
+
+  .about-paragraph:nth-child(4).show-paragraph {
+    transition-delay: 7.2s;
+  }
+
+  .about-paragraph:nth-child(5).show-paragraph {
+    transition-delay: 9s;
   }
 </style>

@@ -10,6 +10,7 @@ import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
 import twitter from "../../public/twitter-icon.svg";
 import Projects from "../components/sections/Projects.astro";
+import Contact from '../components/sections/Contact.astro';
 ---
 
 <Layout title={"EltonBautista: Front End Developer"}>
@@ -20,6 +21,9 @@ import Projects from "../components/sections/Projects.astro";
   <main id="main-content">
     <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
     <Projects />
+    <Contact socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
+      socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
+      socialThreeLink="https://twitter.com/psychtotech" />
   </main>
 </Layout>
 <script is:inline>
@@ -36,6 +40,7 @@ import Projects from "../components/sections/Projects.astro";
   const projectPreviews = [...document.querySelectorAll('.project-preview')];
   const textContainers = [...document.querySelectorAll('.project-preview-text-container')];
   const videoContainers = [...document.querySelectorAll('.project-preview-video-container')];
+  const aboutParagraphs = [...document.querySelectorAll('.about-paragraph')];
 
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
   const highPoint = 200;
@@ -46,7 +51,6 @@ import Projects from "../components/sections/Projects.astro";
   const heightTop = aboutSection.offsetTop;
   const projectTop = projectContainer.offsetTop;
   const projectBottom = projectContainer.offsetTop + projectContainer.offsetHeight;
-
 
   // Responsible for changing .project-preview children's opacity
   videos.forEach((video, i) => {
@@ -77,6 +81,11 @@ import Projects from "../components/sections/Projects.astro";
 
   window.addEventListener('scroll', function () {
     const windowScroll = this.scrollY;
+    if (windowScroll > heightTop && !aboutParagraphs[0].classList.contains('show-paragraph')) {
+      aboutParagraphs.forEach((elem, i) => {
+        elem.classList.add('show-paragraph');
+      });
+    }
 
     // Logic for determining the scroll's direction.
     if (windowScroll > oldScroll) {
@@ -91,7 +100,6 @@ import Projects from "../components/sections/Projects.astro";
     } else if (direction === 'up') {
       nav.classList.remove('hide');
     }
-
 
     // TODO: Not perfect, still need to tweak
     // Functionality responsible for scrolling text divs during scroll

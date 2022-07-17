@@ -1,0 +1,166 @@
+---
+export interface IFormProps {
+  socialOne: string;
+  socialTwo: string;
+  socialThree: string;
+
+  socialOneLink: string;
+  socialTwoLink: string;
+  socialThreeLink: string;
+}
+
+const {
+  socialOne, socialTwo, socialThree,
+  socialOneLink, socialTwoLink, socialThreeLink,
+} = Astro.props;
+---
+
+<section class="contact contact-section">
+  <h2 class="contact contact-header">Contact.</h2>
+  <div class="contact main-container">
+
+    <div class="contact form-text">
+
+
+      <p>I am currently looking for a role in the Technology industry, a Front End Web Development position would be a
+        delight, but I am confident in my quickness to learn! Whether it be about Tech, or anything Science related I
+        would love to hear from you!
+      </p>
+
+    </div>
+
+    <div class="contact form-container">
+
+      <form action="https://formcarry.com/s/yC9UKS4dwO" method="POST" accept-charset="UTF-8" class="contact form">
+        <div class="contact inputs-container">
+          <div>
+            <input class="contact input" type="text" name="name" required placeholder="Your Full Name*">
+          </div>
+          <div>
+            <input class="contact input" type="text" name="email" required placeholder="Your Email*">
+          </div>
+          <div>
+            <input class="contact input" type="textarea" name="message" required placeholder="Your Message*">
+          </div>
+          <button class="contact send-button" type="submit">Send <span>&#10148</span></button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="contact socials">
+      <a class="nav social social-one" target="_blank" rel="noopener noreferrer" href={socialOneLink}><img
+          class="nav social-icon" src={socialOne}></a>
+      <a class="nav social social-two" target="_blank" rel="noopener noreferrer" href={socialTwoLink}>
+        <img class="nav social-icon" src={socialTwo}>
+      </a>
+      <a class="nav social social-three" target="_blank" rel="noopener noreferrer" href={socialThreeLink}>
+        <img class="nav social-icon" src={socialThree}>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  const sendButton = document.querySelector('.send-button');
+  const hiddenSpan = document.querySelector('.send-button > span');
+  const myForm = document.querySelector('.contact.form');
+
+  sendButton.addEventListener('mouseover', function () {
+    hiddenSpan.classList.add('show-span');
+  });
+
+  sendButton.addEventListener('mouseleave', function () {
+    hiddenSpan.classList.remove('show-span');
+  });
+
+</script>
+
+<style>
+  .contact-section {
+    margin-bottom: 35vh;
+  }
+
+  .contact-header {
+    font-size: calc(var(--font-size-xl) - 1em);
+  }
+
+  .input {
+    width: 40%;
+    font-family: JostMedium;
+    background-color: var(--color-text);
+    font-size: calc(var(--font-size-base) - 0.2em);
+    border: 1px solid var(--color-text);
+  }
+
+  .form-text>p {
+    margin: 0 0 2em 0;
+  }
+
+  .main-container {
+    max-width: 100%;
+  }
+
+  .inputs-container {
+    display: grid;
+    gap: 0.5em;
+  }
+
+  .inputs-container button {
+    max-width: fit-content;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    padding: 0;
+    font-family: JostMedium;
+    cursor: pointer;
+  }
+
+  .inputs-container button:hover {
+    transform: scale(1.2);
+    transition: transform 200ms ease-in-out;
+  }
+
+  .inputs-container button>span {
+    opacity: 0;
+  }
+
+  .inputs-container button>span.show-span {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  }
+
+
+  .socials {
+    width: 40%;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    margin-top: 1em;
+    justify-content: end;
+    gap: 0.5em;
+  }
+
+  @media (min-width: 801px) {
+    .form-text {
+      max-width: 50%;
+    }
+  }
+
+  @media (max-width: 800px) {
+
+    .main-container>.form-text {
+      width: 100%;
+    }
+
+    .input {
+      width: 100%;
+    }
+
+    .socials {
+      width: 100%;
+    }
+  }
+</style>

@@ -3,6 +3,7 @@ import globals from "../styles/globals.css";
 import Navbar from "../components/Navbar.astro";
 import Layout from "./Layout.astro";
 import ProjectViewSplit from "../components/Projects/ProjectViewSplit.astro";
+import Contact from "../components/sections/Contact.astro";
 
 import octocat from "../../public/gh-icon.svg";
 import linkedin from "../../public/linkedin-icon.svg";
@@ -133,6 +134,9 @@ const { content, projectClass } = Astro.props;
         </div>
 
       </div>
+      <Contact socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
+        socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
+        socialThreeLink="https://twitter.com/psychtotech" />
     </main>
   </Layout>
 
@@ -145,12 +149,42 @@ const { content, projectClass } = Astro.props;
   const contentContainer = [...document.querySelector('.project.content-container').children];
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
   const automateButton = document.querySelector('.project.automate-button');
+  const nav = document.querySelector('nav');
+  const navLinks = [...document.querySelector('.internal-links').children];
+
+  let oldScroll = window.scrollY;
+  let direction;
+
 
   if (mediaQueryEight.matches) {
     videos.forEach((video) => {
       video.controls = true;
     });
   }
+
+  window.addEventListener('scroll', function (e) {
+    const windowScroll = this.scrollY;
+
+    // Logic for determining the scroll's direction.
+    if (windowScroll > oldScroll) {
+      direction = "down";
+    } else {
+      direction = "up";
+    }
+    oldScroll = windowScroll <= 0 ? 0 : windowScroll;
+
+    if (direction === 'down') {
+      nav.classList.add('hide');
+    } else if (direction === 'up') {
+      nav.classList.remove('hide');
+    }
+
+    navLinks.forEach((link, i) => {
+      link.addEventListener('click', function (e) {
+        sections[i].scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
 
   videos.forEach((video) => {
     video.addEventListener('mouseover', function (e) {
@@ -259,6 +293,7 @@ const { content, projectClass } = Astro.props;
   .content-container {
     display: grid;
     gap: 1em;
+    margin-bottom: 15em;
   }
 
   .video-container {

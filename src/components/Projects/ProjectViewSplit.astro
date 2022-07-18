@@ -9,14 +9,14 @@ export interface IProjectViewSplit {
 const { projectName, projectOneLink, projectTwoLink, projectOne, projectTwo } = Astro.props;
 ---
 
-<div class="project split-view-container">
+<div class="project project-section split-view-container">
   <p>Hey stranger!<em> Firstly, I'd like to thank you for checking out {projectName}.</em>
     Considering the amount of time I spend on each of my projects (reading documentation, practicing problems, planning,
     and finally building it out) I felt like it would be a shame if I didn't get to talk about them and the process that
     goes behind each one. These project pages aren't Case Studies. Rather, it was a way for me to express my creative
     process, but most importantly, it's a way for me to look back on my previous work and reflect on how to become a
-    better developer. Once again I'd like to thank you for checking things out! If you'd like to view some more of my
-    project pages, feel
+    better developer. Once again I'd like to thank you for checking things out! If you'd like to view my two other
+    project pages, please feel
     free to check them out below.
   </p>
   <div class="project split-projects">
@@ -27,15 +27,22 @@ const { projectName, projectOneLink, projectTwoLink, projectOne, projectTwo } = 
       <a href={projectTwoLink}>{projectTwo}</a>
     </button>
   </div>
+  <small class="github-reference">The rest of my work can be found <a target="_blank" rel="noopener noreferrer"
+      href="https://github.com/eltonbautista">here</a> in my <a target="_blank" rel="noopener noreferrer"
+      href="https://github.com/eltonbautista">GitHub profile</a>.</small>
 </div>
 
 <style>
+  .github-reference>a {
+    text-decoration: none;
+    color: var(--color-text-opposite);
+  }
+
   @media (min-width: 1100px) {
     .split-view-container {
       grid-area: 8/2/9/11;
     }
   }
-
 
   @media (max-width: 1099px) {
     .split-view-container>h2 {
@@ -46,8 +53,20 @@ const { projectName, projectOneLink, projectTwoLink, projectOne, projectTwo } = 
   .split-projects {
     display: grid;
     grid-auto-flow: column;
+    margin-bottom: 1em;
   }
 
+  .project-section {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0ms;
+  }
+
+  .project-section.show-section {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 200ms ease-in-out;
+  }
 
   .split-projects>button {
     background: none;

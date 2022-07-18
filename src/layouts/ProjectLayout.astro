@@ -64,10 +64,10 @@ const { content, projectClass } = Astro.props;
                 {content.problem}
               </em>
             </p>
-            <h3>
+            <h3 class="project goals">
               Goals:
             </h3>
-            <p class="project goals">
+            <p class="project goal-paragraph">
               {content.goals}
               {content.problemOne ?
             <ol class="project ordered-list">
@@ -146,6 +146,7 @@ const { content, projectClass } = Astro.props;
   const automateButton = document.querySelector('.project.automate-button');
   const nav = document.querySelector('nav');
   const navLinks = [...document.querySelector('.internal-links').children];
+  const splitPreview = document.querySelector('.split-view-container');
 
   let oldScroll = window.scrollY;
   let direction;
@@ -179,6 +180,10 @@ const { content, projectClass } = Astro.props;
         sections[i].scrollIntoView({ behavior: "smooth" });
       });
     });
+
+    if (windowScroll > splitPreview.offsetTop) {
+      splitPreview.classList.add('show-section');
+    }
   });
 
   videos.forEach((video) => {
@@ -314,12 +319,20 @@ const { content, projectClass } = Astro.props;
     transition: color 500ms ease-in-out;
   }
 
+  .problem-container>.goals {
+    margin-top: 1.5em;
+  }
+
   @media (max-width: 1099px) {
 
     .problem-container>h3,
     .planning-video-container>h3,
     .shortcomings-container>h3 {
       margin-bottom: 0.5em;
+    }
+
+    .project.note {
+      display: none;
     }
   }
 

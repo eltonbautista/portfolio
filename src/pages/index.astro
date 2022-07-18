@@ -89,37 +89,31 @@ import Contact from '../components/sections/Contact.astro';
       });
     }
 
-    // Logic for determining the scroll's direction.
-    if (windowScroll > oldScroll) {
-      direction = "down";
-    } else {
-      direction = "up";
-    }
-    oldScroll = windowScroll <= 0 ? 0 : windowScroll;
-
-    if (direction === 'down') {
-      nav.classList.add('hide');
-    } else if (direction === 'up') {
-      nav.classList.remove('hide');
-    }
-
-    // TODO: Not perfect, still need to tweak
-    // Functionality responsible for scrolling text divs during scroll
-
     const scrollFloaty = () => {
+      // Logic for determining the scroll's direction.
+      if (windowScroll > oldScroll) {
+        nav.classList.add('hide');
+        direction = "down";
+      } else {
+        nav.classList.remove('hide');
+        direction = "up";
+      }
+      oldScroll = windowScroll <= 0 ? 0 : windowScroll;
+
+      // Functionality for giving my textContainers the "floaty" effect
       textContainers.forEach((elem, i) => {
         const parent = projectPreviews[i];
         const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform).m42;
+        const mainCondition = windowScroll * 1.2 > projectTop && windowScroll < projectBottom * 1.15 && screen.matches;
 
-        if (windowScroll * 1.2 > projectTop && windowScroll < projectBottom * 1.15 && screen.matches) {
-          if (windowScroll * 1.1 > parent.offsetTop && direction === "down" && myMatrix > lowPoint) {
-            const newMatrixY = myMatrix - 2;
-            elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-          } else if (windowScroll * 1.05 > parent.offsetTop && direction === "up" && myMatrix < highPoint) {
-            const newMatrixY = myMatrix + 2;
-            elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-          }
+        if (windowScroll * 1.1 > parent.offsetTop && direction === "down" && myMatrix > lowPoint && mainCondition) {
+          const newMatrixY = myMatrix - 2;
+          elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
+        } else if (windowScroll * 1.05 > parent.offsetTop && direction === "up" && myMatrix < highPoint && mainCondition) {
+          const newMatrixY = myMatrix + 2;
+          elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
         }
+
       });
     };
     scrollFloaty();
@@ -134,10 +128,6 @@ import Contact from '../components/sections/Contact.astro';
       root.style.setProperty('--color-text-opposite', "red");
       mainContent.classList.add('dark-mode');
       body.classList.add('dark-mode');
-
-      if (aboutSection.classList.contains('flip') === false) {
-        aboutSection.classList.add('flip');
-      }
 
       return;
     }

@@ -1,4 +1,5 @@
 ---
+import myLogo from "../../public/my_logo.png";
 export interface INavbarProps {
   logoLink: string;
   aboutLink: string;
@@ -31,9 +32,8 @@ const {
   <div class="links-container">
 
     <div class="nav internal-links">
-
       <a class={`nav internal ${internalClass} logo`} href={logoLink}>{logoName
-        ? logoName : "logo"} </a>
+        ? logoName : <img class="my-logo" src={myLogo} width="40px" height="40px" /> } </a>
 
       {aboutName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
         href={aboutLink}>{aboutName} </a> : <a class={`nav internal ${internalClass} about`} href={aboutLink}>about</a>}
@@ -60,6 +60,10 @@ const {
 </nav>
 
 <style>
+  .my-logo {
+    filter: var(--filter-color);
+  }
+
   nav {
     padding: 0.5em 2em;
     justify-self: center;

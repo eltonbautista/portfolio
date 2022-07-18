@@ -126,6 +126,7 @@ import Contact from '../components/sections/Contact.astro';
       root.style.setProperty('--color-text', "#eee5d0");
       root.style.setProperty('--color-text-alt', "blue");
       root.style.setProperty('--color-text-opposite', "red");
+      root.style.setProperty('--filter-color', "invert(97%) sepia(6%) saturate(749%) hue-rotate(336deg) brightness(91%) contrast(107%)");
       mainContent.classList.add('dark-mode');
       body.classList.add('dark-mode');
 
@@ -135,6 +136,8 @@ import Contact from '../components/sections/Contact.astro';
     root.style.setProperty('--color-text', "#1d1d1b");
     root.style.setProperty('--color-text-alt', "red");
     root.style.setProperty('--color-text-opposite', "blue");
+    root.style.setProperty('--filter-color', "invert(7%) sepia(6%) saturate(704%) hue-rotate(71deg) brightness(100%) contrast(90%)");
+
     mainContent.classList.remove('dark-mode');
     body.classList.remove('dark-mode');
 

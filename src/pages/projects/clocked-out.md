@@ -27,30 +27,16 @@ aboutLink: https://github.com/eltonbautista/clockedOut
 projectsLink: https://clocked-out.vercel.app/
 ---
 
-
-<p>
   Rather than JavaScript, I opted to use TypeScript instead due to its strongly typed nature. This allowed me to reduce the bugs I encountered, create ease of access for anybody reading my code, and most importantly, increase the scalability of my application which is important for addressing my main problem.
-</p> 
-<p>
 
-<p>
   I utilized Jest for testing due to its compatability with React testing library and readily available asynchronous functionalities. 
-</p>
-</p>
+
   Firebase was my choice for a NoSQL database because of its updatability, rich documentation, and ability to persist data locally and offline which would provide my users a responsive experience. 
-<p>
+
   Lastly, I opted on using the Context API baked into React due to its reliability, built-in support, and minimalistic setup.
-</p>
 
-<p>
   For the record, the reason why I've never used a component library or a CSS framework is because I really want to focus on building a solid foundation and understanding <em>why</em> I should create components a certain way, and <em>how</em> to create them.
-  <p>
+
   This was undoubtedly the largest project I had built so far and rather quickly I realized that I underestimated the amount of the work that it takes to build websites like LinkedIn. I don't believe that I'm too inexperienced to create a clone with similar functionality, but rather I feel like I may have took on too much and may have set an unrealistic timeline for current self.
-  </p>
-  <p>
+
   One of my main shortcomings was maintaining an organized file structure. I think I made the mistake of not following my previous working process which resulted in not planning as thoroughly as I had been compared to previous projects. Additionally, after a certain point in my project I started to become overwhelmed by the various API calls I was making and quickly became muddled with what to implement next.
-  </p>
-</p>
-
-
-

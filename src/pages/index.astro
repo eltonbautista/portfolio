@@ -52,8 +52,6 @@ import Contact from '../components/sections/Contact.astro';
   const projectTop = projectContainer.offsetTop;
   const projectBottom = projectContainer.offsetTop + projectContainer.offsetHeight;
 
-  console.log(document.querySelectorAll('.personal-video'));
-
   // Responsible for changing .project-preview children's opacity
   videos.forEach((video, i) => {
     video.addEventListener('mouseover', function (e) {

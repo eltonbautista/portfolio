@@ -210,21 +210,21 @@ const { content, projectClass } = Astro.props;
     let count = 0;
     let timer = setInterval;
 
-    if (contentContainer[1].classList.contains('show-section') === false) {
+    displayAndScroll(contentContainer[0]);
+    timer(() => {
+      if (count < contentContainer.length - 1) {
+        const nextSection = contentContainer[count + 1];
 
-      displayAndScroll(contentContainer[0]);
-
-      timer(() => {
-        if (count < contentContainer.length - 1) {
-          const nextSection = contentContainer[count + 1];
+        if (nextSection.classList.contains('show-section') === false) {
           displayAndScroll(nextSection);
-          count += 1;
-          return;
         }
-        clearInterval(timer);
-      }, 40000);
 
-    }
+        count += 1;
+        return;
+      }
+      clearInterval(timer);
+    }, 15000);
+
   }
 
   automateButton.addEventListener('click', function () {
@@ -618,6 +618,10 @@ const { content, projectClass } = Astro.props;
 
     .solution-container {
       grid-area: 4/8/8/13;
+    }
+
+    .solution-container p {
+      margin-top: 0;
     }
 
     .built-header {

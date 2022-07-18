@@ -14,7 +14,6 @@ const ProjectCarousel = (props) => {
   const [carouselCount, setCarouselCount] = useState(0);
 
   const slidesArrayLength = displays.length;
-  console.log(displays);
   const changeSlide = (direction) => {
     // Increment carousel count by 1, but if it exceeds the number of array items, then reset
     if (direction === "next") {

@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: FightingSpirit;
-  src: url("../../public/Fighting\ Spirit\ 2.ttf");
+  src: url("../../public/Fighting_Spirit_2.ttf");
 }
 
 @font-face {
@@ -49,7 +49,7 @@ html {
   30% {
     text-decoration: wavy;
     color: var(--color-text-opposite);
-    font-family: FightingSpirit, HintRetro, JostLight, sans-serif;
+    font-family: FightingSpirit, JostMedium, sans-serif;
   }
 
   65% {

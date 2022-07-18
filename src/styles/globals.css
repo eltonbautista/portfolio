@@ -30,9 +30,16 @@ html {
   color: var(--color-text);
 }
 
-.internal-project {
-  color: var(--color-text-sub)
+a.internal-project:first-of-type {
+  filter: invert(97%) sepia(6%) saturate(749%) hue-rotate(336deg) brightness(91%) contrast(107%);
 }
+
+.internal-project {
+  color: var(--color-text-sub);
+
+}
+
+
 
 @keyframes glitchName {
   0% {

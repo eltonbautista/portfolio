@@ -1,11 +1,14 @@
 import styles from "../../styles/style-modules/PersonalDisplays.module.css";
+import globals from "../../styles/globals.css";
 
 
 const PersonalDisplays = (props) => {
   const { description, noun, src, active, activity, classes, media } = props;
+  const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+
   return (
     <div className={`${styles[classes]} ${"personal-display"}`} data-active={active} activity={activity}>
-      <div className={` ${styles['noun-container']} ${"personal"}`}>
+      <div className={` ${styles['noun-container']} ${"noun-container"}`}>
 
         <h3 className={`${styles['noun-header']} ${'noun-header'}`}>
           I am a {noun}
@@ -14,14 +17,19 @@ const PersonalDisplays = (props) => {
           {description}
         </p>
       </div>
-      <div className={`${styles['video-container']} ${"personal"} `}>
-        {media === "video" ?
-          <video id="my-video" className="personal-video" muted src={src} onMouseOver={(e) => {
+      <div className={`${styles['video-container']} ${"video-container"} `}>
+        {mediaQueryEight.matches ?
+          <video className="personal-video" muted autoPlay controls src={src} onMouseOver={(e) => {
             e.currentTarget.play();
           }} onMouseLeave={(e) => { e.currentTarget.pause(); }}
           >
             <source src={src} type="video/mp4" />
-          </video> : <img src={src} alt={media} ></img>}
+          </video> : <video className="personal-video" muted src={src} onMouseOver={(e) => {
+            e.currentTarget.play();
+          }} onMouseLeave={(e) => { e.currentTarget.pause(); }}
+          >
+            <source src={src} type="video/mp4" />
+          </video>}
 
       </div>
     </div>

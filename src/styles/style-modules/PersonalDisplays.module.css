@@ -1,4 +1,4 @@
-.styled-personal-display {
+/* .styled-personal-display {
   margin-right: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
@@ -112,4 +112,4 @@
     height: auto;
     align-self: center;
   }
-}
+} */

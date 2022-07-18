@@ -12,12 +12,12 @@ export interface IAboutDescription {
   </p>
   <p class="about about-paragraph main">
     These are the words that I have grown up by but have never really understood, at least not until recently.
-    I have always been fascinated by technology, and thus, objects like computers, or cell-phones were second nature
+    I have always been fascinated by technology, and thus, things like computers, or cell-phones were second nature
     to me.
     Though I was familiar with these items it felt like there was a missing component, and I yearned for
     whatever that was.
 
-    After tireless hours day in and day out, I think I've realized what I've been missing, and more
+    After tireless hours of studying day in and day out, I think I've realized what I've been missing, and more
     importantly, <i>how to achieve it.
     </i>
   </p>
@@ -29,7 +29,7 @@ export interface IAboutDescription {
     <i>confident</i> in being able to provide <i>quality</i> ideas, <i>overwhelming</i> support, and
     <i>positive</i> contributions that
     <i>will</i>
-    lead our team to further growth, and ultimately, greater success for the company.
+    lead our team to further growth.
   </p>
 
   <p class="about about-paragraph">
@@ -40,12 +40,12 @@ export interface IAboutDescription {
       problem-solving skills
     </strong> and a
     <strong>
-      <i>firm</i>
+      <i>solid</i>
       understanding of programming concepts.
     </strong>
-    I am focused on <strong>creating</strong> <i>scalable</i> solutions, and delivering <i>smooth</i> experiences
+    I am focused on <strong>creating</strong> <i>scalable</i> solutions, and delivering <i>smooth</i> user experiences
     paired
-    with <i>aesthetically</i> pleasing designs.
+    with <i>aesthetically pleasing</i> designs.
     I dedicate myself to my craft by <i>reinforcing</i> my knowledge through <i><strong>daily
       </strong>studious</i> and
     <i>applicative</i>
@@ -59,7 +59,7 @@ export interface IAboutDescription {
     <strong>Technology</strong> related. As of this moment, I am focused on <strong>Front End Web Development</strong>,
     but my passions
     for programming simply start there. I have made plans to learn <strong>Full Stack Development </strong>and want to
-    eventually expand
+    eventually expand my knowledge
     into the domains of <strong>Software Development</strong>, <strong>Cloud Engineering</strong>, <strong>UX/UI
       Development</strong>, and even <strong>Product Management.</strong> I am
     currently based in <i>Alberta, Canada</i> (woo mountains!!) but plan to move if an opportunity presents itself!
@@ -72,6 +72,13 @@ export interface IAboutDescription {
   .about-description-container {
     max-width: 80%;
     margin-bottom: 6.5em;
+  }
+
+  @media (max-width: 800px) {
+    .about-description-container {
+      max-width: 100%;
+      margin-bottom: 6.5em;
+    }
   }
 
   @media (max-width: 1200px) {
@@ -105,22 +112,22 @@ export interface IAboutDescription {
   }
 
   .about-paragraph:nth-child(1).show-paragraph {
-    transition-delay: 350ms;
+    transition-delay: 200ms;
   }
 
   .about-paragraph:nth-child(2).show-paragraph {
-    transition-delay: 2.2s;
+    transition-delay: 1.5s;
   }
 
   .about-paragraph:nth-child(3).show-paragraph {
-    transition-delay: 5.2s;
+    transition-delay: 3s;
   }
 
   .about-paragraph:nth-child(4).show-paragraph {
-    transition-delay: 7.2s;
+    transition-delay: 4.5s;
   }
 
   .about-paragraph:nth-child(5).show-paragraph {
-    transition-delay: 9s;
+    transition-delay: 6s;
   }
 </style>

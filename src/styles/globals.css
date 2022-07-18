@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: FightingSpirit;
-  src: url("../../public/Fighting\ Spirit\ 2.otf");
+  src: url("../../public/Fighting\ Spirit\ 2.ttf");
 }
 
 @font-face {
@@ -111,8 +111,6 @@ html {
     transform: translateX(0%);
     transition-delay: 500ms;
   }
-
-
 }
 
 @media (min-width: 300px) {
@@ -168,7 +166,7 @@ html {
 }
 
 
-.styled-personal-display {
+.personal-display {
   margin-right: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(50px + 35vw), 1fr));
@@ -200,7 +198,7 @@ html {
 
 @media (min-width: 800px) {
 
-  .styled-personal-display {
+  .personal-display {
     position: relative;
     width: 95%;
     margin-right: 0;

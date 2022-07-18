@@ -26,12 +26,12 @@ import Contact from '../components/sections/Contact.astro';
       socialThreeLink="https://twitter.com/psychtotech" />
   </main>
 </Layout>
-<script is:inline>
+<script defer is:inline>
   const root = document.documentElement;
   const body = document.querySelector('body');
   const mainContent = document.querySelector('#main-content');
   const aboutSection = document.querySelector('.about-container');
-  const allVideos = [...document.querySelectorAll('video')];
+  const allVideos = [...document.querySelectorAll('video'),];
   const nav = document.querySelector('nav');
   const navLinks = [...document.querySelector('.internal-links').children];
   const sections = [document.querySelector('#main-content'), document.querySelector('#about-section'), document.querySelector('#projects-section')];
@@ -44,13 +44,15 @@ import Contact from '../components/sections/Contact.astro';
 
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
   const highPoint = 200;
-  const lowPoint = -80;
+  const lowPoint = -90;
   const screen = window.matchMedia("(min-width: 1050px)");
   let oldScroll = window.scrollY;
   let direction;
   const heightTop = aboutSection.offsetTop;
   const projectTop = projectContainer.offsetTop;
   const projectBottom = projectContainer.offsetTop + projectContainer.offsetHeight;
+
+  console.log(document.querySelectorAll('.personal-video'));
 
   // Responsible for changing .project-preview children's opacity
   videos.forEach((video, i) => {
@@ -109,12 +111,12 @@ import Contact from '../components/sections/Contact.astro';
         const parent = projectPreviews[i];
         const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform).m42;
 
-        if (windowScroll * 1.2 > projectTop && windowScroll < projectBottom && screen.matches) {
-          if (windowScroll * 1.25 > parent.offsetTop && direction === "down" && myMatrix > lowPoint) {
-            const newMatrixY = myMatrix - 2.5;
+        if (windowScroll * 1.2 > projectTop && windowScroll < projectBottom * 1.15 && screen.matches) {
+          if (windowScroll * 1.1 > parent.offsetTop && direction === "down" && myMatrix > lowPoint) {
+            const newMatrixY = myMatrix - 2;
             elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-          } else if (windowScroll > parent.offsetTop && direction === "up" && myMatrix < highPoint) {
-            const newMatrixY = myMatrix + 2.5;
+          } else if (windowScroll * 1.05 > parent.offsetTop && direction === "up" && myMatrix < highPoint) {
+            const newMatrixY = myMatrix + 2;
             elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
           }
         }

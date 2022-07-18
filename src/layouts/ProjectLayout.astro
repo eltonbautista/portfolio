@@ -1,5 +1,5 @@
 ---
-import globals from "../styles/globals.css";
+import "../styles/globals.css";
 import Navbar from "../components/Navbar.astro";
 import Layout from "./Layout.astro";
 import ProjectViewSplit from "../components/Projects/ProjectViewSplit.astro";
@@ -21,14 +21,9 @@ const { content, projectClass } = Astro.props;
 
 <html>
 
-<!-- <head>
-  <title>Project Overview: {content.title}</title>
-</head> -->
-
 <body>
   <Layout title={content.title}>
 
-    <!-- TODO: Change ProjectPage navigation to each of the three highlighted projects, but also need to add one node that takes me back to "/" -->
     <Navbar internalClass={"internal-project"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
       socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
       socialThreeLink="https://twitter.com/psychtotech" logoLink="/" aboutLink={content.aboutLink}
@@ -136,7 +131,7 @@ const { content, projectClass } = Astro.props;
       </div>
       <Contact socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
         socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-        socialThreeLink="https://twitter.com/psychtotech" />
+        socialThreeLink="https://twitter.com/psychtotech" stylingClass="project-layout" />
     </main>
   </Layout>
 

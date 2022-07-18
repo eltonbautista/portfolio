@@ -1,5 +1,5 @@
 import styles from "../../styles/style-modules/PersonalDisplays.module.css";
-import globals from "../../styles/globals.css";
+import "../../styles/globals.css";
 
 
 const PersonalDisplays = (props) => {

@@ -1,4 +1,5 @@
 ---
+import "../../styles/globals.css";
 export interface IFormProps {
   socialOne: string;
   socialTwo: string;
@@ -7,11 +8,14 @@ export interface IFormProps {
   socialOneLink: string;
   socialTwoLink: string;
   socialThreeLink: string;
+
+  stylingClass: string;
 }
 
 const {
   socialOne, socialTwo, socialThree,
   socialOneLink, socialTwoLink, socialThreeLink,
+  stylingClass
 } = Astro.props;
 ---
 
@@ -23,13 +27,14 @@ const {
 
 
       <p>I am currently looking for a role in the Technology industry, a Front End Web Development position would be a
-        delight, but I am confident in my quickness to learn! Whether it be about Tech, or anything Science related I
+        delight, but am open to other roles as I'm confident in my quickness to learn! Whether it be about Tech, or
+        anything Science related I
         would love to hear from you!
       </p>
 
     </div>
 
-    <div class="contact form-container">
+    <div class={`contact form-container ${stylingClass}`}>
 
       <form action="https://formcarry.com/s/yC9UKS4dwO" method="POST" accept-charset="UTF-8" class="contact form">
         <div class="contact inputs-container">
@@ -42,7 +47,8 @@ const {
           <div>
             <input class="contact input" type="textarea" name="message" required placeholder="Your Message*">
           </div>
-          <button class="contact send-button" type="submit">Send <span>&#10148</span></button>
+          <button class={`contact send-button ${stylingClass}`} id="form-button" type="submit">Send
+            <span>&#10148</span></button>
         </div>
       </form>
 
@@ -107,7 +113,7 @@ const {
     gap: 0.5em;
   }
 
-  .inputs-container button {
+  .inputs-container>button {
     max-width: fit-content;
     background: none;
     border: none;

@@ -10,12 +10,12 @@
 
 @font-face {
   font-family: FightingSpirit;
-  src: url("../../public/Fighting_Spirit_2.ttf");
+  src: url("/Fighting_Spirit_2.ttf");
 }
 
 @font-face {
   font-family: HintRetro;
-  src: url("../../public/hint_retro.ttf");
+  src: url("/hint_retro.ttf");
 }
 
 html {
@@ -280,4 +280,12 @@ html {
     height: auto;
     align-self: center;
   }
+}
+
+.form-container.project-layout input {
+  background: var(--bg-color-main);
+}
+
+#form-button.project-layout {
+  color: var(--bg-color-main);
 }

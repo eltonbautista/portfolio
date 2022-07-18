@@ -2,8 +2,8 @@
 layout: ../../layouts/ProjectLayout.astro
 title: Meemo Boutique
 client: The Odin Project
-video: ../../../public/meemo.mp4
-planningVideo: ../../../public/meemo-problem.mp4
+video: /meemo.mp4
+planningVideo: /meemo_problem.mp4
 description: Meemo Boutique is a single-page ecommerce application that boasts a vintage, but modern neon aesthetic that is focused on uniting both fashion lovers with old souls, and newcomers who aren't afraid to stand out and dare to be different.
 problem: Create a fully functional ecommerce webpage application that contains more than two routes. With the exemption of a payment system, the final product should be capable of essential functionalities comparable to those of other ecommerce websites that use a shopping cart model.
 problemOne: Develop a greater understanding of component and folder structuring.

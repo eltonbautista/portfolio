@@ -43,7 +43,7 @@ import Contact from '../components/sections/Contact.astro';
   const aboutParagraphs = [...document.querySelectorAll('.about-paragraph')];
 
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
-  const highPoint = 250;
+  const highPoint = 200;
   const lowPoint = -90;
   const screen = window.matchMedia("(min-width: 1050px)");
   let oldScroll = window.scrollY;
@@ -104,11 +104,11 @@ import Contact from '../components/sections/Contact.astro';
         const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform).m42;
         const mainCondition = windowScroll * 1.2 > projectTop && windowScroll < projectBottom * 1.15 && screen.matches;
 
-        if (windowScroll * 1.1 > parent.offsetTop && direction === "down" && myMatrix > lowPoint && mainCondition) {
-          const newMatrixY = myMatrix - 2;
+        if (windowScroll * 1.125 > parent.offsetTop && direction === "down" && myMatrix > lowPoint && mainCondition) {
+          const newMatrixY = myMatrix - 2.5;
           elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
         } else if (windowScroll * 1.05 > parent.offsetTop && direction === "up" && myMatrix < highPoint && mainCondition) {
-          const newMatrixY = myMatrix + 2;
+          const newMatrixY = myMatrix + 2.5;
           elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
         }
 

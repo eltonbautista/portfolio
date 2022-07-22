@@ -3,19 +3,21 @@ import AboutDescription from "./AboutDescription.astro";
 import AboutSkills from "./AboutSkills.astro";
 
 // Assets
-import reactLogo from "../../../public/skills_assets/react_logo.svg";
-import jestLogo from "../../../public/skills_assets/jest_logo.svg";
-import typescriptLogo from "../../../public/skills_assets/typescript_logo.svg";
-import firebaseLogo from "../../../public/skills_assets/firebase_logo.svg";
-import javascriptLogo from "../../../public/skills_assets/javascript_logo.svg";
-import htmlLogo from "../../../public/skills_assets/html5_logo.svg";
-import cssLogo from "../../../public/skills_assets/css3_logo.svg";
-import linuxLogo from "../../../public/skills_assets/linux_logo.svg";
-import gitLogo from "../../../public/skills_assets/git_logo.svg";
+import reactLogo from "/skills_assets/react_logo.svg";
+import jestLogo from "/skills_assets/jest_logo.svg";
+import typescriptLogo from "/skills_assets/typescript_logo.svg";
+import firebaseLogo from "/skills_assets/firebase_logo.svg";
+import javascriptLogo from "/skills_assets/javascript_logo.svg";
+import htmlLogo from "/skills_assets/html5_logo.svg";
+import cssLogo from "/skills_assets/css3_logo.svg";
+import linuxLogo from "/skills_assets/linux_logo.svg";
+import gitLogo from "/skills_assets/git_logo.svg";
 
 export interface IAboutProps {
 
 }
+const skills = ["ReactJS", "TypeScript", "Jest", "Firebase", "JavaScript", "HTML5", "CSS3", "Git", "Linux"];
+const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo, htmlLogo, cssLogo, linuxLogo, gitLogo];
 
 ---
 
@@ -31,15 +33,10 @@ export interface IAboutProps {
     </div>
 
     <div class="about skills-container">
-      <AboutSkills skill="ReactJS" logo={reactLogo} />
-      <AboutSkills skill="TypeScript" logo={typescriptLogo} />
-      <AboutSkills skill="Jest" logo={jestLogo} />
-      <AboutSkills skill="Firebase" logo={firebaseLogo} />
-      <AboutSkills skill="JavaScript" logo={javascriptLogo} />
-      <AboutSkills skill="HTML5" logo={htmlLogo} />
-      <AboutSkills skill="CSS3" logo={cssLogo} />
-      <AboutSkills skill="Git" logo={gitLogo} />
-      <AboutSkills skill="Linux" logo={linuxLogo} />
+      {skills.map((skill, i) => {
+      return (
+      <AboutSkills skill={skill} logo={logos[i]} />)
+      })}
     </div>
   </div>
 </div>

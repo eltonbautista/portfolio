@@ -19,7 +19,7 @@ projectOneLink: /projects/clocked-out
 projectTwoLink: /projects/my-weather
 
 aboutLink: https://github.com/eltonbautista/react-shopping-cart
-projectsLink: https://meemo-boutique.netlify.app/
+projectsLink: https://meemo-boutique.vercel.app/
 ---
 
 

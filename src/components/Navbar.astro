@@ -1,5 +1,5 @@
 ---
-import myLogo from "/my_logo.png";
+// import myLogo from "/my_logo.png";
 export interface INavbarProps {
   logoLink: string;
   aboutLink: string;
@@ -19,44 +19,102 @@ export interface INavbarProps {
   internalClass: string;
 }
 const {
-  logoLink, aboutLink, projectsLink,
-  logoName, aboutName, projectsName,
-  socialOne, socialTwo, socialThree,
-  socialOneLink, socialTwoLink, socialThreeLink,
-  internalClass
+  logoLink,
+  aboutLink,
+  projectsLink,
+  logoName,
+  aboutName,
+  projectsName,
+  socialOne,
+  socialTwo,
+  socialThree,
+  socialOneLink,
+  socialTwoLink,
+  socialThreeLink,
+  internalClass,
 } = Astro.props;
 ---
 
 <nav id="navbar">
-
   <div class="links-container">
-
     <div class="nav internal-links">
-      <a class={`nav internal ${internalClass} logo`} href={logoLink}>{logoName
-        ? logoName : <img id="my-logo" class="nav logo-image my-logo" src={myLogo} width="40px" height="40px" /> } </a>
+      <a class={`nav internal ${internalClass} logo`} href={logoLink}
+        >{
+          logoName ? (
+            logoName
+          ) : (
+            <img
+              id="my-logo"
+              class="nav logo-image my-logo"
+              src={"/my_logo.png"}
+              width="40px"
+              height="40px"
+            />
+          )
+        }
+      </a>
 
-      {aboutName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
-        href={aboutLink}>{aboutName} </a> : <a class={`nav internal ${internalClass} about`} href={aboutLink}>about</a>}
+      {
+        aboutName ? (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`nav internal ${internalClass} about`}
+            href={aboutLink}
+          >
+            {aboutName}{" "}
+          </a>
+        ) : (
+          <a class={`nav internal ${internalClass} about`} href={aboutLink}>
+            about
+          </a>
+        )
+      }
 
-      {projectsName ? <a target="_blank" rel="noopener noreferrer" class={`nav internal ${internalClass} about`}
-        href={projectsLink}>{projectsName}</a> : <a class={`nav internal ${internalClass} about`}
-        href={projectsLink}>projects</a>}
-
+      {
+        projectsName ? (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`nav internal ${internalClass} about`}
+            href={projectsLink}
+          >
+            {projectsName}
+          </a>
+        ) : (
+          <a class={`nav internal ${internalClass} about`} href={projectsLink}>
+            projects
+          </a>
+        )
+      }
     </div>
 
     <div class="nav external-links">
-      <a class="nav social social-one" target="_blank" rel="noopener noreferrer" href={socialOneLink}><img
-          class="nav social-icon" src={socialOne}></a>
-      <a class="nav social social-two" target="_blank" rel="noopener noreferrer" href={socialTwoLink}>
-        <img class="nav social-icon" src={socialTwo}>
+      <a
+        class="nav social social-one"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={socialOneLink}
+        ><img class="nav social-icon" src={socialOne} />
       </a>
-      <a class="nav social social-three" target="_blank" rel="noopener noreferrer" href={socialThreeLink}>
-        <img class="nav social-icon" src={socialThree}>
+      <a
+        class="nav social social-two"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={socialTwoLink}
+      >
+        <img class="nav social-icon" src={socialTwo} />
+      </a>
+      <a
+        class="nav social social-three"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={socialThreeLink}
+      >
+        <img class="nav social-icon" src={socialThree} />
       </a>
     </div>
-
   </div>
-
 </nav>
 
 <style>
@@ -94,7 +152,6 @@ const {
     text-decoration: none;
     color: none;
   }
-
 
   @media (max-width: 450px) {
     #navbar {

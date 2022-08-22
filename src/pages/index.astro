@@ -1,46 +1,72 @@
 ---
 // Components:
-import Layout from '../layouts/Layout.astro';
-import Introduction from '../components/sections/Introduction.astro';
-import Navbar from '../components/Navbar.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Introduction from "../components/sections/Introduction.astro";
+import Navbar from "../components/Navbar.astro";
 
 // Media:
-import octocat from "/gh-icon.svg";
+// import octocat from "/gh-icon.svg";
+import octocat from "../../public/gh-icon.svg";
 import linkedin from "/linkedin-icon.svg";
 import twitter from "/twitter-icon.svg";
 import Projects from "../components/sections/Projects.astro";
-import Contact from '../components/sections/Contact.astro';
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <Layout title={"EltonBautista: Front End Developer"}>
-  <Navbar internalClass={"internal-index"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
-    socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-    socialThreeLink="https://twitter.com/psychtotech" logoLink="#main-content" aboutLink="#about-section"
-    projectsLink="#projects-section" />
+  <Navbar
+    internalClass={"internal-index"}
+    socialOne={octocat}
+    socialOneLink="https://github.com/eltonbautista"
+    socialTwo={linkedin}
+    socialTwoLink="https://www.linkedin.com/in/eltonbautista/"
+    socialThree={twitter}
+    socialThreeLink="https://twitter.com/psychtotech"
+    logoLink="#main-content"
+    aboutLink="#about-section"
+    projectsLink="#projects-section"
+  />
   <main id="main-content">
-    <Introduction firstName="elton" lastName="bautista" roleMain="front-end" roleSub="developer" />
+    <Introduction
+      firstName="elton"
+      lastName="bautista"
+      roleMain="front-end"
+      roleSub="developer"
+    />
     <Projects />
-    <Contact socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
-      socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-      socialThreeLink="https://twitter.com/psychtotech" />
+    <Contact
+      socialOne={octocat}
+      socialOneLink="https://github.com/eltonbautista"
+      socialTwo={linkedin}
+      socialTwoLink="https://www.linkedin.com/in/eltonbautista/"
+      socialThree={twitter}
+      socialThreeLink="https://twitter.com/psychtotech"
+    />
   </main>
 </Layout>
 <script defer is:inline>
   const root = document.documentElement;
-  const body = document.querySelector('body');
-  const mainContent = document.querySelector('#main-content');
-  const aboutSection = document.querySelector('.about-container');
-  const allVideos = [...document.querySelectorAll('video'),];
-  const nav = document.querySelector('nav');
-  const navLinks = [...document.querySelector('.internal-links').children];
-  const sections = [document.querySelector('#main-content'), document.querySelector('#about-section'), document.querySelector('#projects-section')];
-  const projectContainer = document.querySelector('.projects-container');
-  const videos = [...document.querySelectorAll('.project-video')];
-  const projectPreviews = [...document.querySelectorAll('.project-preview')];
-  const textContainers = [...document.querySelectorAll('.project-preview-text-container')];
-  const videoContainers = [...document.querySelectorAll('.project-preview-video-container')];
-  const aboutParagraphs = [...document.querySelectorAll('.about-paragraph')];
+  const body = document.querySelector("body");
+  const mainContent = document.querySelector("#main-content");
+  const aboutSection = document.querySelector(".about-container");
+  const allVideos = [...document.querySelectorAll("video")];
+  const nav = document.querySelector("nav");
+  const navLinks = [...document.querySelector(".internal-links").children];
+  const sections = [
+    document.querySelector("#main-content"),
+    document.querySelector("#about-section"),
+    document.querySelector("#projects-section"),
+  ];
+  const projectContainer = document.querySelector(".projects-container");
+  const videos = [...document.querySelectorAll(".project-video")];
+  const projectPreviews = [...document.querySelectorAll(".project-preview")];
+  const textContainers = [
+    ...document.querySelectorAll(".project-preview-text-container"),
+  ];
+  const videoContainers = [
+    ...document.querySelectorAll(".project-preview-video-container"),
+  ];
+  const aboutParagraphs = [...document.querySelectorAll(".about-paragraph")];
 
   const mediaQueryEight = window.matchMedia("(max-width: 800px)");
   const highPoint = 200;
@@ -50,25 +76,26 @@ import Contact from '../components/sections/Contact.astro';
   let direction;
   const heightTop = aboutSection.offsetTop;
   const projectTop = projectContainer.offsetTop;
-  const projectBottom = projectContainer.offsetTop + projectContainer.offsetHeight;
+  const projectBottom =
+    projectContainer.offsetTop + projectContainer.offsetHeight;
 
   // Responsible for changing .project-preview children's opacity
   videos.forEach((video, i) => {
-    video.addEventListener('mouseover', function (e) {
-      textContainers[i].classList.add('decrease-opacity');
-      videoContainers[i].classList.add('increase-opacity');
+    video.addEventListener("mouseover", function (e) {
+      textContainers[i].classList.add("decrease-opacity");
+      videoContainers[i].classList.add("increase-opacity");
       this.play();
     });
-    video.addEventListener('mouseleave', function (e) {
-      textContainers[i].classList.remove('decrease-opacity');
-      videoContainers[i].classList.remove('increase-opacity');
+    video.addEventListener("mouseleave", function (e) {
+      textContainers[i].classList.remove("decrease-opacity");
+      videoContainers[i].classList.remove("increase-opacity");
       this.pause();
     });
   });
 
   // Responsible for hiding nav during scroll down and showing during scroll up
   navLinks.forEach((link, i) => {
-    link.addEventListener('click', function (e) {
+    link.addEventListener("click", function (e) {
       sections[i].scrollIntoView({ behavior: "smooth" });
     });
   });
@@ -79,21 +106,24 @@ import Contact from '../components/sections/Contact.astro';
     });
   }
 
-  window.addEventListener('scroll', function () {
+  window.addEventListener("scroll", function () {
     const windowScroll = this.scrollY;
-    if (windowScroll > heightTop && !aboutParagraphs[0].classList.contains('show-paragraph')) {
+    if (
+      windowScroll > heightTop &&
+      !aboutParagraphs[0].classList.contains("show-paragraph")
+    ) {
       aboutParagraphs.forEach((elem, i) => {
-        elem.classList.add('show-paragraph');
+        elem.classList.add("show-paragraph");
       });
     }
 
     const scrollFloaty = () => {
       // Logic for determining the scroll's direction.
       if (windowScroll > oldScroll) {
-        nav.classList.add('hide');
+        nav.classList.add("hide");
         direction = "down";
       } else {
-        nav.classList.remove('hide');
+        nav.classList.remove("hide");
         direction = "up";
       }
       oldScroll = windowScroll <= 0 ? 0 : windowScroll;
@@ -101,46 +131,61 @@ import Contact from '../components/sections/Contact.astro';
       // Functionality for giving my textContainers the "floaty" effect
       textContainers.forEach((elem, i) => {
         const parent = projectPreviews[i];
-        const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform).m42;
-        const mainCondition = windowScroll * 1.2 > projectTop && windowScroll < projectBottom * 1.15 && screen.matches;
+        const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform)
+          .m42;
+        const mainCondition =
+          windowScroll * 1.2 > projectTop &&
+          windowScroll < projectBottom * 1.15 &&
+          screen.matches;
         // As window is scrolled and conditions are truthy, then a new value for textContainers transform are defined
-        if (windowScroll * 1.125 > parent.offsetTop && direction === "down" && myMatrix > lowPoint && mainCondition) {
+        if (
+          windowScroll * 1.125 > parent.offsetTop &&
+          direction === "down" &&
+          myMatrix > lowPoint &&
+          mainCondition
+        ) {
           const newMatrixY = myMatrix - 2.5;
           elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-        } else if (windowScroll * 1.05 > parent.offsetTop && direction === "up" && myMatrix < highPoint && mainCondition) {
+        } else if (
+          windowScroll * 1.05 > parent.offsetTop &&
+          direction === "up" &&
+          myMatrix < highPoint &&
+          mainCondition
+        ) {
           const newMatrixY = myMatrix + 2.5;
           elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
         }
-
       });
     };
     scrollFloaty();
 
-
-
     // Logic for theme change
     if (windowScroll > heightTop) {
-      root.style.setProperty('--bg-color-main', "#1d1d1b");
-      root.style.setProperty('--color-text', "#eee5d0");
-      root.style.setProperty('--color-text-alt', "blue");
-      root.style.setProperty('--color-text-opposite', "red");
-      root.style.setProperty('--filter-color', "invert(97%) sepia(6%) saturate(749%) hue-rotate(336deg) brightness(91%) contrast(107%)");
-      mainContent.classList.add('dark-mode');
-      body.classList.add('dark-mode');
+      root.style.setProperty("--bg-color-main", "#1d1d1b");
+      root.style.setProperty("--color-text", "#eee5d0");
+      root.style.setProperty("--color-text-alt", "blue");
+      root.style.setProperty("--color-text-opposite", "red");
+      root.style.setProperty(
+        "--filter-color",
+        "invert(97%) sepia(6%) saturate(749%) hue-rotate(336deg) brightness(91%) contrast(107%)"
+      );
+      mainContent.classList.add("dark-mode");
+      body.classList.add("dark-mode");
 
       return;
     }
-    root.style.setProperty('--bg-color-main', "#eee5d0");
-    root.style.setProperty('--color-text', "#1d1d1b");
-    root.style.setProperty('--color-text-alt', "red");
-    root.style.setProperty('--color-text-opposite', "blue");
-    root.style.setProperty('--filter-color', "invert(7%) sepia(6%) saturate(704%) hue-rotate(71deg) brightness(100%) contrast(90%)");
+    root.style.setProperty("--bg-color-main", "#eee5d0");
+    root.style.setProperty("--color-text", "#1d1d1b");
+    root.style.setProperty("--color-text-alt", "red");
+    root.style.setProperty("--color-text-opposite", "blue");
+    root.style.setProperty(
+      "--filter-color",
+      "invert(7%) sepia(6%) saturate(704%) hue-rotate(71deg) brightness(100%) contrast(90%)"
+    );
 
-    mainContent.classList.remove('dark-mode');
-    body.classList.remove('dark-mode');
-
+    mainContent.classList.remove("dark-mode");
+    body.classList.remove("dark-mode");
   });
-
 </script>
 <style>
   h1 {
@@ -161,15 +206,14 @@ import Contact from '../components/sections/Contact.astro';
     min-width: 100%;
     transition: 200ms background-color ease-in-out;
     transition-delay: 0ms;
-    background-color: var(--bg-color-main)
+    background-color: var(--bg-color-main);
   }
 
   #main-content {
     transition: 200ms background-color ease-in-out;
     transition-delay: 0ms;
-    background-color: var(--bg-color-main)
+    background-color: var(--bg-color-main);
   }
-
 
   #main-content.dark-mode {
     transition: 200ms background-color ease-in-out;

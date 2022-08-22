@@ -1,15 +1,15 @@
 ---
 import { projectInformation } from "../../utils";
 import ProjectPreview from "../Projects/ProjectPreview.astro";
-import clockedOutVideo from "/clocked_out.mp4";
-import meemoBoutiqueVideo from "/meemo.mp4";
-import myWeatherVideo from "/my_weather.mp4";
-import groomifyVideo from "/groomify.mp4";
+// import clockedOutVideo from "/clocked_out.mp4";
+// import meemoBoutiqueVideo from "/meemo.mp4";
+// import myWeatherVideo from "/my_weather.mp4";
+// import groomifyVideo from "/groomify.mp4";
 
 export interface IProjectsProps {
   filler: string;
 }
-const projectVideos = [groomifyVideo, clockedOutVideo, myWeatherVideo];
+const projectVideos = ["/groomify.mp4", "/clocked_out.mp4", "/my_weather.mp4"];
 ---
 
 <section id="projects-section" class="section-container section-projects">

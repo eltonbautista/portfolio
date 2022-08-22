@@ -6,9 +6,9 @@ import About from "../Introduction/About.astro";
 
 // Media
 import { allMyText } from "../../utils";
-import clipOne from "/meemo_problem.mp4";
-import clipTwo from "/powerlifter.mp4";
-import clipThree from "/hiker.mp4";
+// import clipOne from "/meemo_problem.mp4";
+// import clipTwo from "/powerlifter.mp4";
+// import clipThree from "/hiker.mp4";
 
 export interface IIntroductionProps {
   firstName: string;
@@ -21,19 +21,19 @@ const personalDisplaysInformation = [
   {
     noun: allMyText.nounOne,
     description: allMyText.descriptionOne,
-    src: clipOne,
+    src: "/meemo_problem.mp4",
     media: "video",
   },
   {
     noun: allMyText.nounTwo,
     description: allMyText.descriptionTwo,
-    src: clipTwo,
+    src: "/powerlifter.mp4",
     media: "video",
   },
   {
     noun: allMyText.nounThree,
     description: allMyText.descriptionThree,
-    src: clipThree,
+    src: "/hiker.mp4",
     media: "video",
   },
 ];

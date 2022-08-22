@@ -13,30 +13,46 @@ import cssLogo from "/skills_assets/css3_logo.svg";
 import linuxLogo from "/skills_assets/linux_logo.svg";
 import gitLogo from "/skills_assets/git_logo.svg";
 
-export interface IAboutProps {
-
-}
-const skills = ["ReactJS", "TypeScript", "Jest", "Firebase", "JavaScript", "HTML5", "CSS3", "Git", "Linux"];
-const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo, htmlLogo, cssLogo, linuxLogo, gitLogo];
-
+export interface IAboutProps {}
+const skills = [
+  "ReactJS",
+  "TypeScript",
+  "Jest",
+  "Firebase",
+  "JavaScript",
+  "HTML5",
+  "CSS3",
+  "Git",
+  "Linux",
+];
+const logos = [
+  reactLogo,
+  typescriptLogo,
+  jestLogo,
+  firebaseLogo,
+  javascriptLogo,
+  htmlLogo,
+  cssLogo,
+  linuxLogo,
+  gitLogo,
+];
 ---
 
 <div id="about-section" class="about-container">
-  <h2 class="about about-header">
-    About.
-  </h2>
+  <h2 class="about about-header">About.</h2>
   <AboutDescription />
   <div class="about about-competencies">
     <div class="about competencies-header">
       <h2>Competencies</h2>
-      <hr>
+      <hr />
     </div>
 
     <div class="about skills-container">
-      {skills.map((skill, i) => {
-      return (
-      <AboutSkills skill={skill} logo={logos[i]} />)
-      })}
+      {
+        skills.map((skill, i) => {
+          return <AboutSkills skill={skill} logo={logos[i]} />;
+        })
+      }
     </div>
   </div>
 </div>
@@ -60,7 +76,6 @@ const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo
     }
   }
 
-
   .about-header {
     font-size: calc(var(--font-size-xl) - 1em);
   }
@@ -70,7 +85,6 @@ const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo
     grid-template-columns: repeat(9, minmax(100px, 1fr));
     justify-items: center;
   }
-
 
   @media (max-width: 1250px) {
     .skills-container {
@@ -90,7 +104,7 @@ const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo
     position: relative;
   }
 
-  .competencies-header>h2 {
+  .competencies-header > h2 {
     background-color: white;
     width: fit-content;
     position: relative;
@@ -101,7 +115,7 @@ const logos = [reactLogo, jestLogo, typescriptLogo, firebaseLogo, javascriptLogo
     letter-spacing: 0.05em;
   }
 
-  .competencies-header>hr {
+  .competencies-header > hr {
     position: absolute;
     width: 100%;
     top: 27.5%;

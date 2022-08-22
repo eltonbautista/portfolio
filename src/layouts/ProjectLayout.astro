@@ -15,724 +15,666 @@ export interface IProjectLayout {
   imgAlt: string;
 }
 
-
 const { content, projectClass } = Astro.props;
 ---
 
 <html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="/my_logo.ico" />
-<title>{content.title}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/my_logo.ico" />
+  <title>{content.title}</title>
 
-<body>
-  <Layout title={content.title}>
-
-    <Navbar internalClass={"internal-project"} socialOne={octocat} socialOneLink="https://github.com/eltonbautista"
-      socialTwo={linkedin} socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-      socialThreeLink="https://twitter.com/psychtotech" logoLink="/" aboutLink={content.aboutLink}
-      projectsLink={content.projectsLink} projectsName="liveDemo" aboutName="githubRepository" />
-    <main>
-      <div class={`project project-container ${projectClass}`}>
-
-        <header class="project hero">
-          <h1 class="project title">
-            <strong>PROJECT</strong>:
-            <span class="project glitch-title" data-text="clockedOut">"{content.title}"</span>
-          </h1>
-
-          <article class="project description">
-            {content.description}
-          </article>
-          <article class="project client">
-            <h3>For:</h3>
-            {content.client}
-            <h6 class="project note">Note: When you are finished with each of the following sections, please click on
-              them to
-              proceed. Or click on the button: <button class="project automate-button">To Automate</button> your
-              experience.</h6>
-
-          </article>
-
-
-        </header>
-
-        <div class="project content-container">
-
-          <div class="project project-section problem-container">
-            <h3>
-              Specifications:
-            </h3>
-            <p class="project problem">
-              <em>
-                {content.problem}
-              </em>
-            </p>
-            <h3 class="project goals">
-              Goals:
-            </h3>
-            <p class="project goal-paragraph">
-              {content.goals}
-              {content.problemOne ?
-            <ol class="project ordered-list">
-              <li>{content.problemOne}</li>
-              <li>{content.problemTwo}</li>
-              <li>{content.problemThree}</li>
-            </ol> : null}
-            </p>
-          </div>
-
-
-          <div class="project project-section video-container">
-            <video id="my-video" class="project video" autoplay muted src={content.video}>
-              <source src={content.video} type="video/mp4" />
-            </video>
-          </div>
-
-
-          <div class="project project-section solution-container">
-            <h3>
-              Process:
-            </h3>
-
-            <p class="project solution">
-              <em>
-                <slot />
-              </em>
-            </p>
-          </div>
-
-          <div class="project project-section planning-video-container">
-            <h3>Snippet of planning:</h3>
-            <video src={content.planningVideo} autoplay muted>
-              <source src={content.planningVideo}>
-            </video>
-          </div>
-
-
-
-          <div class="project project-section shortcomings-container">
-            <h3>
-              Takeaways:
-            </h3>
-            <p>
-              {content.shortcomings}
-            </p>
-            {content.shortcomingsTwo ? <p>{content.shortcomingsTwo}</p> : null}
-            <h3 class="built-header">
-              Built with: <span class="project built-with">
-                <i>{content.builtWith}</i>
+  <body>
+    <Layout title={content.title}>
+      <Navbar
+        internalClass={"internal-project"}
+        socialOne={octocat}
+        socialOneLink="https://github.com/eltonbautista"
+        socialTwo={linkedin}
+        socialTwoLink="https://www.linkedin.com/in/eltonbautista/"
+        socialThree={twitter}
+        socialThreeLink="https://twitter.com/psychtotech"
+        logoLink="/"
+        aboutLink={content.aboutLink}
+        projectsLink={content.projectsLink}
+        projectsName="liveDemo"
+        aboutName="githubRepository"
+      />
+      <main>
+        <div class={`project project-container ${projectClass}`}>
+          <header class="project hero">
+            <h1 class="project title">
+              <strong>PROJECT</strong>:
+              <span class="project glitch-title" data-text="clockedOut"
+                >"{content.title}"
               </span>
-            </h3>
+            </h1>
+
+            <article class="project description">
+              {content.description}
+            </article>
+            <article class="project client">
+              <h3>For:</h3>
+              {content.client}
+            </article>
+          </header>
+
+          <div class="project content-container">
+            <div class="project project-section problem-container">
+              <h3>Specifications:</h3>
+              <p class="project problem">
+                <em>
+                  {content.problem}
+                </em>
+              </p>
+              <h3 class="project goals">Goals:</h3>
+              <p class="project goal-paragraph">
+                {content.goals}
+                {
+                  content.problemOne ? (
+                    <ol class="project ordered-list">
+                      <li>{content.problemOne}</li>
+                      <li>{content.problemTwo}</li>
+                      <li>{content.problemThree}</li>
+                    </ol>
+                  ) : null
+                }
+              </p>
+            </div>
+
+            <div class="project project-section video-container-pr">
+              <video
+                id="my-video"
+                class="project video"
+                autoplay
+                muted
+                src={content.video}
+              >
+                <source src={content.video} type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="project project-section solution-container">
+              <h3>Process:</h3>
+
+              <p class="project solution">
+                <em>
+                  <slot />
+                </em>
+              </p>
+            </div>
+
+            <div class="project project-section planning-video-container">
+              <h3>Snippet of planning:</h3>
+              <video src={content.planningVideo} autoplay muted>
+                <source src={content.planningVideo} />
+              </video>
+            </div>
+
+            <div class="project project-section shortcomings-container">
+              <h3>Takeaways:</h3>
+              <p>
+                {content.shortcomings}
+              </p>
+              {
+                content.shortcomingsTwo ? (
+                  <p>{content.shortcomingsTwo}</p>
+                ) : null
+              }
+              <h3 class="built-header">
+                Built with: <span class="project built-with">
+                  <i>{content.builtWith}</i>
+                </span>
+              </h3>
+            </div>
+
+            <ProjectViewSplit
+              projectOne={content.projectOne}
+              projectTwo={content.projectTwo}
+              projectOneLink={content.projectOneLink}
+              projectTwoLink={content.projectTwoLink}
+              projectName={content.title}
+            />
           </div>
-
-          <ProjectViewSplit projectOne={content.projectOne} projectTwo={content.projectTwo}
-            projectOneLink={content.projectOneLink} projectTwoLink={content.projectTwoLink}
-            projectName={content.title} />
-
         </div>
+        <Contact
+          socialOne={octocat}
+          socialOneLink="https://github.com/eltonbautista"
+          socialTwo={linkedin}
+          socialTwoLink="https://www.linkedin.com/in/eltonbautista/"
+          socialThree={twitter}
+          socialThreeLink="https://twitter.com/psychtotech"
+          stylingClass="project-layout"
+        />
+      </main>
+    </Layout>
 
-      </div>
-      <Contact socialOne={octocat} socialOneLink="https://github.com/eltonbautista" socialTwo={linkedin}
-        socialTwoLink="https://www.linkedin.com/in/eltonbautista/" socialThree={twitter}
-        socialThreeLink="https://twitter.com/psychtotech" stylingClass="project-layout" />
-    </main>
-  </Layout>
+    <script is:inline>
+      const videos = [...document.querySelectorAll(".content-container video")];
+      const videoContainer = document.querySelector(".video-container");
+      const contentContainer = [
+        ...document.querySelector(".project.content-container").children,
+      ];
+      const mediaQueryEight = window.matchMedia("(max-width: 800px)");
+      const nav = document.querySelector("nav");
+      const navLinks = [...document.querySelector(".internal-links").children];
+      const splitPreview = document.querySelector(".split-view-container");
 
+      let oldScroll = window.scrollY;
+      let direction;
 
-</body>
+      if (mediaQueryEight.matches) {
+        videos.forEach((video) => {
+          video.controls = true;
+        });
+      }
 
-<script is:inline>
-  const videos = [...document.querySelectorAll('.content-container video')];
-  const videoContainer = document.querySelector('.video-container');
-  const contentContainer = [...document.querySelector('.project.content-container').children];
-  const mediaQueryEight = window.matchMedia("(max-width: 800px)");
-  const automateButton = document.querySelector('.project.automate-button');
-  const nav = document.querySelector('nav');
-  const navLinks = [...document.querySelector('.internal-links').children];
-  const splitPreview = document.querySelector('.split-view-container');
+      window.addEventListener("scroll", function (e) {
+        const windowScroll = this.scrollY;
 
-  let oldScroll = window.scrollY;
-  let direction;
+        // Logic for determining the scroll's direction.
+        if (windowScroll > oldScroll) {
+          direction = "down";
+        } else {
+          direction = "up";
+        }
+        oldScroll = windowScroll <= 0 ? 0 : windowScroll;
 
-
-  if (mediaQueryEight.matches) {
-    videos.forEach((video) => {
-      video.controls = true;
-    });
-  }
-
-  window.addEventListener('scroll', function (e) {
-    const windowScroll = this.scrollY;
-
-    // Logic for determining the scroll's direction.
-    if (windowScroll > oldScroll) {
-      direction = "down";
-    } else {
-      direction = "up";
-    }
-    oldScroll = windowScroll <= 0 ? 0 : windowScroll;
-
-    if (direction === 'down') {
-      nav.classList.add('hide');
-    } else if (direction === 'up') {
-      nav.classList.remove('hide');
-    }
-
-    navLinks.forEach((link, i) => {
-      link.addEventListener('click', function (e) {
-        sections[i].scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    if (windowScroll > splitPreview.offsetTop) {
-      splitPreview.classList.add('show-section');
-    }
-  });
-
-  videos.forEach((video) => {
-    video.addEventListener('mouseover', function (e) {
-      this.play();
-      this.classList.add('pop-out');
-      videoContainer.classList.add('pop-out');
-    });
-
-    video.addEventListener('mouseleave', function (e) {
-      this.pause();
-    });
-  });
-
-  // video plays on mouseover
-
-  const displayAndScroll = (section) => {
-    section.classList.add('show-section');
-    section.scrollIntoView({ behavior: "smooth" });
-  };
-
-
-  function automateExperience() {
-    let count = 0;
-    let timer = setInterval;
-
-    displayAndScroll(contentContainer[0]);
-    timer(() => {
-      if (count < contentContainer.length - 1) {
-        const nextSection = contentContainer[count + 1];
-
-        if (nextSection.classList.contains('show-section') === false) {
-          displayAndScroll(nextSection);
+        if (direction === "down") {
+          nav.classList.add("hide");
+        } else if (direction === "up") {
+          nav.classList.remove("hide");
         }
 
-        count += 1;
-        return;
-      }
-      clearInterval(timer);
-    }, 15000);
+        navLinks.forEach((link, i) => {
+          link.addEventListener("click", function (e) {
+            sections[i].scrollIntoView({ behavior: "smooth" });
+          });
+        });
 
-  }
-
-  automateButton.addEventListener('click', function () {
-    automateExperience();
-  }, { once: true });
-
-  // Logic for adding show-section class and scrolling to appropriate divs
-  contentContainer.forEach((section, i) => {
-    const nextSection = contentContainer[i + 1];
-    if (contentContainer.indexOf(section) !== contentContainer.length - 1) {
-      section.addEventListener('click', function () {
-        displayAndScroll(nextSection);
+        if (windowScroll > splitPreview.offsetTop) {
+          splitPreview.classList.add("show-section");
+        }
       });
-    }
-  });
 
-</script>
+      videos.forEach((video) => {
+        video.addEventListener("mouseover", function (e) {
+          this.play();
+          this.classList.add("pop-out");
+          videoContainer.classList.add("pop-out");
+        });
 
-</html>
+        video.addEventListener("mouseleave", function (e) {
+          this.pause();
+        });
+      });
 
-<style>
-  :root {
-    --f-size: 15;
-    --f-unit: 1vmin;
-    --f: calc(var(--f-size) * var(--f-unit));
-    --bg: #181717;
-  }
+      // video plays on mouseover
 
-  .internal.logo {
-    color: blue;
-  }
+      const displayAndScroll = (section) => {
+        section.classList.add("show-section");
+        section.scrollIntoView({ behavior: "smooth" });
+      };
 
-  .project-container {
-    display: grid;
-    gap: 3em;
-  }
+      // Logic for adding show-section class and scrolling to appropriate divs
+      contentContainer.forEach((section, i) => {
+        const nextSection = contentContainer[i + 1];
+        if (contentContainer.indexOf(section) !== contentContainer.length - 1) {
+          section.addEventListener("click", function () {
+            displayAndScroll(nextSection);
+          });
+        }
+      });
+    </script>
+  </body>
 
-  .hero {
-    display: grid;
-    grid-template-rows: 0.1fr 0.2fr auto;
-  }
-
-  .hero>h1 {
-    font-size: calc(var(--font-size-xl));
-  }
-
-  video {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    align-self: center;
-  }
-
-  .hero>.project.client {
-    position: relative;
-    height: fit-content;
-    font-size: var(--font-size-base);
-    align-self: end;
-    border-bottom: 1px solid var(--color-text-opposite);
-  }
-
-  .project.client>h3 {
-    display: inline-block;
-  }
-
-  .content-container {
-    display: grid;
-    gap: 1em;
-    margin-bottom: 15em;
-  }
-
-  .video-container {
-    margin-bottom: 1.5em;
-  }
-
-  .project.video {
-    transition: 300ms ease-in-out transform;
-  }
-
-  .automate-button {
-    background: none;
-    border: none;
-    color: var(--color-text-opposite);
-    text-align: center;
-    padding: 0;
-    font-size: var(--font-size-base);
-    cursor: pointer;
-  }
-
-  .automate-button:hover {
-    color: var(--color-text-sub);
-    transition: color 500ms ease-in-out;
-  }
-
-  .problem-container>.goals {
-    margin-top: 1.5em;
-  }
-
-  @media (max-width: 1099px) {
-
-    .problem-container>h3,
-    .planning-video-container>h3,
-    .shortcomings-container>h3 {
-      margin-bottom: 0.5em;
+  <style>
+    :root {
+      --f-size: 15;
+      --f-unit: 1vmin;
+      --f: calc(var(--f-size) * var(--f-unit));
+      --bg: #181717;
     }
 
-    .project.note {
-      display: none;
+    .internal.logo {
+      color: blue;
     }
-  }
 
-  @media (min-width: 1100px) {
     .project-container {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-    }
-
-    .content-container>div * {
-      font-size: 0.95em;
+      gap: 3em;
     }
 
     .hero {
-      min-height: 90vh;
-      grid-area: 1/1/2/13;
+      display: grid;
+      grid-template-rows: 0.1fr 0.2fr auto;
     }
 
-    .hero>h1 {
-      font-size: calc(var(--font-size-xl) + 1vw);
-
+    .hero > h1 {
+      font-size: calc(var(--font-size-xl));
     }
 
-    .hero>article {
-      font-size: calc(var(--font-size-lg));
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      align-self: center;
     }
 
-    .glitch-title {
-      flex: 1;
-      line-height: 1.5;
-      margin: auto;
-      color: var(--color-text-opposite);
-      text-align: center;
-      transform: scaleX(var(--scale, 1));
-      font-style: italic;
-      animation: glitch-p 2s 2 alternate, glitchwar 2s 2 alternate both;
-      animation-delay: 1.3s;
+    .hero > .project.client {
+      position: relative;
+      height: fit-content;
+      font-size: var(--font-size-base);
+      align-self: end;
+      border-bottom: 1px solid var(--color-text-opposite);
     }
 
-    .glitch-title::before,
-    .glitch-title::after {
-      --top: 0;
-      --left: 0;
-      --v-height: 30%;
-
-      --n-tenth: calc(var(--f-size) * .1 * var(--top));
-      --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
-      --b-cut: calc(var(--t-cut) + var(--v-height));
-
-      content: attr(data-text);
-      position: absolute;
-      width: 55.8%;
-      left: 0;
-      text-align: end;
-      transform: translateX(calc(var(--left) * 100%));
-      filter: drop-shadow(0 0 transparent);
-
-      background-color: var(--bg-color-sub);
-      clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut));
+    .project.client > h3 {
+      display: inline-block;
     }
-
-    .glitch-title::before {
-      animation: glitch-b 1.7s 2 alternate forwards;
-      animation-delay: 100ms;
-    }
-
-    .glitch-title::after {
-      animation: glitch-a 3.1s 2 alternate forwards;
-      animation-delay: 100ms;
-
-    }
-
-    @keyframes glitch-p {
-      17% {
-        --scale: .87;
-      }
-
-      31% {
-        --scale: 1.1;
-      }
-
-      37% {
-        --scale: 1.3;
-      }
-
-      47% {
-        --scale: .91;
-      }
-
-      87% {
-        --scale: 1;
-      }
-    }
-
-    @keyframes glitch-a {
-
-      10%,
-      30%,
-      50%,
-      70%,
-      90% {
-        --top: 0;
-        --left: 0;
-      }
-
-      0% {
-        --v-height: 15%;
-      }
-
-      20% {
-        --left: .005;
-      }
-
-      40% {
-        --left: .01;
-        --v-height: 20%;
-        --top: 3;
-      }
-
-      60% {
-        --left: .03;
-        --v-height: 25%;
-        --top: 6;
-      }
-
-      80% {
-        --left: .07;
-        --v-height: 5%;
-        --top: 8;
-      }
-
-      100% {
-        --left: .0;
-        --v-height: 30%;
-        --top: 0;
-      }
-    }
-
-    @keyframes glitch-b {
-
-      10%,
-      30%,
-      50%,
-      70%,
-      90% {
-        --top: 0;
-        --left: 0;
-      }
-
-      0% {
-        --v-height: 15%;
-        --top: 10;
-      }
-
-      20% {
-        --left: -.005;
-      }
-
-      40% {
-        --left: -.01;
-        --v-height: 17%;
-        --top: 3;
-      }
-
-      60% {
-        --left: -.03;
-        --v-height: 35%;
-        --top: 6;
-      }
-
-      80% {
-        --left: -.07;
-        --v-height: 5%;
-        --top: 8;
-      }
-
-      100% {
-        --left: 0;
-        --v-height: 30%;
-        --top: 0;
-      }
-    }
-
-    @keyframes glitchwar {
-      0% {
-        font-style: italic;
-        font-family: HintRetro, JostMedium;
-        line-height: 1.2;
-        color: var(--color-text-opposite);
-        letter-spacing: 0.05em;
-      }
-
-      15% {
-        text-decoration: line-through;
-      }
-
-      30% {
-        text-decoration: wavy;
-        color: var(--color-text-opposite);
-        font-family: FightingSpirit, HintRetro, JostLight, sans-serif;
-      }
-
-      45% {
-        text-decoration: line-through;
-        text-transform: lowercase;
-        color: var(--color-text-sub);
-      }
-
-
-      65% {
-        text-decoration: underline;
-        text-transform: capitalize;
-      }
-
-      80% {
-        text-decoration-style: solid;
-        font-style: italic;
-        text-transform: uppercase;
-      }
-
-      100% {
-        font-family: JostLight, sans-serif;
-        text-transform: uppercase;
-        line-height: 1.2;
-        letter-spacing: 0.05em;
-      }
-    }
-
 
     .content-container {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(8, 1fr);
-      max-width: 100%;
-      gap: 0.5em;
-      grid-area: 2/2/5/12;
-    }
-
-    .content-container>div {
-      outline: 1px solid var(--bg-color-main);
-      padding: 1em;
-    }
-
-    .project-section.show-section {
-      opacity: 1;
-      visibility: visible;
-      transition: 300ms opacity ease-in-out, 300ms visibility ease-in-out;
-      transition-delay: 0ms;
-    }
-
-    .project-section {
-      opacity: 0;
-      visibility: hidden;
-      transition-delay: 0ms;
-    }
-
-    .content-container>.project-section.problem-container {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .problem-container {
-      grid-area: 1/1/2/13;
-      position: relative;
-    }
-
-    .planning-video-container {
-      display: grid;
-      grid-template-rows: 0.2fr auto;
-      grid-area: 4/1/6/8;
-    }
-
-    .planning-video-container>video {
-      align-self: start;
+      gap: 1em;
+      margin-bottom: 10em;
     }
 
     .video-container {
-      grid-area: 2/1/4/13;
-      display: grid;
-      align-items: center;
-      margin-bottom: 0;
+      margin-bottom: 1.5em;
     }
 
-    .solution-container {
-      grid-area: 4/8/8/13;
+    .project.video {
+      transition: 300ms ease-in-out transform;
     }
 
-    .solution-container p {
-      margin-top: 0;
+    .problem-container > .goals {
+      margin-top: 1.5em;
     }
 
-    .built-header {
-      margin-top: 1em;
+    @media (max-width: 1099px) {
+      .problem-container > h3,
+      .planning-video-container > h3,
+      .shortcomings-container > h3 {
+        margin-bottom: 0.5em;
+      }
+
+      .project.note {
+        display: none;
+      }
     }
 
-    .shortcomings-container {
-      grid-area: 6/1/8/8;
-      display: grid;
-      align-items: center;
-      grid-template-rows: 0.1fr 0.2fr 0.2fr auto;
+    @media (min-width: 1024px) {
+      .project-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      .content-container > div * {
+        font-size: 0.95em;
+      }
+
+      .hero {
+        height: 80vh;
+        grid-area: 1/1/2/13;
+      }
+
+      .hero > h1 {
+        font-size: calc(var(--font-size-xl) + 1vw);
+      }
+
+      .hero > article {
+        font-size: calc(var(--font-size-lg));
+      }
+
+      .glitch-title {
+        flex: 1;
+        line-height: 1.5;
+        margin: auto;
+        color: var(--color-text-opposite);
+        text-align: center;
+        transform: scaleX(var(--scale, 1));
+        font-style: italic;
+        animation: glitch-p 2s 2 alternate, glitchwar 2s 2 alternate both;
+        animation-delay: 1.3s;
+      }
+
+      .glitch-title::before,
+      .glitch-title::after {
+        --top: 0;
+        --left: 0;
+        --v-height: 30%;
+
+        --n-tenth: calc(var(--f-size) * 0.1 * var(--top));
+        --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
+        --b-cut: calc(var(--t-cut) + var(--v-height));
+
+        content: attr(data-text);
+        position: absolute;
+        width: 55.8%;
+        left: 0;
+        text-align: end;
+        transform: translateX(calc(var(--left) * 100%));
+        filter: drop-shadow(0 0 transparent);
+
+        background-color: var(--bg-color-sub);
+        clip-path: polygon(
+          0% var(--t-cut),
+          100% var(--t-cut),
+          100% var(--b-cut),
+          0% var(--b-cut)
+        );
+      }
+
+      .glitch-title::before {
+        animation: glitch-b 1.7s 2 alternate forwards;
+        animation-delay: 100ms;
+      }
+
+      .glitch-title::after {
+        animation: glitch-a 3.1s 2 alternate forwards;
+        animation-delay: 100ms;
+      }
+
+      @keyframes glitch-p {
+        17% {
+          --scale: 0.87;
+        }
+
+        31% {
+          --scale: 1.1;
+        }
+
+        37% {
+          --scale: 1.3;
+        }
+
+        47% {
+          --scale: 0.91;
+        }
+
+        87% {
+          --scale: 1;
+        }
+      }
+
+      @keyframes glitch-a {
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          --top: 0;
+          --left: 0;
+        }
+
+        0% {
+          --v-height: 15%;
+        }
+
+        20% {
+          --left: 0.005;
+        }
+
+        40% {
+          --left: 0.01;
+          --v-height: 20%;
+          --top: 3;
+        }
+
+        60% {
+          --left: 0.03;
+          --v-height: 25%;
+          --top: 6;
+        }
+
+        80% {
+          --left: 0.07;
+          --v-height: 5%;
+          --top: 8;
+        }
+
+        100% {
+          --left: 0;
+          --v-height: 30%;
+          --top: 0;
+        }
+      }
+
+      @keyframes glitch-b {
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          --top: 0;
+          --left: 0;
+        }
+
+        0% {
+          --v-height: 15%;
+          --top: 10;
+        }
+
+        20% {
+          --left: -0.005;
+        }
+
+        40% {
+          --left: -0.01;
+          --v-height: 17%;
+          --top: 3;
+        }
+
+        60% {
+          --left: -0.03;
+          --v-height: 35%;
+          --top: 6;
+        }
+
+        80% {
+          --left: -0.07;
+          --v-height: 5%;
+          --top: 8;
+        }
+
+        100% {
+          --left: 0;
+          --v-height: 30%;
+          --top: 0;
+        }
+      }
+
+      @keyframes glitchwar {
+        0% {
+          font-style: italic;
+          font-family: HintRetro, JostMedium;
+          line-height: 1.2;
+          color: var(--color-text-opposite);
+          letter-spacing: 0.05em;
+        }
+
+        15% {
+          text-decoration: line-through;
+        }
+
+        30% {
+          text-decoration: wavy;
+          color: var(--color-text-opposite);
+          font-family: FightingSpirit, HintRetro, JostLight, sans-serif;
+        }
+
+        45% {
+          text-decoration: line-through;
+          text-transform: lowercase;
+          color: var(--color-text-sub);
+        }
+
+        65% {
+          text-decoration: underline;
+          text-transform: capitalize;
+        }
+
+        80% {
+          text-decoration-style: solid;
+          font-style: italic;
+          text-transform: uppercase;
+        }
+
+        100% {
+          font-family: JostLight, sans-serif;
+          text-transform: uppercase;
+          line-height: 1.2;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      .content-container {
+        display: grid;
+        max-width: 100%;
+        gap: 0.5em;
+        grid-area: 2/2/5/12;
+      }
+
+      .content-container > div {
+        outline: 1px solid var(--bg-color-main);
+        padding: 1em;
+      }
+
+      .project-section {
+        opacity: 1;
+        transition-delay: 0ms;
+      }
+
+      .content-container > .project-section.problem-container {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .problem-container {
+        grid-area: 1/1/2/13;
+        position: relative;
+      }
+
+      .planning-video-container {
+        display: grid;
+        grid-template-rows: 0.2fr auto;
+        grid-area: 4/1/5/8;
+      }
+
+      .planning-video-container > video {
+        align-self: start;
+      }
+
+      .video-container-pr {
+        grid-area: 2/1/4/13;
+        display: grid;
+        align-items: center;
+        margin-bottom: 0;
+      }
+
+      .solution-container {
+        grid-area: 4/8/7/13;
+      }
+
+      .solution-container p {
+        margin-top: 0;
+      }
+
+      .built-header {
+        margin-top: 1em;
+      }
+
+      .shortcomings-container {
+        grid-area: 5/1/7/8;
+        display: grid;
+        align-items: center;
+        grid-template-rows: 0.1fr 0.2fr 0.2fr auto;
+      }
+
+      .shortcomings-container > p:last-of-type {
+        margin-top: 1em;
+      }
     }
 
-    .shortcomings-container>p:last-of-type {
-      margin-top: 1em;
+    body,
+    html {
+      background-color: var(--bg-color-sub);
+      color: var(--color-text-sub);
+      font-size: var(--font-size-base);
     }
 
-    .built-with-container {
-      grid-area: 7/1/8/13;
+    main {
+      margin: auto;
+      padding: 1em;
+      max-width: 85vw;
+      min-height: 100%;
+      background-color: var(--bg-color-sub);
+      font-family: JostLight, sans-serif;
     }
 
+    h1 {
+      margin: 2rem 0;
+    }
 
-  }
-
-
-
-
-
-
-  body,
-  html {
-    background-color: var(--bg-color-sub);
-    color: var(--color-text-sub);
-    font-size: var(--font-size-base);
-  }
-
-  main {
-    margin: auto;
-    padding: 1em;
-    max-width: 85vw;
-    min-height: 100%;
-    background-color: var(--bg-color-sub);
-    font-family: JostLight, sans-serif;
-  }
-
-  h1 {
-    margin: 2rem 0;
-  }
-
-  /*
+    /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-  * {
-    margin: 0;
-    font-family: JostLight, sans-serif;
-    letter-spacing: 1.25px;
-  }
+    * {
+      margin: 0;
+      font-family: JostLight, sans-serif;
+      letter-spacing: 1.25px;
+    }
 
-  html,
-  body {
-    min-height: 100vh;
-    min-width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+    html,
+    body {
+      min-height: 100vh;
+      min-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-  }
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+    }
 
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
 
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      overflow-wrap: break-word;
+    }
 
-  #root,
-  #__next {
-    isolation: isolate;
-  }
-</style>
+    #root,
+    #__next {
+      isolation: isolate;
+    }
+  </style>
+</html>

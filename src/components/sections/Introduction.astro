@@ -17,22 +17,26 @@ export interface IIntroductionProps {
   roleSub: string;
 }
 const { firstName, lastName, roleMain, roleSub } = Astro.props;
-const personalDisplaysInformation = [{
-  noun: allMyText.nounOne,
-  description: allMyText.descriptionOne,
-  src: clipOne,
-  media: "video"
-}, {
-  noun: allMyText.nounTwo,
-  description: allMyText.descriptionTwo,
-  src: clipTwo,
-  media: "video"
-}, {
-  noun: allMyText.nounThree,
-  description: allMyText.descriptionThree,
-  src: clipThree,
-  media: "video"
-}];
+const personalDisplaysInformation = [
+  {
+    noun: allMyText.nounOne,
+    description: allMyText.descriptionOne,
+    src: clipOne,
+    media: "video",
+  },
+  {
+    noun: allMyText.nounTwo,
+    description: allMyText.descriptionTwo,
+    src: clipTwo,
+    media: "video",
+  },
+  {
+    noun: allMyText.nounThree,
+    description: allMyText.descriptionThree,
+    src: clipThree,
+    media: "video",
+  },
+];
 ---
 
 <section class="section-container section-introduction">
@@ -64,8 +68,13 @@ const personalDisplaysInformation = [{
   </div>
   <QuoteAndMedia quote={allMyText.quoteOne} />
   <About />
-  <Carousel client:only displays={personalDisplaysInformation} carouselTitle="Who am I?"
-    personalDisplayClasses={'styled-personal-display'} buttons={true} />
+  <Carousel
+    client:only
+    displays={personalDisplaysInformation}
+    carouselTitle="Who am I?"
+    personalDisplayClasses={"styled-personal-display"}
+    buttons={true}
+  />
 </section>
 
 <style>
@@ -97,7 +106,6 @@ const personalDisplaysInformation = [{
       transform: rotateX(50deg);
     }
   }
-
 
   @keyframes secondGlitchName {
     0% {
@@ -133,7 +141,7 @@ const personalDisplaysInformation = [{
     }
   }
 
-  .container-hero>span {
+  .container-hero > span {
     text-align: center;
     font-size: calc(5em + var(--font-size-xl));
     line-height: 1.08;
@@ -141,39 +149,33 @@ const personalDisplaysInformation = [{
   }
 
   @media (max-width: 1450px) {
-    .container-hero>span {
+    .container-hero > span {
       font-size: calc(4em + var(--font-size-xl));
     }
   }
 
   @media (min-width: 800px) and (max-width: 1299px) {
-    .container-hero>span {
+    .container-hero > span {
       font-size: calc(5vw + var(--font-size-xl));
     }
   }
 
   @media (max-width: 799px) {
-    .container-hero>span {
+    .container-hero > span {
       font-size: calc(2vw + var(--font-size-xl));
     }
   }
 
   @media (max-width: 450px) {
-    .container-hero>span {
+    .container-hero > span {
       font-size: calc(var(--font-size-xl));
     }
   }
 
   @media (max-width: 300px) {
-    .container-hero>span {
+    .container-hero > span {
       font-size: calc(1em + var(--font-size-lg));
     }
-
-  }
-
-
-  .name.one {
-    /* color: var(--bg-color-sub); */
   }
 
   .name.two {
@@ -206,78 +208,78 @@ const personalDisplaysInformation = [{
     grid-auto-flow: column;
   }
 
-  .role.one>span {
+  .role.one > span {
     color: var(--color-text);
   }
 
   /* Role One Animations */
 
-  .role.one>span:nth-child(1) {
+  .role.one > span:nth-child(1) {
     animation: hideLetter 0.2s 1 5s alternate both;
   }
 
-  .role.one>span:nth-child(2) {
+  .role.one > span:nth-child(2) {
     animation: hideLetter 0.2s 1 5.2s alternate both;
   }
 
-  .role.one>span:nth-child(3) {
+  .role.one > span:nth-child(3) {
     animation: hideLetter 0.2s 1 5.4s alternate both;
   }
 
-  .role.one>span:nth-child(4) {
+  .role.one > span:nth-child(4) {
     animation: hideLetter 0.2s 1 5.6s alternate both;
   }
 
-  .role.one>span:nth-child(5) {
+  .role.one > span:nth-child(5) {
     animation: hideLetter 0.2s 1 5.8s alternate both;
   }
 
-  .role.one>span:nth-child(6) {
+  .role.one > span:nth-child(6) {
     animation: hideLetter 0.2s 1 6s alternate both;
   }
 
-  .role.one>span:nth-child(7) {
+  .role.one > span:nth-child(7) {
     animation: hideLetter 0.2s 1 6.2s alternate both;
   }
 
-  .role.one>span:nth-child(8) {
+  .role.one > span:nth-child(8) {
     animation: hideLetter 0.2s 1 6.4s alternate both;
   }
 
   /* Role Two Animations */
-  .role.two>span:nth-child(1) {
+  .role.two > span:nth-child(1) {
     animation: hideLetter 0.2s 1 8.2s both;
   }
 
-  .role.two>span:nth-child(2) {
+  .role.two > span:nth-child(2) {
     animation: hideLetter 0.2s 1 8s both;
   }
 
-  .role.two>span:nth-child(3) {
+  .role.two > span:nth-child(3) {
     animation: hideLetter 0.2s 1 7.8s both;
   }
 
-  .role.two>span:nth-child(4) {
+  .role.two > span:nth-child(4) {
     animation: hideLetter 0.2s 1 7.6s both;
   }
 
-  .role.two>span:nth-child(5) {
+  .role.two > span:nth-child(5) {
     animation: hideLetter 0.2s 1 7.4s both;
   }
 
-  .role.two>span:nth-child(6) {
+  .role.two > span:nth-child(6) {
     animation: hideLetter 0.2s 1 7.2s both;
   }
 
-  .role.two>span:nth-child(7) {
+  .role.two > span:nth-child(7) {
     animation: hideLetter 0.2s 1 7s both;
   }
 
-  .role.two>span:nth-child(8) {
+  .role.two > span:nth-child(8) {
     animation: hideLetter 0.2s 1 6.8s both;
   }
 
-  .role.two>span:nth-child(9) {
+  .role.two > span:nth-child(9) {
     animation: hideLetter 0.2s 1 6.6s both;
   }
 

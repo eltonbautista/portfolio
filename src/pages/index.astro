@@ -76,18 +76,18 @@ import Contact from "../components/sections/Contact.astro";
     projectContainer.offsetTop + projectContainer.offsetHeight;
 
   // Responsible for changing .project-preview children's opacity
-  videos.forEach((video, i) => {
-    video.addEventListener("mouseover", function (e) {
-      textContainers[i].classList.add("decrease-opacity");
-      videoContainers[i].classList.add("increase-opacity");
-      this.play();
-    });
-    video.addEventListener("mouseleave", function (e) {
-      textContainers[i].classList.remove("decrease-opacity");
-      videoContainers[i].classList.remove("increase-opacity");
-      this.pause();
-    });
-  });
+  // videos.forEach((video, i) => {
+  //   video.addEventListener("mouseover", function (e) {
+  //     textContainers[i].classList.add("decrease-opacity");
+  //     videoContainers[i].classList.add("increase-opacity");
+  //     this.play();
+  //   });
+  //   video.addEventListener("mouseleave", function (e) {
+  //     textContainers[i].classList.remove("decrease-opacity");
+  //     videoContainers[i].classList.remove("increase-opacity");
+  //     this.pause();
+  //   });
+  // });
 
   // Responsible for hiding nav during scroll down and showing during scroll up
   navLinks.forEach((link, i) => {
@@ -101,7 +101,7 @@ import Contact from "../components/sections/Contact.astro";
       video.controls = true;
     });
   }
-
+  let showParagraphTimer = 0;
   window.addEventListener("scroll", function () {
     const windowScroll = this.scrollY;
     if (
@@ -110,6 +110,8 @@ import Contact from "../components/sections/Contact.astro";
     ) {
       aboutParagraphs.forEach((elem, i) => {
         elem.classList.add("show-paragraph");
+        elem.style.transitionDelay = showParagraphTimer + "s";
+        showParagraphTimer += 1;
       });
     }
 
@@ -125,33 +127,33 @@ import Contact from "../components/sections/Contact.astro";
       oldScroll = windowScroll <= 0 ? 0 : windowScroll;
 
       // Functionality for giving my textContainers the "floaty" effect
-      textContainers.forEach((elem, i) => {
-        const parent = projectPreviews[i];
-        const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform)
-          .m42;
-        const mainCondition =
-          windowScroll * 1.2 > projectTop &&
-          windowScroll < projectBottom * 1.15 &&
-          screen.matches;
-        // As window is scrolled and conditions are truthy, then a new value for textContainers transform are defined
-        if (
-          windowScroll * 1.125 > parent.offsetTop &&
-          direction === "down" &&
-          myMatrix > lowPoint &&
-          mainCondition
-        ) {
-          const newMatrixY = myMatrix - 2.5;
-          elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-        } else if (
-          windowScroll * 1.05 > parent.offsetTop &&
-          direction === "up" &&
-          myMatrix < highPoint &&
-          mainCondition
-        ) {
-          const newMatrixY = myMatrix + 2.5;
-          elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
-        }
-      });
+      // textContainers.forEach((elem, i) => {
+      //   const parent = projectPreviews[i];
+      //   const myMatrix = new WebKitCSSMatrix(getComputedStyle(elem).transform)
+      //     .m42;
+      //   const mainCondition =
+      //     windowScroll * 1.2 > projectTop &&
+      //     windowScroll < projectBottom * 1.15 &&
+      //     screen.matches;
+      //   // As window is scrolled and conditions are truthy, then a new value for textContainers transform are defined
+      //   if (
+      //     windowScroll * 1.125 > parent.offsetTop &&
+      //     direction === "down" &&
+      //     myMatrix > lowPoint &&
+      //     mainCondition
+      //   ) {
+      //     const newMatrixY = myMatrix - 2.5;
+      //     elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
+      //   } else if (
+      //     windowScroll * 1.05 > parent.offsetTop &&
+      //     direction === "up" &&
+      //     myMatrix < highPoint &&
+      //     mainCondition
+      //   ) {
+      //     const newMatrixY = myMatrix + 2.5;
+      //     elem.style.transform = `matrix(1, 0, 0, 1, 0, ${newMatrixY})`;
+      //   }
+      // });
     };
     scrollFloaty();
 
@@ -167,6 +169,7 @@ import Contact from "../components/sections/Contact.astro";
       );
       mainContent.classList.add("dark-mode");
       body.classList.add("dark-mode");
+      nav.classList.add("dark-mode");
 
       return;
     }
@@ -181,6 +184,7 @@ import Contact from "../components/sections/Contact.astro";
 
     mainContent.classList.remove("dark-mode");
     body.classList.remove("dark-mode");
+    nav.classList.remove("dark-mode");
   });
 </script>
 <style>
@@ -211,13 +215,7 @@ import Contact from "../components/sections/Contact.astro";
     background-color: var(--bg-color-main);
   }
 
-  #main-content.dark-mode {
-    transition: 200ms background-color ease-in-out;
-    background-color: var(--bg-color-main);
-    transition-delay: 0ms;
-  }
-
-  body.dark-mode {
+  .dark-mode {
     background-color: var(--bg-color-main);
     transition: 200ms background-color ease-in-out;
     transition-delay: 0ms;

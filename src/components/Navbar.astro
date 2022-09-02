@@ -132,6 +132,9 @@ const {
     transition: transform 100ms ease-in-out, opacity 200ms ease-in-out;
     transition-delay: 0ms;
     transform: translateY(0%);
+    background-color: var(--bg-color-main);
+    transition: 200ms background-color ease-in-out;
+    transition-delay: 0ms;
   }
 
   nav.hide {
@@ -171,6 +174,8 @@ const {
 
   a.nav {
     font-size: var(--font-size-base);
+    display: flex;
+    align-items: center;
   }
 
   .links-container {

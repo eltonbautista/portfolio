@@ -16,6 +16,7 @@ export interface INavbarProps {
   socialThreeLink: string;
 
   internalClass: string;
+  navClass: string;
 }
 const {
   logoLink,
@@ -31,10 +32,11 @@ const {
   socialTwoLink,
   socialThreeLink,
   internalClass,
+  navClass,
 } = Astro.props;
 ---
 
-<nav id="navbar">
+<nav id="navbar" class={`${navClass}`}>
   <div class="links-container">
     <div class="nav internal-links">
       <a class={`nav internal ${internalClass} logo`} href={logoLink}
@@ -132,9 +134,16 @@ const {
     transition: transform 100ms ease-in-out, opacity 200ms ease-in-out;
     transition-delay: 0ms;
     transform: translateY(0%);
-    background-color: var(--bg-color-main);
     transition: 200ms background-color ease-in-out;
     transition-delay: 0ms;
+  }
+
+  nav.show {
+    background-color: var(--bg-color-main);
+  }
+
+  nav.project {
+    background-color: var(--bg-color-sub);
   }
 
   nav.hide {

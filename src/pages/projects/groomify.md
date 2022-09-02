@@ -4,7 +4,7 @@ title: Groomify
 client: Moi!
 video: /groomify-figma.mp4
 planningVideo: /groomify.mp4
-description: Groomify is a Single Page Application (SPA) built with Vue.js. Groomify takes a great deal of inspiration from Helcim (a local company). Through Groomify's design, copywriting, and teamwork aspect I hoped to capture and reflect Helcim's culture and values, while trying my best to maintain its own identity.
+description: Groomify is a Single Page Application (SPA) built with Vue.js. Groomify takes inspiration from Helcim (a local company). Through Groomify's design, copywriting, and teamwork aspect I hoped to capture and reflect Helcim's culture and values, while trying my best to maintain its own identity.
 problem: Lead a few developers to design and create a web application that addresses the common problem of aesthetically outdated pet groomer websites and try to implement a more modern approach.
 goals: On top of this task, I recognized this project as an opportunity to
 problemOne: Learn a few technologies such as the Vue.js framework, and SCSS.

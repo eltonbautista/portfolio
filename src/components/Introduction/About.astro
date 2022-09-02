@@ -5,24 +5,24 @@ import AboutSkills from "./AboutSkills.astro";
 export interface IAboutProps {}
 const skills = [
   "ReactJS",
+  "NodeJS",
+  "ExpressJS",
   "TypeScript",
   "Jest",
-  "Firebase",
   "JavaScript",
   "HTML5",
   "CSS3",
   "Git",
-  "Linux",
 ];
 const logos = [
   "/skills_assets/react_logo.svg",
+  "/skills_assets/nodejs_logo.svg",
+  "/skills_assets/express_logo.svg",
   "/skills_assets/typescript_logo.svg",
   "/skills_assets/jest_logo.svg",
-  "/skills_assets/firebase_logo.svg",
   "/skills_assets/javascript_logo.svg",
   "/skills_assets/html5_logo.svg",
   "/skills_assets/css3_logo.svg",
-  "/skills_assets/linux_logo.svg",
   "/skills_assets/git_logo.svg",
 ];
 ---
@@ -47,6 +47,14 @@ const logos = [
 </div>
 
 <style>
+  .skill-container:nth-child(3) {
+    background: blue;
+  }
+
+  .logo-container {
+    background-color: blue;
+  }
+
   @media (min-width: 1251px) {
     .about-container {
       margin-bottom: 6em;

@@ -9,12 +9,17 @@ const { logo, skill } = Astro.props;
 
 <div class="about skill-container">
   <div class="about logo-container">
-    <img class="about logo" src={logo} alt={skill + ' ' + 'logo' } width="80em" height="80em">
+    <img
+      class={`about logo ${skill}`}
+      src={logo}
+      alt={skill + " " + "logo"}
+      width="80em"
+      height="80em"
+    />
   </div>
   <p>
     {skill}
   </p>
-
 </div>
 
 <style>
@@ -23,7 +28,11 @@ const { logo, skill } = Astro.props;
     justify-items: center;
   }
 
-  .skill-container>p {
+  .skill-container > p {
     margin: 0;
+  }
+  .ExpressJS {
+    filter: invert(97%) sepia(6%) saturate(749%) hue-rotate(336deg)
+      brightness(91%) contrast(107%);
   }
 </style>

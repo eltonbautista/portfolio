@@ -19,7 +19,7 @@ const projectInformation = [
   {
     title: "Groomify",
     description:
-      "Groomify is a Single Page Application (SPA) built with Vue.js. Groomify takes inspiration from Helcim (a local company).",
+      "A Single Page Application (SPA) developed by 3 developers using agile practices. Groomify takes inspiration from Helcim (a local company) and is built with VueJS. ",
     alternate: "",
     lastClass: "",
     projectLink: "/projects/groomify",
@@ -27,7 +27,7 @@ const projectInformation = [
   {
     title: "clockedOut",
     description:
-      "clockedOut is a LinkedIn clone application that focuses on the social aspects of gaming. A one-stop destination for creating lifetime companions.",
+      "A LinkedIn clone application that focuses on the social aspects of gaming. A one-stop destination for creating lifetime companions.",
     alternate: "alternate",
     lastClass: "",
     projectLink: "/projects/clocked-out",
@@ -35,7 +35,7 @@ const projectInformation = [
   {
     title: "myWeather",
     description:
-      "myWeather is an application designed to provide users the ability to check both the current weather of a city, as well as its weather for the week!",
+      "An application that enables users to check both the current weather of a city, as well as its weather for the week! Incorporates multiple API's to retrieve asynchronous weather data.",
     alternate: "",
     lastClass: "last-project",
     projectLink: "/projects/my-weather",

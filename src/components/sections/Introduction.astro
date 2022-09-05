@@ -39,31 +39,10 @@ const personalDisplaysInformation = [
 <section class="section-container section-introduction">
   <div class="container-hero">
     <span class="name one">{firstName}</span>
-    <span class="name two">{lastName}</span>
-    <span class="role one">
-      <span>f</span>
-      <span>r</span>
-      <span>o</span>
-      <span>n</span>
-      <span>t</span>
-      <span>e</span>
-      <span>n</span>
-      <span>d</span>
-    </span>
-
-    <span class="role two">
-      <span>d</span>
-      <span>e</span>
-      <span>v</span>
-      <span>e</span>
-      <span>l</span>
-      <span>o</span>
-      <span>p</span>
-      <span>e</span>
-      <span>r</span>
-    </span>
+    <span class="role two"> DEVELOPER</span>
+    <span class="role four">UI/UX DESIGNER</span>
+    <span class="role five">copywriter</span>
   </div>
-  <QuoteAndMedia quote={allMyText.quoteOne} />
   <About />
   <Carousel
     client:only
@@ -88,10 +67,8 @@ const personalDisplaysInformation = [
     justify-items: start;
     justify-self: start;
     text-align: center;
-    transform-style: preserve-3d;
-    animation: separateName 2s 1 ease-in-out 0.5s alternate both;
     padding: 0 0 1.3em 0;
-    width: 72vw;
+    width: 100%;
   }
 
   @keyframes separateName {
@@ -142,7 +119,6 @@ const personalDisplaysInformation = [
     text-align: center;
     font-size: calc(5em + var(--font-size-xl));
     line-height: 1.08;
-    transform: rotateX(310deg) rotateY(0deg) skewY(-0.5deg);
   }
 
   @media (max-width: 1450px) {
@@ -181,18 +157,25 @@ const personalDisplaysInformation = [
   }
 
   .name {
-    animation: glitchName 0.8s 3 ease-in-out 2.4s alternate both;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .role.one {
-    padding-left: 0.8em;
+    padding-left: 0.4em;
   }
 
   .role.two {
-    padding-left: 1.15em;
+    justify-self: center;
     line-height: 1.08;
     color: var(--color-text-alt);
+  }
+
+  .role.four {
+    color: var(--color-text);
+  }
+  .role.five {
+    justify-self: center;
   }
 
   .role {
@@ -205,80 +188,7 @@ const personalDisplaysInformation = [
     grid-auto-flow: column;
   }
 
-  .role.one > span {
-    color: var(--color-text);
-  }
-
   /* Role One Animations */
-
-  .role.one > span:nth-child(1) {
-    animation: hideLetter 0.2s 1 5s alternate both;
-  }
-
-  .role.one > span:nth-child(2) {
-    animation: hideLetter 0.2s 1 5.2s alternate both;
-  }
-
-  .role.one > span:nth-child(3) {
-    animation: hideLetter 0.2s 1 5.4s alternate both;
-  }
-
-  .role.one > span:nth-child(4) {
-    animation: hideLetter 0.2s 1 5.6s alternate both;
-  }
-
-  .role.one > span:nth-child(5) {
-    animation: hideLetter 0.2s 1 5.8s alternate both;
-  }
-
-  .role.one > span:nth-child(6) {
-    animation: hideLetter 0.2s 1 6s alternate both;
-  }
-
-  .role.one > span:nth-child(7) {
-    animation: hideLetter 0.2s 1 6.2s alternate both;
-  }
-
-  .role.one > span:nth-child(8) {
-    animation: hideLetter 0.2s 1 6.4s alternate both;
-  }
-
-  /* Role Two Animations */
-  .role.two > span:nth-child(1) {
-    animation: hideLetter 0.2s 1 8.2s both;
-  }
-
-  .role.two > span:nth-child(2) {
-    animation: hideLetter 0.2s 1 8s both;
-  }
-
-  .role.two > span:nth-child(3) {
-    animation: hideLetter 0.2s 1 7.8s both;
-  }
-
-  .role.two > span:nth-child(4) {
-    animation: hideLetter 0.2s 1 7.6s both;
-  }
-
-  .role.two > span:nth-child(5) {
-    animation: hideLetter 0.2s 1 7.4s both;
-  }
-
-  .role.two > span:nth-child(6) {
-    animation: hideLetter 0.2s 1 7.2s both;
-  }
-
-  .role.two > span:nth-child(7) {
-    animation: hideLetter 0.2s 1 7s both;
-  }
-
-  .role.two > span:nth-child(8) {
-    animation: hideLetter 0.2s 1 6.8s both;
-  }
-
-  .role.two > span:nth-child(9) {
-    animation: hideLetter 0.2s 1 6.6s both;
-  }
 
   @keyframes hideLetter {
     0% {

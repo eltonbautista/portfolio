@@ -6,122 +6,118 @@ export interface Props {
 import "../styles/globals.css";
 
 const { title } = Astro.props as Props;
-
 ---
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/my_logo.ico" />
+    <title>{title}</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="/my_logo.ico" />
-  <title>{title}</title>
-</head>
+  <body>
+    <slot />
+    <style>
+      :root {
+        --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+        --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+        --font-size-xl: clamp(2.84rem, 2.68vw + 2.05rem, 3.8rem);
 
-<body>
-  <slot />
-</body>
+        --font-header: JostLight, sans-serif;
 
-</html>
+        --color-text: #1b1d1b;
+        --color-text-sub: #eee5d0;
+        --color-text-alt: red;
+        --color-text-opposite: blue;
 
-<style>
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-    --font-size-xl: clamp(2.84rem, 2.68vw + 2.05rem, 4.05rem);
+        --bg-color-main: #eee5d0;
+        --bg-color-sub: #1b1d1b;
 
-    --font-header: JostLight, sans-serif;
+        --filter-color: invert(7%) sepia(6%) saturate(704%) hue-rotate(71deg)
+          brightness(100%) contrast(90%);
+      }
 
-    --color-text: #1b1d1b;
-    --color-text-sub: #eee5d0;
-    --color-text-alt: red;
-    --color-text-opposite: blue;
+      html {
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+        background-color: var(--bg-color-main);
+      }
 
-    --bg-color-main: #eee5d0;
-    --bg-color-sub: #1b1d1b;
+      :global(h1) {
+        font-size: var(--font-size-xl);
+      }
 
-    --filter-color: invert(7%) sepia(6%) saturate(704%) hue-rotate(71deg) brightness(100%) contrast(90%);
+      :global(h2) {
+        font-size: var(--font-size-lg);
+      }
 
-  }
+      :global(code) {
+        font-family: JostLight, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
 
-  html {
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--bg-color-main);
-  }
-
-  :global(h1) {
-    font-size: var(--font-size-xl);
-  }
-
-  :global(h2) {
-    font-size: var(--font-size-lg);
-  }
-
-  :global(code) {
-    font-family: JostLight, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-      Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-
-  /*
+      /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-  * {
-    margin: 0;
-    font-family: JostLight, sans-serif;
-    letter-spacing: 1.25px;
-  }
+      * {
+        margin: 0;
+        font-family: JostLight, sans-serif;
+        letter-spacing: 1.25px;
+      }
 
-  html,
-  body {
-    min-height: 100vh;
-    min-width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+      html,
+      body {
+        min-height: 100vh;
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-  }
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+      }
 
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
 
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
 
-  #root,
-  #__next {
-    isolation: isolate;
-  }
-</style>
+      #root,
+      #__next {
+        isolation: isolate;
+      }
+    </style>
+  </body>
+</html>

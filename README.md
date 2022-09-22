@@ -1,7 +1,7 @@
 #Assets Used:
 It's ya boy's portfolio
 
-My most recent iteration was inspired.
+My most recent iteration was inspired by art.
 
 ###Fonts:
 Jost: https://indestructibletype.com/Jost.html

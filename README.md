@@ -1,5 +1,8 @@
 #Assets Used:
 It's ya boy's portfolio
+
+My most recent iteration was inspired.
+
 ###Fonts:
 Jost: https://indestructibletype.com/Jost.html
 HintRetro: https://www.dafont.com/hint-retro.font
